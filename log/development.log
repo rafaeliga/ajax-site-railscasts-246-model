@@ -1,0 +1,3521 @@
+
+
+Started GET "/" for 127.0.0.1 at Wed May 11 12:56:16 -0300 2011
+  Processing by ProductsController#index as HTML
+Completed   in 9ms
+
+ActiveRecord::StatementInvalid (Could not find table 'products'):
+  app/controllers/products_controller.rb:50:in `sort_column'
+  app/controllers/products_controller.rb:5:in `index'
+
+Rendered /opt/local/lib/ruby/gems/1.8/gems/actionpack-3.0.3/lib/action_dispatch/middleware/templates/rescues/_trace.erb (1.7ms)
+Rendered /opt/local/lib/ruby/gems/1.8/gems/actionpack-3.0.3/lib/action_dispatch/middleware/templates/rescues/_request_and_response.erb (14.5ms)
+Rendered /opt/local/lib/ruby/gems/1.8/gems/actionpack-3.0.3/lib/action_dispatch/middleware/templates/rescues/diagnostics.erb within rescues/layout (26.1ms)
+  [1m[36mSQL (0.7ms)[0m  [1m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+  [1m[35mSQL (0.3ms)[0m  select sqlite_version(*)
+  [1m[36mSQL (2.6ms)[0m  [1mCREATE TABLE "schema_migrations" ("version" varchar(255) NOT NULL) [0m
+  [1m[35mSQL (0.1ms)[0m  PRAGMA index_list("schema_migrations")
+  [1m[36mSQL (1.2ms)[0m  [1mCREATE UNIQUE INDEX "unique_schema_migrations" ON "schema_migrations" ("version")[0m
+  [1m[35mSQL (0.3ms)[0m   SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+  [1m[36mSQL (0.2ms)[0m  [1m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+  [1m[35mSQL (0.2ms)[0m  SELECT "schema_migrations"."version" FROM "schema_migrations"
+Migrating to CreateProducts (20100823060835)
+  [1m[36mSQL (0.7ms)[0m  [1mCREATE TABLE "products" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "name" varchar(255), "price" decimal, "released_at" datetime, "created_at" datetime, "updated_at" datetime) [0m
+  [1m[35mSQL (0.2ms)[0m  INSERT INTO "schema_migrations" ("version") VALUES ('20100823060835')
+  [1m[36mSQL (0.4ms)[0m  [1m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+  [1m[35mSQL (0.2ms)[0m  SELECT "schema_migrations"."version" FROM "schema_migrations"
+  [1m[36mSQL (0.3ms)[0m  [1m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+  [1m[35mSQL (0.1ms)[0m  PRAGMA index_list("products")
+
+
+Started GET "/" for 127.0.0.1 at Wed May 11 12:56:34 -0300 2011
+  Processing by ProductsController#index as HTML
+  [1m[36mProduct Load (0.3ms)[0m  [1mSELECT "products".* FROM "products" ORDER BY name asc LIMIT 5 OFFSET 0[0m
+Rendered products/_products.html.erb (3.4ms)
+Rendered products/index.html.erb within layouts/application (11.9ms)
+Completed 200 OK in 38ms (Views: 27.2ms | ActiveRecord: 0.3ms)
+
+
+Started GET "/products/new" for 127.0.0.1 at Wed May 11 12:56:37 -0300 2011
+  Processing by ProductsController#new as HTML
+Rendered products/_form.html.erb (35.2ms)
+Rendered products/new.html.erb within layouts/application (42.6ms)
+Completed 200 OK in 65ms (Views: 55.6ms | ActiveRecord: 0.0ms)
+
+
+Started POST "/products" for 127.0.0.1 at Wed May 11 12:56:43 -0300 2011
+  Processing by ProductsController#create as HTML
+  Parameters: {"commit"=>"Create Product", "authenticity_token"=>"DodkFFNnngI0wdnHRZAwp6p0CPJo89vfX5xHIjbGzYc=", "utf8"=>"✓", "product"=>{"released_at(3i)"=>"9", "price"=>"1000", "name"=>"PS3", "released_at(4i)"=>"15", "released_at(5i)"=>"56", "released_at(1i)"=>"2011", "released_at(2i)"=>"5"}}
+  [1m[35mSQL (0.5ms)[0m   SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+  [1m[36mAREL (0.8ms)[0m  [1mINSERT INTO "products" ("created_at", "price", "released_at", "name", "updated_at") VALUES ('2011-05-11 15:56:43.692041', 1000.0, '2011-05-09 15:56:00.000000', 'PS3', '2011-05-11 15:56:43.692041')[0m
+Redirected to http://localhost:3000/products/1
+Completed 302 Found in 38ms
+
+
+Started GET "/products/1" for 127.0.0.1 at Wed May 11 12:56:43 -0300 2011
+  Processing by ProductsController#show as HTML
+  Parameters: {"id"=>"1"}
+  [1m[35mProduct Load (0.6ms)[0m  SELECT "products".* FROM "products" WHERE ("products"."id" = 1) LIMIT 1
+Rendered products/show.html.erb within layouts/application (12.6ms)
+Completed 200 OK in 36ms (Views: 25.8ms | ActiveRecord: 0.6ms)
+
+
+Started GET "/products" for 127.0.0.1 at Wed May 11 12:56:45 -0300 2011
+  Processing by ProductsController#index as HTML
+  [1m[36mProduct Load (0.4ms)[0m  [1mSELECT "products".* FROM "products" ORDER BY name asc LIMIT 5 OFFSET 0[0m
+Rendered products/_products.html.erb (11.6ms)
+Rendered products/index.html.erb within layouts/application (19.4ms)
+Completed 200 OK in 39ms (Views: 29.3ms | ActiveRecord: 0.4ms)
+
+
+Started GET "/products/new" for 127.0.0.1 at Wed May 11 12:56:47 -0300 2011
+  Processing by ProductsController#new as HTML
+Rendered products/_form.html.erb (19.1ms)
+Rendered products/new.html.erb within layouts/application (25.3ms)
+Completed 200 OK in 44ms (Views: 35.2ms | ActiveRecord: 0.0ms)
+
+
+Started POST "/products" for 127.0.0.1 at Wed May 11 12:56:54 -0300 2011
+  Processing by ProductsController#create as HTML
+  Parameters: {"commit"=>"Create Product", "authenticity_token"=>"DodkFFNnngI0wdnHRZAwp6p0CPJo89vfX5xHIjbGzYc=", "utf8"=>"✓", "product"=>{"released_at(3i)"=>"7", "price"=>"1200", "name"=>"Wii", "released_at(4i)"=>"15", "released_at(5i)"=>"56", "released_at(1i)"=>"2011", "released_at(2i)"=>"5"}}
+  [1m[35mAREL (0.6ms)[0m  INSERT INTO "products" ("updated_at", "name", "price", "released_at", "created_at") VALUES ('2011-05-11 15:56:54.453025', 'Wii', 1200.0, '2011-05-07 15:56:00.000000', '2011-05-11 15:56:54.453025')
+Redirected to http://localhost:3000/products/2
+Completed 302 Found in 25ms
+
+
+Started GET "/products/2" for 127.0.0.1 at Wed May 11 12:56:54 -0300 2011
+  Processing by ProductsController#show as HTML
+  Parameters: {"id"=>"2"}
+  [1m[36mProduct Load (0.5ms)[0m  [1mSELECT "products".* FROM "products" WHERE ("products"."id" = 2) LIMIT 1[0m
+Rendered products/show.html.erb within layouts/application (11.9ms)
+Completed 200 OK in 124ms (Views: 22.1ms | ActiveRecord: 0.5ms)
+
+
+Started GET "/products" for 127.0.0.1 at Wed May 11 12:56:56 -0300 2011
+  Processing by ProductsController#index as HTML
+  [1m[35mProduct Load (0.6ms)[0m  SELECT "products".* FROM "products" ORDER BY name asc LIMIT 5 OFFSET 0
+Rendered products/_products.html.erb (14.6ms)
+Rendered products/index.html.erb within layouts/application (22.6ms)
+Completed 200 OK in 52ms (Views: 33.0ms | ActiveRecord: 0.6ms)
+
+
+Started GET "/products/new" for 127.0.0.1 at Wed May 11 12:56:58 -0300 2011
+  Processing by ProductsController#new as HTML
+Rendered products/_form.html.erb (18.6ms)
+Rendered products/new.html.erb within layouts/application (25.1ms)
+Completed 200 OK in 43ms (Views: 34.9ms | ActiveRecord: 1.3ms)
+
+
+Started POST "/products" for 127.0.0.1 at Wed May 11 12:57:03 -0300 2011
+  Processing by ProductsController#create as HTML
+  Parameters: {"commit"=>"Create Product", "authenticity_token"=>"DodkFFNnngI0wdnHRZAwp6p0CPJo89vfX5xHIjbGzYc=", "utf8"=>"✓", "product"=>{"released_at(3i)"=>"15", "price"=>"2000", "name"=>"xbox", "released_at(4i)"=>"15", "released_at(5i)"=>"56", "released_at(1i)"=>"2011", "released_at(2i)"=>"5"}}
+  [1m[36mAREL (0.6ms)[0m  [1mINSERT INTO "products" ("updated_at", "released_at", "name", "price", "created_at") VALUES ('2011-05-11 15:57:04.013974', '2011-05-15 15:56:00.000000', 'xbox', 2000.0, '2011-05-11 15:57:04.013974')[0m
+Redirected to http://localhost:3000/products/3
+Completed 302 Found in 24ms
+
+
+Started GET "/products/3" for 127.0.0.1 at Wed May 11 12:57:04 -0300 2011
+  Processing by ProductsController#show as HTML
+  Parameters: {"id"=>"3"}
+  [1m[35mProduct Load (0.4ms)[0m  SELECT "products".* FROM "products" WHERE ("products"."id" = 3) LIMIT 1
+Rendered products/show.html.erb within layouts/application (11.7ms)
+Completed 200 OK in 36ms (Views: 21.7ms | ActiveRecord: 0.4ms)
+
+
+Started GET "/products" for 127.0.0.1 at Wed May 11 12:57:08 -0300 2011
+  Processing by ProductsController#index as HTML
+  [1m[36mProduct Load (0.7ms)[0m  [1mSELECT "products".* FROM "products" ORDER BY name asc LIMIT 5 OFFSET 0[0m
+Rendered products/_products.html.erb (10.2ms)
+Rendered products/index.html.erb within layouts/application (18.0ms)
+Completed 200 OK in 125ms (Views: 114.9ms | ActiveRecord: 0.7ms)
+
+
+Started GET "/products?direction=asc&sort=price" for 127.0.0.1 at Wed May 11 12:57:10 -0300 2011
+  Processing by ProductsController#index as JS
+  Parameters: {"sort"=>"price", "direction"=>"asc"}
+  [1m[35mProduct Load (0.9ms)[0m  SELECT "products".* FROM "products" ORDER BY price asc LIMIT 5 OFFSET 0
+Rendered products/_products.html.erb (10.1ms)
+Rendered products/index.js.erb (13.9ms)
+Completed 200 OK in 41ms (Views: 29.3ms | ActiveRecord: 1.5ms)
+
+
+Started GET "/products?direction=desc&sort=price" for 127.0.0.1 at Wed May 11 12:57:11 -0300 2011
+  Processing by ProductsController#index as JS
+  Parameters: {"sort"=>"price", "direction"=>"desc"}
+  [1m[36mProduct Load (0.8ms)[0m  [1mSELECT "products".* FROM "products" ORDER BY price desc LIMIT 5 OFFSET 0[0m
+Rendered products/_products.html.erb (10.7ms)
+Rendered products/index.js.erb (14.4ms)
+Completed 200 OK in 39ms (Views: 28.5ms | ActiveRecord: 0.8ms)
+
+
+Started GET "/products?direction=asc&sort=released_at" for 127.0.0.1 at Wed May 11 12:57:13 -0300 2011
+  Processing by ProductsController#index as JS
+  Parameters: {"sort"=>"released_at", "direction"=>"asc"}
+  [1m[35mProduct Load (0.7ms)[0m  SELECT "products".* FROM "products" ORDER BY released_at asc LIMIT 5 OFFSET 0
+Rendered products/_products.html.erb (103.2ms)
+Rendered products/index.js.erb (107.3ms)
+Completed 200 OK in 132ms (Views: 120.9ms | ActiveRecord: 0.7ms)
+
+
+Started GET "/products?direction=desc&sort=released_at" for 127.0.0.1 at Wed May 11 12:57:14 -0300 2011
+  Processing by ProductsController#index as JS
+  Parameters: {"sort"=>"released_at", "direction"=>"desc"}
+  [1m[36mProduct Load (0.7ms)[0m  [1mSELECT "products".* FROM "products" ORDER BY released_at desc LIMIT 5 OFFSET 0[0m
+Rendered products/_products.html.erb (11.6ms)
+Rendered products/index.js.erb (15.4ms)
+Completed 200 OK in 40ms (Views: 28.6ms | ActiveRecord: 0.7ms)
+
+
+Started GET "/products?direction=asc&sort=released_at" for 127.0.0.1 at Wed May 11 12:57:15 -0300 2011
+  Processing by ProductsController#index as JS
+  Parameters: {"sort"=>"released_at", "direction"=>"asc"}
+  [1m[35mProduct Load (0.7ms)[0m  SELECT "products".* FROM "products" ORDER BY released_at asc LIMIT 5 OFFSET 0
+Rendered products/_products.html.erb (10.2ms)
+Rendered products/index.js.erb (13.8ms)
+Completed 200 OK in 37ms (Views: 26.4ms | ActiveRecord: 0.7ms)
+
+
+Started GET "/products?direction=desc&sort=released_at" for 127.0.0.1 at Wed May 11 12:57:24 -0300 2011
+  Processing by ProductsController#index as JS
+  Parameters: {"sort"=>"released_at", "direction"=>"desc"}
+  [1m[36mProduct Load (0.7ms)[0m  [1mSELECT "products".* FROM "products" ORDER BY released_at desc LIMIT 5 OFFSET 0[0m
+Rendered products/_products.html.erb (10.1ms)
+Rendered products/index.js.erb (13.6ms)
+Completed 200 OK in 36ms (Views: 25.9ms | ActiveRecord: 0.7ms)
+
+
+Started GET "/products?direction=asc&sort=released_at" for 127.0.0.1 at Wed May 11 12:57:25 -0300 2011
+  Processing by ProductsController#index as JS
+  Parameters: {"sort"=>"released_at", "direction"=>"asc"}
+  [1m[35mProduct Load (0.7ms)[0m  SELECT "products".* FROM "products" ORDER BY released_at asc LIMIT 5 OFFSET 0
+Rendered products/_products.html.erb (106.7ms)
+Rendered products/index.js.erb (110.4ms)
+Completed 200 OK in 134ms (Views: 123.0ms | ActiveRecord: 0.7ms)
+
+
+Started GET "/products?direction=desc&sort=price" for 127.0.0.1 at Wed May 11 12:57:26 -0300 2011
+  Processing by ProductsController#index as JS
+  Parameters: {"sort"=>"price", "direction"=>"desc"}
+  [1m[36mProduct Load (0.7ms)[0m  [1mSELECT "products".* FROM "products" ORDER BY price desc LIMIT 5 OFFSET 0[0m
+Rendered products/_products.html.erb (9.9ms)
+Rendered products/index.js.erb (13.6ms)
+Completed 200 OK in 37ms (Views: 26.4ms | ActiveRecord: 0.7ms)
+
+
+Started GET "/products?direction=desc&sort=price" for 127.0.0.1 at Wed May 11 12:57:30 -0300 2011
+  Processing by ProductsController#index as HTML
+  Parameters: {"sort"=>"price", "direction"=>"desc"}
+  [1m[35mProduct Load (1.0ms)[0m  SELECT "products".* FROM "products" ORDER BY price desc LIMIT 5 OFFSET 0
+Rendered products/_products.html.erb (12.5ms)
+Rendered products/index.html.erb within layouts/application (22.7ms)
+Completed 200 OK in 46ms (Views: 33.0ms | ActiveRecord: 1.5ms)
+
+
+Started GET "/products" for 192.168.1.2 at Wed May 11 12:57:38 -0300 2011
+  Processing by ProductsController#index as */*
+  [1m[36mProduct Load (0.7ms)[0m  [1mSELECT "products".* FROM "products" ORDER BY name asc LIMIT 5 OFFSET 0[0m
+Rendered products/_products.html.erb (9.6ms)
+Rendered products/index.html.erb within layouts/application (18.3ms)
+Completed 200 OK in 64ms (Views: 53.7ms | ActiveRecord: 0.7ms)
+
+
+Started GET "/products?direction=asc&sort=price" for 192.168.1.2 at Wed May 11 12:57:41 -0300 2011
+  Processing by ProductsController#index as HTML
+  Parameters: {"sort"=>"price", "direction"=>"asc"}
+  [1m[35mProduct Load (0.7ms)[0m  SELECT "products".* FROM "products" ORDER BY price asc LIMIT 5 OFFSET 0
+Rendered products/_products.html.erb (9.7ms)
+Rendered products/index.html.erb within layouts/application (17.2ms)
+Completed 200 OK in 40ms (Views: 27.4ms | ActiveRecord: 0.7ms)
+
+
+Started GET "/products?direction=desc&sort=price" for 192.168.1.2 at Wed May 11 12:57:43 -0300 2011
+  Processing by ProductsController#index as HTML
+  Parameters: {"sort"=>"price", "direction"=>"desc"}
+  [1m[36mProduct Load (0.8ms)[0m  [1mSELECT "products".* FROM "products" ORDER BY price desc LIMIT 5 OFFSET 0[0m
+Rendered products/_products.html.erb (10.4ms)
+Rendered products/index.html.erb within layouts/application (19.0ms)
+Completed 200 OK in 42ms (Views: 29.8ms | ActiveRecord: 0.8ms)
+
+
+Started GET "/products?direction=asc&sort=price" for 192.168.1.2 at Wed May 11 12:57:45 -0300 2011
+  Processing by ProductsController#index as HTML
+  Parameters: {"sort"=>"price", "direction"=>"asc"}
+  [1m[35mProduct Load (0.7ms)[0m  SELECT "products".* FROM "products" ORDER BY price asc LIMIT 5 OFFSET 0
+Rendered products/_products.html.erb (9.7ms)
+Rendered products/index.html.erb within layouts/application (17.1ms)
+Completed 200 OK in 37ms (Views: 26.7ms | ActiveRecord: 0.7ms)
+
+
+Started GET "/products?direction=asc&sort=released_at" for 192.168.1.2 at Wed May 11 12:57:46 -0300 2011
+  Processing by ProductsController#index as HTML
+  Parameters: {"sort"=>"released_at", "direction"=>"asc"}
+  [1m[36mProduct Load (0.7ms)[0m  [1mSELECT "products".* FROM "products" ORDER BY released_at asc LIMIT 5 OFFSET 0[0m
+Rendered products/_products.html.erb (10.4ms)
+Rendered products/index.html.erb within layouts/application (18.3ms)
+Completed 200 OK in 39ms (Views: 28.4ms | ActiveRecord: 0.7ms)
+
+
+Started GET "/products?direction=desc&sort=released_at" for 192.168.1.2 at Wed May 11 12:57:47 -0300 2011
+  Processing by ProductsController#index as HTML
+  Parameters: {"sort"=>"released_at", "direction"=>"desc"}
+  [1m[35mProduct Load (0.7ms)[0m  SELECT "products".* FROM "products" ORDER BY released_at desc LIMIT 5 OFFSET 0
+Rendered products/_products.html.erb (10.1ms)
+Rendered products/index.html.erb within layouts/application (17.4ms)
+Completed 200 OK in 38ms (Views: 27.8ms | ActiveRecord: 0.7ms)
+
+
+Started GET "/products?direction=asc&sort=released_at" for 192.168.1.2 at Wed May 11 12:57:49 -0300 2011
+  Processing by ProductsController#index as HTML
+  Parameters: {"sort"=>"released_at", "direction"=>"asc"}
+  [1m[36mProduct Load (0.7ms)[0m  [1mSELECT "products".* FROM "products" ORDER BY released_at asc LIMIT 5 OFFSET 0[0m
+Rendered products/_products.html.erb (10.2ms)
+Rendered products/index.html.erb within layouts/application (17.9ms)
+Completed 200 OK in 39ms (Views: 28.0ms | ActiveRecord: 0.7ms)
+
+
+Started GET "/products?direction=desc&sort=released_at" for 192.168.1.2 at Wed May 11 12:57:50 -0300 2011
+  Processing by ProductsController#index as HTML
+  Parameters: {"sort"=>"released_at", "direction"=>"desc"}
+  [1m[35mProduct Load (0.7ms)[0m  SELECT "products".* FROM "products" ORDER BY released_at desc LIMIT 5 OFFSET 0
+Rendered products/_products.html.erb (10.3ms)
+Rendered products/index.html.erb within layouts/application (18.4ms)
+Completed 200 OK in 39ms (Views: 28.7ms | ActiveRecord: 0.7ms)
+
+
+Started GET "/products?direction=asc&sort=released_at" for 192.168.1.2 at Wed May 11 12:57:53 -0300 2011
+  Processing by ProductsController#index as */*
+  Parameters: {"sort"=>"released_at", "direction"=>"asc"}
+  [1m[36mProduct Load (0.7ms)[0m  [1mSELECT "products".* FROM "products" ORDER BY released_at asc LIMIT 5 OFFSET 0[0m
+Rendered products/_products.html.erb (10.7ms)
+Rendered products/index.html.erb within layouts/application (18.6ms)
+Completed 200 OK in 64ms (Views: 51.2ms | ActiveRecord: 0.7ms)
+
+
+Started GET "/products?direction=desc&sort=released_at" for 192.168.1.2 at Wed May 11 12:57:54 -0300 2011
+  Processing by ProductsController#index as */*
+  Parameters: {"sort"=>"released_at", "direction"=>"desc"}
+  [1m[35mProduct Load (0.7ms)[0m  SELECT "products".* FROM "products" ORDER BY released_at desc LIMIT 5 OFFSET 0
+Rendered products/_products.html.erb (9.7ms)
+Rendered products/index.html.erb within layouts/application (17.5ms)
+Completed 200 OK in 59ms (Views: 47.9ms | ActiveRecord: 0.7ms)
+
+
+Started GET "/products?direction=asc&sort=name" for 192.168.1.2 at Wed May 11 12:58:02 -0300 2011
+  Processing by ProductsController#index as HTML
+  Parameters: {"sort"=>"name", "direction"=>"asc"}
+  [1m[36mProduct Load (0.8ms)[0m  [1mSELECT "products".* FROM "products" ORDER BY name asc LIMIT 5 OFFSET 0[0m
+Rendered products/_products.html.erb (10.0ms)
+Rendered products/index.html.erb within layouts/application (17.4ms)
+Completed 200 OK in 38ms (Views: 27.1ms | ActiveRecord: 0.8ms)
+
+
+Started GET "/products?direction=asc&sort=price" for 192.168.1.2 at Wed May 11 12:58:05 -0300 2011
+  Processing by ProductsController#index as HTML
+  Parameters: {"sort"=>"price", "direction"=>"asc"}
+  [1m[35mProduct Load (0.7ms)[0m  SELECT "products".* FROM "products" ORDER BY price asc LIMIT 5 OFFSET 0
+Rendered products/_products.html.erb (10.3ms)
+Rendered products/index.html.erb within layouts/application (113.7ms)
+Completed 200 OK in 134ms (Views: 123.4ms | ActiveRecord: 0.7ms)
+
+
+Started GET "/products?direction=desc&sort=price" for 192.168.1.2 at Wed May 11 12:58:06 -0300 2011
+  Processing by ProductsController#index as HTML
+  Parameters: {"sort"=>"price", "direction"=>"desc"}
+  [1m[36mProduct Load (0.7ms)[0m  [1mSELECT "products".* FROM "products" ORDER BY price desc LIMIT 5 OFFSET 0[0m
+Rendered products/_products.html.erb (9.7ms)
+Rendered products/index.html.erb within layouts/application (17.2ms)
+Completed 200 OK in 37ms (Views: 27.1ms | ActiveRecord: 0.7ms)
+
+
+Started GET "/products?direction=asc&sort=price" for 192.168.1.2 at Wed May 11 12:58:07 -0300 2011
+  Processing by ProductsController#index as HTML
+  Parameters: {"sort"=>"price", "direction"=>"asc"}
+  [1m[35mProduct Load (0.7ms)[0m  SELECT "products".* FROM "products" ORDER BY price asc LIMIT 5 OFFSET 0
+Rendered products/_products.html.erb (10.4ms)
+Rendered products/index.html.erb within layouts/application (18.2ms)
+Completed 200 OK in 40ms (Views: 28.2ms | ActiveRecord: 0.7ms)
+
+
+Started GET "/products?direction=asc&sort=released_at" for 127.0.0.1 at Wed May 11 13:06:37 -0300 2011
+  Processing by ProductsController#index as JS
+  Parameters: {"sort"=>"released_at", "direction"=>"asc"}
+  [1m[36mProduct Load (0.8ms)[0m  [1mSELECT "products".* FROM "products" ORDER BY released_at asc LIMIT 5 OFFSET 0[0m
+Rendered products/_products.html.erb (11.2ms)
+Rendered products/index.js.erb (15.3ms)
+Completed 200 OK in 46ms (Views: 32.0ms | ActiveRecord: 0.8ms)
+
+
+Started GET "/products?direction=asc&sort=price" for 127.0.0.1 at Wed May 11 13:06:39 -0300 2011
+  Processing by ProductsController#index as JS
+  Parameters: {"sort"=>"price", "direction"=>"asc"}
+  [1m[35mProduct Load (0.7ms)[0m  SELECT "products".* FROM "products" ORDER BY price asc LIMIT 5 OFFSET 0
+Rendered products/_products.html.erb (10.3ms)
+Rendered products/index.js.erb (13.8ms)
+Completed 200 OK in 143ms (Views: 25.9ms | ActiveRecord: 0.7ms)
+
+
+Started GET "/products?direction=desc&sort=price" for 127.0.0.1 at Wed May 11 13:06:40 -0300 2011
+  Processing by ProductsController#index as JS
+  Parameters: {"sort"=>"price", "direction"=>"desc"}
+  [1m[36mProduct Load (0.7ms)[0m  [1mSELECT "products".* FROM "products" ORDER BY price desc LIMIT 5 OFFSET 0[0m
+Rendered products/_products.html.erb (11.0ms)
+Rendered products/index.js.erb (14.5ms)
+Completed 200 OK in 37ms (Views: 27.3ms | ActiveRecord: 0.7ms)
+
+
+Started GET "/products?direction=asc&sort=name" for 127.0.0.1 at Wed May 11 13:06:41 -0300 2011
+  Processing by ProductsController#index as JS
+  Parameters: {"sort"=>"name", "direction"=>"asc"}
+  [1m[35mProduct Load (0.7ms)[0m  SELECT "products".* FROM "products" ORDER BY name asc LIMIT 5 OFFSET 0
+Rendered products/_products.html.erb (10.0ms)
+Rendered products/index.js.erb (13.5ms)
+Completed 200 OK in 42ms (Views: 26.4ms | ActiveRecord: 0.7ms)
+  [1m[36mSQL (1.1ms)[0m  [1m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+  [1m[35mSQL (0.3ms)[0m   SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+  [1m[36mSQL (0.2ms)[0m  [1mSELECT "schema_migrations"."version" FROM "schema_migrations"[0m
+Migrating to CreateProducts (20100823060835)
+Migrating to CreateCategories (20110511160831)
+  [1m[35mSQL (0.1ms)[0m  select sqlite_version(*)
+  [1m[36mSQL (0.8ms)[0m  [1mCREATE TABLE "categories" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "name" varchar(255), "topic" boolean, "place" boolean, "created_at" datetime, "updated_at" datetime) [0m
+  [1m[35mSQL (0.2ms)[0m  INSERT INTO "schema_migrations" ("version") VALUES ('20110511160831')
+  [1m[36mSQL (0.5ms)[0m  [1m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+  [1m[35mSQL (0.3ms)[0m  SELECT "schema_migrations"."version" FROM "schema_migrations"
+  [1m[36mSQL (0.3ms)[0m  [1m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+  [1m[35mSQL (0.1ms)[0m  PRAGMA index_list("categories")
+  [1m[36mSQL (0.1ms)[0m  [1mPRAGMA index_list("products")[0m
+
+
+Started GET "/categories" for 127.0.0.1 at Wed May 11 13:08:54 -0300 2011
+  Processing by CategoriesController#index as HTML
+  [1m[36mCategory Load (1.0ms)[0m  [1mSELECT "categories".* FROM "categories"[0m
+Rendered categories/index.html.erb within layouts/application (4.1ms)
+Completed 200 OK in 24ms (Views: 16.1ms | ActiveRecord: 1.0ms)
+
+
+Started GET "/categories/new" for 127.0.0.1 at Wed May 11 13:08:56 -0300 2011
+  Processing by CategoriesController#new as HTML
+Rendered categories/_form.html.erb (22.2ms)
+Rendered categories/new.html.erb within layouts/application (28.8ms)
+Completed 200 OK in 47ms (Views: 39.0ms | ActiveRecord: 0.0ms)
+
+
+Started POST "/categories" for 127.0.0.1 at Wed May 11 13:09:02 -0300 2011
+  Processing by CategoriesController#create as HTML
+  Parameters: {"commit"=>"Create Category", "category"=>{"name"=>"teste", "topic"=>"1", "place"=>"1"}, "authenticity_token"=>"DodkFFNnngI0wdnHRZAwp6p0CPJo89vfX5xHIjbGzYc=", "utf8"=>"✓"}
+  [1m[35mSQL (0.5ms)[0m   SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+  [1m[36mAREL (0.7ms)[0m  [1mINSERT INTO "categories" ("topic", "name", "updated_at", "created_at", "place") VALUES ('t', 'teste', '2011-05-11 16:09:02.198758', '2011-05-11 16:09:02.198758', 't')[0m
+Redirected to http://localhost:3000/categories/1
+Completed 302 Found in 36ms
+
+
+Started GET "/categories/1" for 127.0.0.1 at Wed May 11 13:09:02 -0300 2011
+  Processing by CategoriesController#show as HTML
+  Parameters: {"id"=>"1"}
+  [1m[35mCategory Load (0.4ms)[0m  SELECT "categories".* FROM "categories" WHERE ("categories"."id" = 1) LIMIT 1
+Rendered categories/show.html.erb within layouts/application (10.1ms)
+Completed 200 OK in 32ms (Views: 23.2ms | ActiveRecord: 0.4ms)
+
+
+Started GET "/categories" for 127.0.0.1 at Wed May 11 13:09:04 -0300 2011
+  Processing by CategoriesController#index as HTML
+  [1m[36mCategory Load (0.8ms)[0m  [1mSELECT "categories".* FROM "categories"[0m
+Rendered categories/index.html.erb within layouts/application (13.7ms)
+Completed 200 OK in 32ms (Views: 23.6ms | ActiveRecord: 0.8ms)
+
+
+Started GET "/categories" for 127.0.0.1 at Wed May 11 13:15:04 -0300 2011
+  Processing by CategoriesController#index as HTML
+  [1m[35mCategory Load (1.0ms)[0m  SELECT "categories".* FROM "categories"
+Rendered categories/index.html.erb within layouts/application (40.0ms)
+Completed   in 78ms
+
+ActionView::Template::Error (Missing partial categories/categories with {:formats=>[:html], :handlers=>[:builder, :rjs, :rhtml, :erb, :rxml], :locale=>[:en, :en]} in view paths "/Users/rafaeliga/rails/railscasts-episodes/episode-246/store/app/views"):
+    5:     <%= text_field_tag :search, params[:search] %>
+    6:     <%= submit_tag "Search", :name => nil %>
+    7:   </p>
+    8:   <div id="categories"><%= render 'categories' %></div>
+    9: <% end %>
+    10: 
+    11: <p><%= link_to "New Category", new_category_path %></p>
+  app/views/categories/index.html.erb:8:in `_app_views_categories_index_html_erb__1080115567_2176381260_0'
+  app/views/categories/index.html.erb:3:in `_app_views_categories_index_html_erb__1080115567_2176381260_0'
+  app/controllers/categories_controller.rb:7:in `index'
+
+Rendered /opt/local/lib/ruby/gems/1.8/gems/actionpack-3.0.3/lib/action_dispatch/middleware/templates/rescues/_trace.erb (4.1ms)
+Rendered /opt/local/lib/ruby/gems/1.8/gems/actionpack-3.0.3/lib/action_dispatch/middleware/templates/rescues/_request_and_response.erb (54.0ms)
+Rendered /opt/local/lib/ruby/gems/1.8/gems/actionpack-3.0.3/lib/action_dispatch/middleware/templates/rescues/template_error.erb within rescues/layout (70.4ms)
+
+
+Started GET "/categories" for 127.0.0.1 at Wed May 11 13:15:28 -0300 2011
+  Processing by CategoriesController#index as HTML
+  [1m[36mCategory Load (0.7ms)[0m  [1mSELECT "categories".* FROM "categories"[0m
+Rendered categories/_categories.html.erb (33.1ms)
+Rendered categories/index.html.erb within layouts/application (244.9ms)
+Completed   in 365ms
+
+ActionView::Template::Error (undefined local variable or method `sort_column' for #<#<Class:0x1033dc288>:0x1033da0f0>):
+    2: <%= hidden_field_tag :sort, params[:sort] %>
+    3: <table class="pretty">
+    4:   <tr>
+    5:     <th><%= sortable "name" %></th>
+    6:     <th><%= sortable "price" %></th>
+    7:     <th><%= sortable "released_at", "Released" %></th>
+    8:   </tr>
+  app/helpers/application_helper.rb:4:in `sortable'
+  app/views/categories/_categories.html.erb:5:in `_app_views_categories__categories_html_erb__413656501_2177051260_1794430'
+  app/views/categories/index.html.erb:8:in `_app_views_categories_index_html_erb__1080115567_2174665120_0'
+  app/views/categories/index.html.erb:3:in `_app_views_categories_index_html_erb__1080115567_2174665120_0'
+  app/controllers/categories_controller.rb:7:in `index'
+
+Rendered /opt/local/lib/ruby/gems/1.8/gems/actionpack-3.0.3/lib/action_dispatch/middleware/templates/rescues/_trace.erb (2.7ms)
+Rendered /opt/local/lib/ruby/gems/1.8/gems/actionpack-3.0.3/lib/action_dispatch/middleware/templates/rescues/_request_and_response.erb (13.8ms)
+Rendered /opt/local/lib/ruby/gems/1.8/gems/actionpack-3.0.3/lib/action_dispatch/middleware/templates/rescues/template_error.erb within rescues/layout (112.8ms)
+
+
+Started GET "/categories" for 127.0.0.1 at Wed May 11 13:16:28 -0300 2011
+  Processing by CategoriesController#index as HTML
+  [1m[35mCategory Load (1.0ms)[0m  SELECT "categories".* FROM "categories"
+Rendered categories/_categories.html.erb (116.1ms)
+Rendered categories/index.html.erb within layouts/application (144.2ms)
+Completed   in 194ms
+
+ActionView::Template::Error (undefined local variable or method `sort_column' for #<#<Class:0x1036a61a8>:0x1036a19f0>):
+    2: <%= hidden_field_tag :sort, params[:sort] %>
+    3: <table class="pretty">
+    4:   <tr>
+    5:     <th><%= sortable "name" %></th>
+    6:     <th><%= sortable "topic" %></th>
+    7:     <th><%= sortable "place" %></th>
+    8:   </tr>
+  app/helpers/application_helper.rb:4:in `sortable'
+  app/views/categories/_categories.html.erb:5:in `_app_views_categories__categories_html_erb__413656501_2176077320_1794430'
+  app/views/categories/index.html.erb:8:in `_app_views_categories_index_html_erb__1080115567_2176113580_0'
+  app/views/categories/index.html.erb:3:in `_app_views_categories_index_html_erb__1080115567_2176113580_0'
+  app/controllers/categories_controller.rb:7:in `index'
+
+Rendered /opt/local/lib/ruby/gems/1.8/gems/actionpack-3.0.3/lib/action_dispatch/middleware/templates/rescues/_trace.erb (1.9ms)
+Rendered /opt/local/lib/ruby/gems/1.8/gems/actionpack-3.0.3/lib/action_dispatch/middleware/templates/rescues/_request_and_response.erb (78.9ms)
+Rendered /opt/local/lib/ruby/gems/1.8/gems/actionpack-3.0.3/lib/action_dispatch/middleware/templates/rescues/template_error.erb within rescues/layout (117.8ms)
+
+
+Started GET "/categories" for 127.0.0.1 at Wed May 11 13:16:49 -0300 2011
+  Processing by CategoriesController#index as HTML
+  [1m[36mCategory Load (0.8ms)[0m  [1mSELECT "categories".* FROM "categories"[0m
+Rendered categories/_categories.html.erb (28.6ms)
+Rendered categories/index.html.erb within layouts/application (159.7ms)
+Completed   in 203ms
+
+ActionView::Template::Error (undefined local variable or method `sort_column' for #<#<Class:0x1037118e0>:0x10370cac0>):
+    2: <%= hidden_field_tag :sort, params[:sort] %>
+    3: <table class="pretty">
+    4:   <tr>
+    5:     <th><%= sortable "name" %></th>
+    6:     <th><%= sortable "topic" %></th>
+    7:     <th><%= sortable "place" %></th>
+    8:   </tr>
+  app/helpers/application_helper.rb:4:in `sortable'
+  app/views/categories/_categories.html.erb:5:in `_app_views_categories__categories_html_erb__413656501_2176270300_1794430'
+  app/views/categories/index.html.erb:8:in `_app_views_categories_index_html_erb__1080115567_2176324460_0'
+  app/views/categories/index.html.erb:3:in `_app_views_categories_index_html_erb__1080115567_2176324460_0'
+  app/controllers/categories_controller.rb:7:in `index'
+
+Rendered /opt/local/lib/ruby/gems/1.8/gems/actionpack-3.0.3/lib/action_dispatch/middleware/templates/rescues/_trace.erb (2.1ms)
+Rendered /opt/local/lib/ruby/gems/1.8/gems/actionpack-3.0.3/lib/action_dispatch/middleware/templates/rescues/_request_and_response.erb (15.3ms)
+Rendered /opt/local/lib/ruby/gems/1.8/gems/actionpack-3.0.3/lib/action_dispatch/middleware/templates/rescues/template_error.erb within rescues/layout (47.2ms)
+
+
+Started GET "/categories" for 127.0.0.1 at Wed May 11 13:17:06 -0300 2011
+  Processing by CategoriesController#index as HTML
+  [1m[35mCategory Load (0.8ms)[0m  SELECT "categories".* FROM "categories"
+Rendered categories/_categories.html.erb (24.5ms)
+Rendered categories/index.html.erb within layouts/application (50.2ms)
+Completed   in 247ms
+
+ActionView::Template::Error (undefined local variable or method `sort_column' for #<#<Class:0x1038f80c8>:0x1038eae00>):
+    2: <%= hidden_field_tag :sort, params[:sort] %>
+    3: <table class="pretty">
+    4:   <tr>
+    5:     <th><%= sortable "name" %></th>
+    6:     <th><%= sortable "topic" %></th>
+    7:     <th><%= sortable "place" %></th>
+    8:   </tr>
+  app/helpers/application_helper.rb:4:in `sortable'
+  app/views/categories/_categories.html.erb:5:in `_app_views_categories__categories_html_erb__413656501_2177260920_1794430'
+  app/views/categories/index.html.erb:8:in `_app_views_categories_index_html_erb__1080115567_2177312440_0'
+  app/views/categories/index.html.erb:3:in `_app_views_categories_index_html_erb__1080115567_2177312440_0'
+  app/controllers/categories_controller.rb:7:in `index'
+
+Rendered /opt/local/lib/ruby/gems/1.8/gems/actionpack-3.0.3/lib/action_dispatch/middleware/templates/rescues/_trace.erb (2.0ms)
+Rendered /opt/local/lib/ruby/gems/1.8/gems/actionpack-3.0.3/lib/action_dispatch/middleware/templates/rescues/_request_and_response.erb (16.7ms)
+Rendered /opt/local/lib/ruby/gems/1.8/gems/actionpack-3.0.3/lib/action_dispatch/middleware/templates/rescues/template_error.erb within rescues/layout (118.9ms)
+
+
+Started GET "/categories" for 127.0.0.1 at Wed May 11 13:18:48 -0300 2011
+  Processing by CategoriesController#index as HTML
+  [1m[36mCategory Load (1.0ms)[0m  [1mSELECT "categories".* FROM "categories"[0m
+Rendered categories/_categories.html.erb (7.4ms)
+Rendered categories/index.html.erb within layouts/application (17.2ms)
+Completed   in 43ms
+
+ActionView::Template::Error (undefined method `sort_column' for #<CategoriesController:0x103701d00>):
+    2: <%= hidden_field_tag :sort, params[:sort] %>
+    3: <table class="pretty">
+    4:   <tr>
+    5:     <th><%= sortable "name" %></th>
+    6:     <th><%= sortable "topic" %></th>
+    7:     <th><%= sortable "place" %></th>
+    8:   </tr>
+  app/helpers/application_helper.rb:4:in `sortable'
+  app/views/categories/_categories.html.erb:5:in `_app_views_categories__categories_html_erb__413656501_2176029280_1794430'
+  app/views/categories/index.html.erb:8:in `_app_views_categories_index_html_erb__1080115567_2176053340_0'
+  app/views/categories/index.html.erb:3:in `_app_views_categories_index_html_erb__1080115567_2176053340_0'
+  app/controllers/categories_controller.rb:9:in `index'
+
+Rendered /opt/local/lib/ruby/gems/1.8/gems/actionpack-3.0.3/lib/action_dispatch/middleware/templates/rescues/_trace.erb (1.9ms)
+Rendered /opt/local/lib/ruby/gems/1.8/gems/actionpack-3.0.3/lib/action_dispatch/middleware/templates/rescues/_request_and_response.erb (13.8ms)
+Rendered /opt/local/lib/ruby/gems/1.8/gems/actionpack-3.0.3/lib/action_dispatch/middleware/templates/rescues/template_error.erb within rescues/layout (27.9ms)
+
+
+Started GET "/categories" for 127.0.0.1 at Wed May 11 13:19:58 -0300 2011
+  Processing by CategoriesController#index as HTML
+  [1m[35mCategory Load (0.9ms)[0m  SELECT "categories".* FROM "categories"
+Rendered categories/_categories.html.erb (20.6ms)
+Rendered categories/index.html.erb within layouts/application (25.6ms)
+Completed   in 48ms
+
+ActionView::Template::Error (undefined method `total_pages' for #<Array:0x103560de8>):
+    14:     </tr>
+    15:   <% end %>
+    16: </table>
+    17: <%= will_paginate @categories %>
+  app/views/categories/_categories.html.erb:17:in `_app_views_categories__categories_html_erb__413656501_2175419800_1794430'
+  app/views/categories/index.html.erb:8:in `_app_views_categories_index_html_erb__1080115567_2175448000_0'
+  app/views/categories/index.html.erb:3:in `_app_views_categories_index_html_erb__1080115567_2175448000_0'
+  app/controllers/categories_controller.rb:9:in `index'
+
+Rendered /opt/local/lib/ruby/gems/1.8/gems/actionpack-3.0.3/lib/action_dispatch/middleware/templates/rescues/_trace.erb (5.3ms)
+Rendered /opt/local/lib/ruby/gems/1.8/gems/actionpack-3.0.3/lib/action_dispatch/middleware/templates/rescues/_request_and_response.erb (14.3ms)
+Rendered /opt/local/lib/ruby/gems/1.8/gems/actionpack-3.0.3/lib/action_dispatch/middleware/templates/rescues/template_error.erb within rescues/layout (29.4ms)
+
+
+Started GET "/categories" for 127.0.0.1 at Wed May 11 13:20:09 -0300 2011
+  Processing by CategoriesController#index as HTML
+  [1m[36mCategory Load (0.9ms)[0m  [1mSELECT "categories".* FROM "categories"[0m
+Rendered categories/_categories.html.erb (14.0ms)
+Rendered categories/index.html.erb within layouts/application (19.2ms)
+Completed   in 42ms
+
+ActionView::Template::Error (undefined method `total_pages' for #<Array:0x1036216d8>):
+    14:     </tr>
+    15:   <% end %>
+    16: </table>
+    17: <%= will_paginate @categories %>
+  app/views/categories/_categories.html.erb:17:in `_app_views_categories__categories_html_erb__413656501_2175814380_1794430'
+  app/views/categories/index.html.erb:8:in `_app_views_categories_index_html_erb__1080115567_2175837660_0'
+  app/views/categories/index.html.erb:3:in `_app_views_categories_index_html_erb__1080115567_2175837660_0'
+  app/controllers/categories_controller.rb:9:in `index'
+
+Rendered /opt/local/lib/ruby/gems/1.8/gems/actionpack-3.0.3/lib/action_dispatch/middleware/templates/rescues/_trace.erb (1.8ms)
+Rendered /opt/local/lib/ruby/gems/1.8/gems/actionpack-3.0.3/lib/action_dispatch/middleware/templates/rescues/_request_and_response.erb (13.5ms)
+Rendered /opt/local/lib/ruby/gems/1.8/gems/actionpack-3.0.3/lib/action_dispatch/middleware/templates/rescues/template_error.erb within rescues/layout (24.1ms)
+
+
+Started GET "/categories" for 127.0.0.1 at Wed May 11 13:20:32 -0300 2011
+  Processing by CategoriesController#index as HTML
+  [1m[35mCategory Load (0.5ms)[0m  SELECT "categories".* FROM "categories" ORDER BY name asc LIMIT 5 OFFSET 0
+Rendered categories/_categories.html.erb (12.0ms)
+Rendered categories/index.html.erb within layouts/application (20.0ms)
+Completed 200 OK in 40ms (Views: 29.9ms | ActiveRecord: 0.5ms)
+
+
+Started GET "/categories/new" for 127.0.0.1 at Wed May 11 13:20:40 -0300 2011
+  Processing by CategoriesController#new as HTML
+Rendered categories/_form.html.erb (14.9ms)
+Rendered categories/new.html.erb within layouts/application (22.3ms)
+Completed 200 OK in 43ms (Views: 33.2ms | ActiveRecord: 0.0ms)
+
+
+Started POST "/categories" for 127.0.0.1 at Wed May 11 13:20:45 -0300 2011
+  Processing by CategoriesController#create as HTML
+  Parameters: {"commit"=>"Create Category", "category"=>{"name"=>"outra", "topic"=>"1", "place"=>"0"}, "authenticity_token"=>"DodkFFNnngI0wdnHRZAwp6p0CPJo89vfX5xHIjbGzYc=", "utf8"=>"✓"}
+  [1m[36mAREL (0.6ms)[0m  [1mINSERT INTO "categories" ("place", "name", "topic", "updated_at", "created_at") VALUES ('f', 'outra', 't', '2011-05-11 16:20:45.739167', '2011-05-11 16:20:45.739167')[0m
+Redirected to http://localhost:3000/categories/2
+Completed 302 Found in 27ms
+
+
+Started GET "/categories/2" for 127.0.0.1 at Wed May 11 13:20:45 -0300 2011
+  Processing by CategoriesController#show as HTML
+  Parameters: {"id"=>"2"}
+  [1m[35mCategory Load (0.4ms)[0m  SELECT "categories".* FROM "categories" WHERE ("categories"."id" = 2) LIMIT 1
+Rendered categories/show.html.erb within layouts/application (11.1ms)
+Completed 200 OK in 31ms (Views: 21.7ms | ActiveRecord: 0.4ms)
+
+
+Started GET "/categories" for 127.0.0.1 at Wed May 11 13:20:47 -0300 2011
+  Processing by CategoriesController#index as HTML
+  [1m[36mCategory Load (0.6ms)[0m  [1mSELECT "categories".* FROM "categories" ORDER BY name asc LIMIT 5 OFFSET 0[0m
+Rendered categories/_categories.html.erb (7.4ms)
+Rendered categories/index.html.erb within layouts/application (14.8ms)
+Completed 200 OK in 35ms (Views: 24.4ms | ActiveRecord: 0.6ms)
+
+
+Started GET "/categories/new" for 127.0.0.1 at Wed May 11 13:20:50 -0300 2011
+  Processing by CategoriesController#new as HTML
+Rendered categories/_form.html.erb (12.0ms)
+Rendered categories/new.html.erb within layouts/application (19.6ms)
+Completed 200 OK in 39ms (Views: 30.1ms | ActiveRecord: 0.6ms)
+
+
+Started POST "/categories" for 127.0.0.1 at Wed May 11 13:20:55 -0300 2011
+  Processing by CategoriesController#create as HTML
+  Parameters: {"commit"=>"Create Category", "category"=>{"name"=>"mais otra", "topic"=>"0", "place"=>"1"}, "authenticity_token"=>"DodkFFNnngI0wdnHRZAwp6p0CPJo89vfX5xHIjbGzYc=", "utf8"=>"✓"}
+  [1m[35mAREL (0.6ms)[0m  INSERT INTO "categories" ("name", "place", "created_at", "updated_at", "topic") VALUES ('mais otra', 't', '2011-05-11 16:20:55.246406', '2011-05-11 16:20:55.246406', 'f')
+Redirected to http://localhost:3000/categories/3
+Completed 302 Found in 24ms
+
+
+Started GET "/categories/3" for 127.0.0.1 at Wed May 11 13:20:55 -0300 2011
+  Processing by CategoriesController#show as HTML
+  Parameters: {"id"=>"3"}
+  [1m[36mCategory Load (0.4ms)[0m  [1mSELECT "categories".* FROM "categories" WHERE ("categories"."id" = 3) LIMIT 1[0m
+Rendered categories/show.html.erb within layouts/application (9.9ms)
+Completed 200 OK in 30ms (Views: 19.8ms | ActiveRecord: 0.4ms)
+
+
+Started GET "/categories" for 127.0.0.1 at Wed May 11 13:21:01 -0300 2011
+  Processing by CategoriesController#index as HTML
+  [1m[35mCategory Load (0.6ms)[0m  SELECT "categories".* FROM "categories" ORDER BY name asc LIMIT 5 OFFSET 0
+Rendered categories/_categories.html.erb (7.6ms)
+Rendered categories/index.html.erb within layouts/application (15.3ms)
+Completed 200 OK in 37ms (Views: 26.3ms | ActiveRecord: 0.6ms)
+
+
+Started GET "/categories?direction=asc&sort=place" for 127.0.0.1 at Wed May 11 13:21:06 -0300 2011
+  Processing by CategoriesController#index as HTML
+  Parameters: {"sort"=>"place", "direction"=>"asc"}
+  [1m[36mCategory Load (0.6ms)[0m  [1mSELECT "categories".* FROM "categories" ORDER BY place asc LIMIT 5 OFFSET 0[0m
+Rendered categories/_categories.html.erb (7.5ms)
+Rendered categories/index.html.erb within layouts/application (14.9ms)
+Completed 200 OK in 34ms (Views: 24.3ms | ActiveRecord: 0.6ms)
+
+
+Started GET "/categories?direction=asc&sort=name" for 127.0.0.1 at Wed May 11 13:21:08 -0300 2011
+  Processing by CategoriesController#index as HTML
+  Parameters: {"sort"=>"name", "direction"=>"asc"}
+  [1m[35mCategory Load (0.7ms)[0m  SELECT "categories".* FROM "categories" ORDER BY name asc LIMIT 5 OFFSET 0
+Rendered categories/_categories.html.erb (7.7ms)
+Rendered categories/index.html.erb within layouts/application (15.3ms)
+Completed 200 OK in 35ms (Views: 24.8ms | ActiveRecord: 0.7ms)
+
+
+Started GET "/categories?direction=asc&sort=place" for 127.0.0.1 at Wed May 11 13:21:12 -0300 2011
+  Processing by CategoriesController#index as HTML
+  Parameters: {"sort"=>"place", "direction"=>"asc"}
+  [1m[36mCategory Load (0.6ms)[0m  [1mSELECT "categories".* FROM "categories" ORDER BY place asc LIMIT 5 OFFSET 0[0m
+Rendered categories/_categories.html.erb (7.8ms)
+Rendered categories/index.html.erb within layouts/application (15.7ms)
+Completed 200 OK in 35ms (Views: 25.4ms | ActiveRecord: 0.6ms)
+
+
+Started GET "/categories?direction=asc&sort=topic" for 127.0.0.1 at Wed May 11 13:21:14 -0300 2011
+  Processing by CategoriesController#index as HTML
+  Parameters: {"sort"=>"topic", "direction"=>"asc"}
+  [1m[35mCategory Load (0.7ms)[0m  SELECT "categories".* FROM "categories" ORDER BY topic asc LIMIT 5 OFFSET 0
+Rendered categories/_categories.html.erb (9.9ms)
+Rendered categories/index.html.erb within layouts/application (19.0ms)
+Completed 200 OK in 41ms (Views: 28.9ms | ActiveRecord: 0.7ms)
+
+
+Started GET "/categories?direction=asc&sort=name" for 127.0.0.1 at Wed May 11 13:21:15 -0300 2011
+  Processing by CategoriesController#index as HTML
+  Parameters: {"sort"=>"name", "direction"=>"asc"}
+  [1m[36mCategory Load (0.7ms)[0m  [1mSELECT "categories".* FROM "categories" ORDER BY name asc LIMIT 5 OFFSET 0[0m
+Rendered categories/_categories.html.erb (7.6ms)
+Rendered categories/index.html.erb within layouts/application (15.3ms)
+Completed 200 OK in 35ms (Views: 24.9ms | ActiveRecord: 0.7ms)
+
+
+Started GET "/categories?direction=asc&sort=topic" for 127.0.0.1 at Wed May 11 13:21:17 -0300 2011
+  Processing by CategoriesController#index as HTML
+  Parameters: {"sort"=>"topic", "direction"=>"asc"}
+  [1m[35mCategory Load (0.6ms)[0m  SELECT "categories".* FROM "categories" ORDER BY topic asc LIMIT 5 OFFSET 0
+Rendered categories/_categories.html.erb (99.2ms)
+Rendered categories/index.html.erb within layouts/application (107.2ms)
+Completed 200 OK in 127ms (Views: 116.7ms | ActiveRecord: 0.6ms)
+
+
+Started GET "/categories?direction=asc&sort=name" for 127.0.0.1 at Wed May 11 13:21:18 -0300 2011
+  Processing by CategoriesController#index as HTML
+  Parameters: {"sort"=>"name", "direction"=>"asc"}
+  [1m[36mCategory Load (0.6ms)[0m  [1mSELECT "categories".* FROM "categories" ORDER BY name asc LIMIT 5 OFFSET 0[0m
+Rendered categories/_categories.html.erb (7.6ms)
+Rendered categories/index.html.erb within layouts/application (15.4ms)
+Completed 200 OK in 36ms (Views: 25.5ms | ActiveRecord: 0.6ms)
+
+
+Started GET "/categories?direction=asc&sort=place" for 127.0.0.1 at Wed May 11 13:21:20 -0300 2011
+  Processing by CategoriesController#index as HTML
+  Parameters: {"sort"=>"place", "direction"=>"asc"}
+  [1m[35mCategory Load (0.6ms)[0m  SELECT "categories".* FROM "categories" ORDER BY place asc LIMIT 5 OFFSET 0
+Rendered categories/_categories.html.erb (7.9ms)
+Rendered categories/index.html.erb within layouts/application (15.5ms)
+Completed 200 OK in 36ms (Views: 25.3ms | ActiveRecord: 1.3ms)
+
+
+Started GET "/categories?direction=asc&sort=place" for 127.0.0.1 at Wed May 11 13:22:52 -0300 2011
+  Processing by CategoriesController#index as HTML
+  Parameters: {"sort"=>"place", "direction"=>"asc"}
+  [1m[36mCategory Load (0.7ms)[0m  [1mSELECT "categories".* FROM "categories" ORDER BY place asc LIMIT 5 OFFSET 0[0m
+Rendered categories/_categories.html.erb (8.3ms)
+Rendered categories/index.html.erb within layouts/application (20.1ms)
+Completed   in 44ms
+
+ActionView::Template::Error (Missing partial categories/menu with {:formats=>[:html], :handlers=>[:builder, :rjs, :rhtml, :erb, :rxml], :locale=>[:en, :en]} in view paths "/Users/rafaeliga/rails/railscasts-episodes/episode-246/store/app/views"):
+    12:       <% flash.each do |name, msg| %>
+    13:         <%= content_tag :div, msg, :id => "flash_#{name}" %>
+    14:       <% end %>
+    15: 			<%= render :partial => "menu" %>
+    16:       <%= content_tag :h1, yield(:title) if show_title? %>
+    17:       <%= yield %>
+    18:     </div>
+  app/views/layouts/application.html.erb:15:in `_app_views_layouts_application_html_erb___2140815277_2176428140_0'
+
+Rendered /opt/local/lib/ruby/gems/1.8/gems/actionpack-3.0.3/lib/action_dispatch/middleware/templates/rescues/_trace.erb (2.2ms)
+Rendered /opt/local/lib/ruby/gems/1.8/gems/actionpack-3.0.3/lib/action_dispatch/middleware/templates/rescues/_request_and_response.erb (16.3ms)
+Rendered /opt/local/lib/ruby/gems/1.8/gems/actionpack-3.0.3/lib/action_dispatch/middleware/templates/rescues/template_error.erb within rescues/layout (30.3ms)
+
+
+Started GET "/categories?direction=asc&sort=place" for 127.0.0.1 at Wed May 11 13:23:01 -0300 2011
+  Processing by CategoriesController#index as HTML
+  Parameters: {"sort"=>"place", "direction"=>"asc"}
+  [1m[35mCategory Load (0.7ms)[0m  SELECT "categories".* FROM "categories" ORDER BY place asc LIMIT 5 OFFSET 0
+Rendered categories/_categories.html.erb (10.2ms)
+Rendered layouts/_menu.html.erb (88.6ms)
+Rendered categories/index.html.erb within layouts/application (111.2ms)
+Completed 200 OK in 136ms (Views: 121.8ms | ActiveRecord: 0.7ms)
+
+
+Started GET "/products" for 127.0.0.1 at Wed May 11 13:23:05 -0300 2011
+  Processing by ProductsController#index as HTML
+  [1m[36mProduct Load (0.7ms)[0m  [1mSELECT "products".* FROM "products" ORDER BY name asc LIMIT 5 OFFSET 0[0m
+Rendered products/_products.html.erb (26.8ms)
+Rendered layouts/_menu.html.erb (1.4ms)
+Rendered products/index.html.erb within layouts/application (39.0ms)
+Completed 200 OK in 60ms (Views: 49.2ms | ActiveRecord: 0.7ms)
+
+
+Started GET "/categories" for 127.0.0.1 at Wed May 11 13:23:06 -0300 2011
+  Processing by CategoriesController#index as HTML
+  [1m[35mCategory Load (0.6ms)[0m  SELECT "categories".* FROM "categories" ORDER BY name asc LIMIT 5 OFFSET 0
+Rendered categories/_categories.html.erb (7.7ms)
+Rendered layouts/_menu.html.erb (1.3ms)
+Rendered categories/index.html.erb within layouts/application (19.0ms)
+Completed 200 OK in 39ms (Views: 28.6ms | ActiveRecord: 0.6ms)
+
+
+Started GET "/products" for 127.0.0.1 at Wed May 11 13:23:08 -0300 2011
+  Processing by ProductsController#index as HTML
+  [1m[36mProduct Load (0.6ms)[0m  [1mSELECT "products".* FROM "products" ORDER BY name asc LIMIT 5 OFFSET 0[0m
+Rendered products/_products.html.erb (9.6ms)
+Rendered layouts/_menu.html.erb (1.7ms)
+Rendered products/index.html.erb within layouts/application (22.7ms)
+Completed 200 OK in 42ms (Views: 32.5ms | ActiveRecord: 0.6ms)
+
+
+Started GET "/products?direction=asc&sort=price" for 127.0.0.1 at Wed May 11 13:23:16 -0300 2011
+  Processing by ProductsController#index as JS
+  Parameters: {"sort"=>"price", "direction"=>"asc"}
+  [1m[35mProduct Load (0.6ms)[0m  SELECT "products".* FROM "products" ORDER BY price asc LIMIT 5 OFFSET 0
+Rendered products/_products.html.erb (10.5ms)
+Rendered products/index.js.erb (14.3ms)
+Completed 200 OK in 37ms (Views: 27.2ms | ActiveRecord: 0.6ms)
+
+
+Started GET "/products?direction=asc&sort=released_at" for 127.0.0.1 at Wed May 11 13:23:18 -0300 2011
+  Processing by ProductsController#index as JS
+  Parameters: {"sort"=>"released_at", "direction"=>"asc"}
+  [1m[36mProduct Load (0.7ms)[0m  [1mSELECT "products".* FROM "products" ORDER BY released_at asc LIMIT 5 OFFSET 0[0m
+Rendered products/_products.html.erb (10.4ms)
+Rendered products/index.js.erb (14.0ms)
+Completed 200 OK in 37ms (Views: 26.2ms | ActiveRecord: 0.7ms)
+
+
+Started GET "/products?direction=asc&sort=name" for 127.0.0.1 at Wed May 11 13:23:19 -0300 2011
+  Processing by ProductsController#index as JS
+  Parameters: {"sort"=>"name", "direction"=>"asc"}
+  [1m[35mProduct Load (0.7ms)[0m  SELECT "products".* FROM "products" ORDER BY name asc LIMIT 5 OFFSET 0
+Rendered products/_products.html.erb (10.5ms)
+Rendered products/index.js.erb (14.1ms)
+Completed 200 OK in 37ms (Views: 26.8ms | ActiveRecord: 0.7ms)
+
+
+Started GET "/categories" for 127.0.0.1 at Wed May 11 13:23:21 -0300 2011
+  Processing by CategoriesController#index as HTML
+  [1m[36mCategory Load (0.7ms)[0m  [1mSELECT "categories".* FROM "categories" ORDER BY name asc LIMIT 5 OFFSET 0[0m
+Rendered categories/_categories.html.erb (7.7ms)
+Rendered layouts/_menu.html.erb (1.5ms)
+Rendered categories/index.html.erb within layouts/application (19.3ms)
+Completed 200 OK in 39ms (Views: 28.9ms | ActiveRecord: 0.7ms)
+
+
+Started GET "/categories?direction=asc&sort=place" for 127.0.0.1 at Wed May 11 13:23:24 -0300 2011
+  Processing by CategoriesController#index as HTML
+  Parameters: {"sort"=>"place", "direction"=>"asc"}
+  [1m[35mCategory Load (0.8ms)[0m  SELECT "categories".* FROM "categories" ORDER BY place asc LIMIT 5 OFFSET 0
+Rendered categories/_categories.html.erb (7.9ms)
+Rendered layouts/_menu.html.erb (1.5ms)
+Rendered categories/index.html.erb within layouts/application (20.6ms)
+Completed 200 OK in 136ms (Views: 29.8ms | ActiveRecord: 0.8ms)
+
+
+Started GET "/categories?direction=asc&sort=place" for 127.0.0.1 at Wed May 11 13:24:21 -0300 2011
+  Processing by CategoriesController#index as HTML
+  Parameters: {"sort"=>"place", "direction"=>"asc"}
+  [1m[36mCategory Load (0.7ms)[0m  [1mSELECT "categories".* FROM "categories" ORDER BY place asc LIMIT 5 OFFSET 0[0m
+Rendered categories/_categories.html.erb (8.0ms)
+Rendered layouts/_menu.html.erb (1.6ms)
+Rendered categories/index.html.erb within layouts/application (20.3ms)
+Completed 200 OK in 46ms (Views: 33.5ms | ActiveRecord: 0.7ms)
+
+
+Started GET "/categories?direction=asc&sort=topic" for 127.0.0.1 at Wed May 11 13:24:24 -0300 2011
+  Processing by CategoriesController#index as JS
+  Parameters: {"sort"=>"topic", "direction"=>"asc"}
+  [1m[35mCategory Load (0.6ms)[0m  SELECT "categories".* FROM "categories" ORDER BY topic asc LIMIT 5 OFFSET 0
+Completed   in 22ms
+
+ActionView::MissingTemplate (Missing template categories/index with {:formats=>[:js, :"*/*"], :handlers=>[:builder, :rjs, :rhtml, :erb, :rxml], :locale=>[:en, :en]} in view paths "/Users/rafaeliga/rails/railscasts-episodes/episode-246/store/app/views"):
+  
+
+Rendered /opt/local/lib/ruby/gems/1.8/gems/actionpack-3.0.3/lib/action_dispatch/middleware/templates/rescues/missing_template.erb within rescues/layout (0.9ms)
+
+
+Started GET "/categories?direction=asc&sort=topic" for 127.0.0.1 at Wed May 11 13:24:25 -0300 2011
+  Processing by CategoriesController#index as JS
+  Parameters: {"sort"=>"topic", "direction"=>"asc"}
+  [1m[36mCategory Load (0.6ms)[0m  [1mSELECT "categories".* FROM "categories" ORDER BY topic asc LIMIT 5 OFFSET 0[0m
+Completed   in 22ms
+
+ActionView::MissingTemplate (Missing template categories/index with {:formats=>[:js, :"*/*"], :handlers=>[:builder, :rjs, :rhtml, :erb, :rxml], :locale=>[:en, :en]} in view paths "/Users/rafaeliga/rails/railscasts-episodes/episode-246/store/app/views"):
+  
+
+Rendered /opt/local/lib/ruby/gems/1.8/gems/actionpack-3.0.3/lib/action_dispatch/middleware/templates/rescues/missing_template.erb within rescues/layout (1.5ms)
+
+
+Started GET "/categories?direction=asc&sort=topic" for 127.0.0.1 at Wed May 11 13:24:26 -0300 2011
+  Processing by CategoriesController#index as JS
+  Parameters: {"sort"=>"topic", "direction"=>"asc"}
+  [1m[35mCategory Load (0.7ms)[0m  SELECT "categories".* FROM "categories" ORDER BY topic asc LIMIT 5 OFFSET 0
+Completed   in 23ms
+
+ActionView::MissingTemplate (Missing template categories/index with {:formats=>[:js, :"*/*"], :handlers=>[:builder, :rjs, :rhtml, :erb, :rxml], :locale=>[:en, :en]} in view paths "/Users/rafaeliga/rails/railscasts-episodes/episode-246/store/app/views"):
+  
+
+Rendered /opt/local/lib/ruby/gems/1.8/gems/actionpack-3.0.3/lib/action_dispatch/middleware/templates/rescues/missing_template.erb within rescues/layout (0.9ms)
+
+
+Started GET "/categories?direction=asc&sort=topic" for 127.0.0.1 at Wed May 11 13:24:26 -0300 2011
+  Processing by CategoriesController#index as JS
+  Parameters: {"sort"=>"topic", "direction"=>"asc"}
+  [1m[36mCategory Load (0.7ms)[0m  [1mSELECT "categories".* FROM "categories" ORDER BY topic asc LIMIT 5 OFFSET 0[0m
+Completed   in 22ms
+
+ActionView::MissingTemplate (Missing template categories/index with {:formats=>[:js, :"*/*"], :handlers=>[:builder, :rjs, :rhtml, :erb, :rxml], :locale=>[:en, :en]} in view paths "/Users/rafaeliga/rails/railscasts-episodes/episode-246/store/app/views"):
+  
+
+Rendered /opt/local/lib/ruby/gems/1.8/gems/actionpack-3.0.3/lib/action_dispatch/middleware/templates/rescues/missing_template.erb within rescues/layout (1.1ms)
+
+
+Started GET "/categories?direction=asc&sort=topic" for 127.0.0.1 at Wed May 11 13:24:27 -0300 2011
+  Processing by CategoriesController#index as JS
+  Parameters: {"sort"=>"topic", "direction"=>"asc"}
+  [1m[35mCategory Load (0.7ms)[0m  SELECT "categories".* FROM "categories" ORDER BY topic asc LIMIT 5 OFFSET 0
+Completed   in 120ms
+
+ActionView::MissingTemplate (Missing template categories/index with {:formats=>[:js, :"*/*"], :handlers=>[:builder, :rjs, :rhtml, :erb, :rxml], :locale=>[:en, :en]} in view paths "/Users/rafaeliga/rails/railscasts-episodes/episode-246/store/app/views"):
+  
+
+Rendered /opt/local/lib/ruby/gems/1.8/gems/actionpack-3.0.3/lib/action_dispatch/middleware/templates/rescues/missing_template.erb within rescues/layout (1.0ms)
+
+
+Started GET "/categories?direction=asc&sort=topic" for 127.0.0.1 at Wed May 11 13:24:27 -0300 2011
+  Processing by CategoriesController#index as JS
+  Parameters: {"sort"=>"topic", "direction"=>"asc"}
+  [1m[36mCategory Load (0.7ms)[0m  [1mSELECT "categories".* FROM "categories" ORDER BY topic asc LIMIT 5 OFFSET 0[0m
+Completed   in 22ms
+
+ActionView::MissingTemplate (Missing template categories/index with {:formats=>[:js, :"*/*"], :handlers=>[:builder, :rjs, :rhtml, :erb, :rxml], :locale=>[:en, :en]} in view paths "/Users/rafaeliga/rails/railscasts-episodes/episode-246/store/app/views"):
+  
+
+Rendered /opt/local/lib/ruby/gems/1.8/gems/actionpack-3.0.3/lib/action_dispatch/middleware/templates/rescues/missing_template.erb within rescues/layout (0.9ms)
+
+
+Started GET "/categories?direction=asc&sort=name" for 127.0.0.1 at Wed May 11 13:24:28 -0300 2011
+  Processing by CategoriesController#index as JS
+  Parameters: {"sort"=>"name", "direction"=>"asc"}
+  [1m[35mCategory Load (0.7ms)[0m  SELECT "categories".* FROM "categories" ORDER BY name asc LIMIT 5 OFFSET 0
+Completed   in 23ms
+
+ActionView::MissingTemplate (Missing template categories/index with {:formats=>[:js, :"*/*"], :handlers=>[:builder, :rjs, :rhtml, :erb, :rxml], :locale=>[:en, :en]} in view paths "/Users/rafaeliga/rails/railscasts-episodes/episode-246/store/app/views"):
+  
+
+Rendered /opt/local/lib/ruby/gems/1.8/gems/actionpack-3.0.3/lib/action_dispatch/middleware/templates/rescues/missing_template.erb within rescues/layout (0.9ms)
+
+
+Started GET "/categories?direction=asc&sort=name" for 127.0.0.1 at Wed May 11 13:24:28 -0300 2011
+  Processing by CategoriesController#index as JS
+  Parameters: {"sort"=>"name", "direction"=>"asc"}
+  [1m[36mCategory Load (0.7ms)[0m  [1mSELECT "categories".* FROM "categories" ORDER BY name asc LIMIT 5 OFFSET 0[0m
+Completed   in 22ms
+
+ActionView::MissingTemplate (Missing template categories/index with {:formats=>[:js, :"*/*"], :handlers=>[:builder, :rjs, :rhtml, :erb, :rxml], :locale=>[:en, :en]} in view paths "/Users/rafaeliga/rails/railscasts-episodes/episode-246/store/app/views"):
+  
+
+Rendered /opt/local/lib/ruby/gems/1.8/gems/actionpack-3.0.3/lib/action_dispatch/middleware/templates/rescues/missing_template.erb within rescues/layout (0.9ms)
+
+
+Started GET "/categories?direction=asc&sort=name" for 127.0.0.1 at Wed May 11 13:24:29 -0300 2011
+  Processing by CategoriesController#index as JS
+  Parameters: {"sort"=>"name", "direction"=>"asc"}
+  [1m[35mCategory Load (0.7ms)[0m  SELECT "categories".* FROM "categories" ORDER BY name asc LIMIT 5 OFFSET 0
+Completed   in 23ms
+
+ActionView::MissingTemplate (Missing template categories/index with {:formats=>[:js, :"*/*"], :handlers=>[:builder, :rjs, :rhtml, :erb, :rxml], :locale=>[:en, :en]} in view paths "/Users/rafaeliga/rails/railscasts-episodes/episode-246/store/app/views"):
+  
+
+Rendered /opt/local/lib/ruby/gems/1.8/gems/actionpack-3.0.3/lib/action_dispatch/middleware/templates/rescues/missing_template.erb within rescues/layout (1.0ms)
+
+
+Started GET "/categories?direction=asc&sort=name" for 127.0.0.1 at Wed May 11 13:24:29 -0300 2011
+  Processing by CategoriesController#index as JS
+  Parameters: {"sort"=>"name", "direction"=>"asc"}
+  [1m[36mCategory Load (0.6ms)[0m  [1mSELECT "categories".* FROM "categories" ORDER BY name asc LIMIT 5 OFFSET 0[0m
+Completed   in 24ms
+
+ActionView::MissingTemplate (Missing template categories/index with {:formats=>[:js, :"*/*"], :handlers=>[:builder, :rjs, :rhtml, :erb, :rxml], :locale=>[:en, :en]} in view paths "/Users/rafaeliga/rails/railscasts-episodes/episode-246/store/app/views"):
+  
+
+Rendered /opt/local/lib/ruby/gems/1.8/gems/actionpack-3.0.3/lib/action_dispatch/middleware/templates/rescues/missing_template.erb within rescues/layout (0.9ms)
+
+
+Started GET "/categories?direction=desc&sort=place" for 127.0.0.1 at Wed May 11 13:24:30 -0300 2011
+  Processing by CategoriesController#index as JS
+  Parameters: {"sort"=>"place", "direction"=>"desc"}
+  [1m[35mCategory Load (0.6ms)[0m  SELECT "categories".* FROM "categories" ORDER BY place desc LIMIT 5 OFFSET 0
+Completed   in 23ms
+
+ActionView::MissingTemplate (Missing template categories/index with {:formats=>[:js, :"*/*"], :handlers=>[:builder, :rjs, :rhtml, :erb, :rxml], :locale=>[:en, :en]} in view paths "/Users/rafaeliga/rails/railscasts-episodes/episode-246/store/app/views"):
+  
+
+Rendered /opt/local/lib/ruby/gems/1.8/gems/actionpack-3.0.3/lib/action_dispatch/middleware/templates/rescues/missing_template.erb within rescues/layout (0.9ms)
+
+
+Started GET "/categories?direction=desc&sort=place" for 127.0.0.1 at Wed May 11 13:24:30 -0300 2011
+  Processing by CategoriesController#index as JS
+  Parameters: {"sort"=>"place", "direction"=>"desc"}
+  [1m[36mCategory Load (0.7ms)[0m  [1mSELECT "categories".* FROM "categories" ORDER BY place desc LIMIT 5 OFFSET 0[0m
+Completed   in 23ms
+
+ActionView::MissingTemplate (Missing template categories/index with {:formats=>[:js, :"*/*"], :handlers=>[:builder, :rjs, :rhtml, :erb, :rxml], :locale=>[:en, :en]} in view paths "/Users/rafaeliga/rails/railscasts-episodes/episode-246/store/app/views"):
+  
+
+Rendered /opt/local/lib/ruby/gems/1.8/gems/actionpack-3.0.3/lib/action_dispatch/middleware/templates/rescues/missing_template.erb within rescues/layout (1.0ms)
+
+
+Started GET "/categories?direction=desc&sort=place" for 127.0.0.1 at Wed May 11 13:24:31 -0300 2011
+  Processing by CategoriesController#index as JS
+  Parameters: {"sort"=>"place", "direction"=>"desc"}
+  [1m[35mCategory Load (0.6ms)[0m  SELECT "categories".* FROM "categories" ORDER BY place desc LIMIT 5 OFFSET 0
+Completed   in 23ms
+
+ActionView::MissingTemplate (Missing template categories/index with {:formats=>[:js, :"*/*"], :handlers=>[:builder, :rjs, :rhtml, :erb, :rxml], :locale=>[:en, :en]} in view paths "/Users/rafaeliga/rails/railscasts-episodes/episode-246/store/app/views"):
+  
+
+Rendered /opt/local/lib/ruby/gems/1.8/gems/actionpack-3.0.3/lib/action_dispatch/middleware/templates/rescues/missing_template.erb within rescues/layout (0.9ms)
+
+
+Started GET "/categories?direction=desc&sort=place" for 127.0.0.1 at Wed May 11 13:24:31 -0300 2011
+  Processing by CategoriesController#index as JS
+  Parameters: {"sort"=>"place", "direction"=>"desc"}
+  [1m[36mCategory Load (0.6ms)[0m  [1mSELECT "categories".* FROM "categories" ORDER BY place desc LIMIT 5 OFFSET 0[0m
+Completed   in 23ms
+
+ActionView::MissingTemplate (Missing template categories/index with {:formats=>[:js, :"*/*"], :handlers=>[:builder, :rjs, :rhtml, :erb, :rxml], :locale=>[:en, :en]} in view paths "/Users/rafaeliga/rails/railscasts-episodes/episode-246/store/app/views"):
+  
+
+Rendered /opt/local/lib/ruby/gems/1.8/gems/actionpack-3.0.3/lib/action_dispatch/middleware/templates/rescues/missing_template.erb within rescues/layout (0.9ms)
+
+
+Started GET "/categories?direction=desc&sort=place" for 127.0.0.1 at Wed May 11 13:25:43 -0300 2011
+  Processing by CategoriesController#index as HTML
+  Parameters: {"sort"=>"place", "direction"=>"desc"}
+  [1m[35mCategory Load (0.7ms)[0m  SELECT "categories".* FROM "categories" ORDER BY place desc LIMIT 5 OFFSET 0
+Rendered categories/_categories.html.erb (10.2ms)
+Rendered layouts/_menu.html.erb (1.6ms)
+Rendered categories/index.html.erb within layouts/application (24.1ms)
+Completed 200 OK in 46ms (Views: 35.2ms | ActiveRecord: 0.7ms)
+
+
+Started GET "/categories?direction=asc&sort=topic" for 127.0.0.1 at Wed May 11 13:25:45 -0300 2011
+  Processing by CategoriesController#index as JS
+  Parameters: {"sort"=>"topic", "direction"=>"asc"}
+  [1m[36mCategory Load (0.7ms)[0m  [1mSELECT "categories".* FROM "categories" ORDER BY topic asc LIMIT 5 OFFSET 0[0m
+Rendered categories/_categories.html.erb (7.7ms)
+Rendered categories/index.js.erb (11.5ms)
+Completed 200 OK in 37ms (Views: 25.4ms | ActiveRecord: 0.7ms)
+
+
+Started GET "/categories?direction=desc&sort=topic" for 127.0.0.1 at Wed May 11 13:25:47 -0300 2011
+  Processing by CategoriesController#index as JS
+  Parameters: {"sort"=>"topic", "direction"=>"desc"}
+  [1m[35mCategory Load (0.6ms)[0m  SELECT "categories".* FROM "categories" ORDER BY topic desc LIMIT 5 OFFSET 0
+Rendered categories/_categories.html.erb (7.7ms)
+Rendered categories/index.js.erb (11.8ms)
+Completed 200 OK in 34ms (Views: 24.5ms | ActiveRecord: 0.6ms)
+
+
+Started GET "/categories?direction=asc&sort=topic" for 127.0.0.1 at Wed May 11 13:25:48 -0300 2011
+  Processing by CategoriesController#index as JS
+  Parameters: {"sort"=>"topic", "direction"=>"asc"}
+  [1m[36mCategory Load (0.6ms)[0m  [1mSELECT "categories".* FROM "categories" ORDER BY topic asc LIMIT 5 OFFSET 0[0m
+Rendered categories/_categories.html.erb (7.7ms)
+Rendered categories/index.js.erb (11.3ms)
+Completed 200 OK in 34ms (Views: 24.0ms | ActiveRecord: 0.6ms)
+
+
+Started GET "/categories?direction=desc&sort=topic" for 127.0.0.1 at Wed May 11 13:25:49 -0300 2011
+  Processing by CategoriesController#index as JS
+  Parameters: {"sort"=>"topic", "direction"=>"desc"}
+  [1m[35mCategory Load (0.7ms)[0m  SELECT "categories".* FROM "categories" ORDER BY topic desc LIMIT 5 OFFSET 0
+Rendered categories/_categories.html.erb (7.7ms)
+Rendered categories/index.js.erb (11.2ms)
+Completed 200 OK in 35ms (Views: 24.0ms | ActiveRecord: 0.7ms)
+
+
+Started GET "/categories?direction=asc&sort=name" for 127.0.0.1 at Wed May 11 13:25:51 -0300 2011
+  Processing by CategoriesController#index as JS
+  Parameters: {"sort"=>"name", "direction"=>"asc"}
+  [1m[36mCategory Load (0.6ms)[0m  [1mSELECT "categories".* FROM "categories" ORDER BY name asc LIMIT 5 OFFSET 0[0m
+Rendered categories/_categories.html.erb (8.1ms)
+Rendered categories/index.js.erb (11.7ms)
+Completed 200 OK in 34ms (Views: 24.3ms | ActiveRecord: 0.6ms)
+
+
+Started GET "/categories?direction=desc&sort=name" for 127.0.0.1 at Wed May 11 13:25:52 -0300 2011
+  Processing by CategoriesController#index as JS
+  Parameters: {"sort"=>"name", "direction"=>"desc"}
+  [1m[35mCategory Load (0.6ms)[0m  SELECT "categories".* FROM "categories" ORDER BY name desc LIMIT 5 OFFSET 0
+Rendered categories/_categories.html.erb (7.7ms)
+Rendered categories/index.js.erb (11.3ms)
+Completed 200 OK in 34ms (Views: 24.0ms | ActiveRecord: 0.6ms)
+
+
+Started GET "/categories?direction=asc&sort=name" for 127.0.0.1 at Wed May 11 13:25:52 -0300 2011
+  Processing by CategoriesController#index as JS
+  Parameters: {"sort"=>"name", "direction"=>"asc"}
+  [1m[36mCategory Load (0.6ms)[0m  [1mSELECT "categories".* FROM "categories" ORDER BY name asc LIMIT 5 OFFSET 0[0m
+Rendered categories/_categories.html.erb (7.7ms)
+Rendered categories/index.js.erb (11.2ms)
+Completed 200 OK in 34ms (Views: 23.8ms | ActiveRecord: 0.6ms)
+
+
+Started GET "/categories?direction=asc&sort=place" for 127.0.0.1 at Wed May 11 13:25:54 -0300 2011
+  Processing by CategoriesController#index as JS
+  Parameters: {"sort"=>"place", "direction"=>"asc"}
+  [1m[35mCategory Load (0.6ms)[0m  SELECT "categories".* FROM "categories" ORDER BY place asc LIMIT 5 OFFSET 0
+Rendered categories/_categories.html.erb (7.7ms)
+Rendered categories/index.js.erb (11.2ms)
+Completed 200 OK in 34ms (Views: 23.9ms | ActiveRecord: 0.6ms)
+
+
+Started GET "/categories?direction=desc&sort=place" for 127.0.0.1 at Wed May 11 13:25:55 -0300 2011
+  Processing by CategoriesController#index as JS
+  Parameters: {"sort"=>"place", "direction"=>"desc"}
+  [1m[36mCategory Load (0.7ms)[0m  [1mSELECT "categories".* FROM "categories" ORDER BY place desc LIMIT 5 OFFSET 0[0m
+Rendered categories/_categories.html.erb (7.9ms)
+Rendered categories/index.js.erb (12.0ms)
+Completed 200 OK in 35ms (Views: 24.8ms | ActiveRecord: 0.7ms)
+
+
+Started GET "/categories?direction=asc&sort=topic" for 127.0.0.1 at Wed May 11 13:26:02 -0300 2011
+  Processing by CategoriesController#index as JS
+  Parameters: {"sort"=>"topic", "direction"=>"asc"}
+  [1m[35mCategory Load (0.7ms)[0m  SELECT "categories".* FROM "categories" ORDER BY topic asc LIMIT 5 OFFSET 0
+Rendered categories/_categories.html.erb (8.1ms)
+Rendered categories/index.js.erb (14.4ms)
+Completed 200 OK in 41ms (Views: 27.5ms | ActiveRecord: 0.7ms)
+
+
+Started GET "/categories?direction=asc&sort=name" for 127.0.0.1 at Wed May 11 13:26:03 -0300 2011
+  Processing by CategoriesController#index as JS
+  Parameters: {"sort"=>"name", "direction"=>"asc"}
+  [1m[36mCategory Load (0.6ms)[0m  [1mSELECT "categories".* FROM "categories" ORDER BY name asc LIMIT 5 OFFSET 0[0m
+Rendered categories/_categories.html.erb (8.2ms)
+Rendered categories/index.js.erb (12.1ms)
+Completed 200 OK in 38ms (Views: 27.5ms | ActiveRecord: 0.6ms)
+
+
+Started GET "/products" for 127.0.0.1 at Wed May 11 13:26:06 -0300 2011
+  Processing by ProductsController#index as HTML
+  [1m[35mProduct Load (0.6ms)[0m  SELECT "products".* FROM "products" ORDER BY name asc LIMIT 5 OFFSET 0
+Rendered products/_products.html.erb (11.9ms)
+Rendered layouts/_menu.html.erb (1.9ms)
+Rendered products/index.html.erb within layouts/application (24.9ms)
+Completed 200 OK in 50ms (Views: 37.6ms | ActiveRecord: 0.6ms)
+
+
+Started GET "/categories" for 127.0.0.1 at Wed May 11 13:26:08 -0300 2011
+  Processing by CategoriesController#index as HTML
+  [1m[36mCategory Load (0.8ms)[0m  [1mSELECT "categories".* FROM "categories" ORDER BY name asc LIMIT 5 OFFSET 0[0m
+Rendered categories/_categories.html.erb (7.8ms)
+Rendered layouts/_menu.html.erb (1.8ms)
+Rendered categories/index.html.erb within layouts/application (24.5ms)
+Completed 200 OK in 45ms (Views: 34.2ms | ActiveRecord: 0.8ms)
+
+
+Started GET "/categories?direction=asc&sort=topic" for 127.0.0.1 at Wed May 11 13:32:36 -0300 2011
+  Processing by CategoriesController#index as JS
+  Parameters: {"sort"=>"topic", "direction"=>"asc"}
+  [1m[35mCategory Load (0.9ms)[0m  SELECT "categories".* FROM "categories" ORDER BY topic asc LIMIT 5 OFFSET 0
+Rendered categories/_categories.html.erb (8.8ms)
+Rendered categories/index.js.erb (13.1ms)
+Completed 200 OK in 39ms (Views: 26.0ms | ActiveRecord: 0.9ms)
+
+
+Started GET "/categories?direction=desc&sort=topic" for 127.0.0.1 at Wed May 11 13:32:37 -0300 2011
+  Processing by CategoriesController#index as JS
+  Parameters: {"sort"=>"topic", "direction"=>"desc"}
+  [1m[36mCategory Load (0.7ms)[0m  [1mSELECT "categories".* FROM "categories" ORDER BY topic desc LIMIT 5 OFFSET 0[0m
+Rendered categories/_categories.html.erb (7.8ms)
+Rendered categories/index.js.erb (11.4ms)
+Completed 200 OK in 34ms (Views: 23.8ms | ActiveRecord: 0.7ms)
+
+
+Started GET "/categories?direction=asc&sort=name" for 127.0.0.1 at Wed May 11 13:32:39 -0300 2011
+  Processing by CategoriesController#index as JS
+  Parameters: {"sort"=>"name", "direction"=>"asc"}
+  [1m[35mCategory Load (0.7ms)[0m  SELECT "categories".* FROM "categories" ORDER BY name asc LIMIT 5 OFFSET 0
+Rendered categories/_categories.html.erb (7.9ms)
+Rendered categories/index.js.erb (11.6ms)
+Completed 200 OK in 35ms (Views: 24.7ms | ActiveRecord: 0.7ms)
+
+
+Started GET "/products" for 127.0.0.1 at Wed May 11 13:32:41 -0300 2011
+  Processing by ProductsController#index as HTML
+  [1m[36mProduct Load (1.1ms)[0m  [1mSELECT "products".* FROM "products" ORDER BY name asc LIMIT 5 OFFSET 0[0m
+Rendered products/_products.html.erb (11.9ms)
+Rendered layouts/_menu.html.erb (1.4ms)
+Rendered products/index.html.erb within layouts/application (24.9ms)
+Completed 200 OK in 46ms (Views: 35.8ms | ActiveRecord: 1.1ms)
+
+
+Started GET "/categories" for 127.0.0.1 at Wed May 11 13:32:42 -0300 2011
+  Processing by CategoriesController#index as HTML
+  [1m[35mCategory Load (0.7ms)[0m  SELECT "categories".* FROM "categories" ORDER BY name asc LIMIT 5 OFFSET 0
+Rendered categories/_categories.html.erb (8.1ms)
+Rendered layouts/_menu.html.erb (1.4ms)
+Rendered categories/index.html.erb within layouts/application (19.8ms)
+Completed 200 OK in 139ms (Views: 29.3ms | ActiveRecord: 0.7ms)
+
+
+Started GET "/categories?direction=asc&sort=topic" for 127.0.0.1 at Wed May 11 13:32:44 -0300 2011
+  Processing by CategoriesController#index as JS
+  Parameters: {"sort"=>"topic", "direction"=>"asc"}
+  [1m[36mCategory Load (0.6ms)[0m  [1mSELECT "categories".* FROM "categories" ORDER BY topic asc LIMIT 5 OFFSET 0[0m
+Rendered categories/_categories.html.erb (7.9ms)
+Rendered categories/index.js.erb (11.6ms)
+Completed 200 OK in 35ms (Views: 25.4ms | ActiveRecord: 0.6ms)
+
+
+Started GET "/categories?direction=desc&sort=topic" for 127.0.0.1 at Wed May 11 13:32:45 -0300 2011
+  Processing by CategoriesController#index as JS
+  Parameters: {"sort"=>"topic", "direction"=>"desc"}
+  [1m[35mCategory Load (0.7ms)[0m  SELECT "categories".* FROM "categories" ORDER BY topic desc LIMIT 5 OFFSET 0
+Rendered categories/_categories.html.erb (8.0ms)
+Rendered categories/index.js.erb (11.6ms)
+Completed 200 OK in 35ms (Views: 24.0ms | ActiveRecord: 0.7ms)
+
+
+Started GET "/products?direction=asc&sort=price" for 192.168.1.2 at Wed May 11 13:32:49 -0300 2011
+  Processing by ProductsController#index as */*
+  Parameters: {"sort"=>"price", "direction"=>"asc"}
+  [1m[36mProduct Load (0.6ms)[0m  [1mSELECT "products".* FROM "products" ORDER BY price asc LIMIT 5 OFFSET 0[0m
+Rendered products/_products.html.erb (102.8ms)
+Rendered layouts/_menu.html.erb (1.9ms)
+Rendered products/index.html.erb within layouts/application (115.0ms)
+Completed 200 OK in 163ms (Views: 152.9ms | ActiveRecord: 0.6ms)
+
+
+Started GET "/categories" for 192.168.1.2 at Wed May 11 13:32:52 -0300 2011
+  Processing by CategoriesController#index as HTML
+  [1m[35mCategory Load (0.6ms)[0m  SELECT "categories".* FROM "categories" ORDER BY name asc LIMIT 5 OFFSET 0
+Rendered categories/_categories.html.erb (8.1ms)
+Rendered layouts/_menu.html.erb (1.4ms)
+Rendered categories/index.html.erb within layouts/application (19.5ms)
+Completed 200 OK in 40ms (Views: 29.3ms | ActiveRecord: 0.6ms)
+
+
+Started GET "/categories" for 192.168.1.2 at Wed May 11 13:32:54 -0300 2011
+  Processing by CategoriesController#index as HTML
+  [1m[36mCategory Load (0.6ms)[0m  [1mSELECT "categories".* FROM "categories" ORDER BY name asc LIMIT 5 OFFSET 0[0m
+Rendered categories/_categories.html.erb (7.6ms)
+Rendered layouts/_menu.html.erb (1.3ms)
+Rendered categories/index.html.erb within layouts/application (19.5ms)
+Completed 200 OK in 40ms (Views: 29.7ms | ActiveRecord: 0.6ms)
+
+
+Started GET "/categories" for 192.168.1.2 at Wed May 11 13:32:56 -0300 2011
+  Processing by CategoriesController#index as HTML
+  [1m[35mCategory Load (0.7ms)[0m  SELECT "categories".* FROM "categories" ORDER BY name asc LIMIT 5 OFFSET 0
+Rendered categories/_categories.html.erb (7.9ms)
+Rendered layouts/_menu.html.erb (1.7ms)
+Rendered categories/index.html.erb within layouts/application (115.7ms)
+Completed 200 OK in 135ms (Views: 125.5ms | ActiveRecord: 0.7ms)
+
+
+Started GET "/categories" for 192.168.1.2 at Wed May 11 13:33:00 -0300 2011
+  Processing by CategoriesController#index as */*
+  [1m[36mCategory Load (1.0ms)[0m  [1mSELECT "categories".* FROM "categories" ORDER BY name asc LIMIT 5 OFFSET 0[0m
+Rendered categories/_categories.html.erb (7.8ms)
+Rendered layouts/_menu.html.erb (1.4ms)
+Rendered categories/index.html.erb within layouts/application (19.8ms)
+Completed 200 OK in 76ms (Views: 63.0ms | ActiveRecord: 1.0ms)
+
+
+Started GET "/categories" for 192.168.1.2 at Wed May 11 13:33:00 -0300 2011
+  Processing by CategoriesController#index as */*
+  [1m[35mCategory Load (0.7ms)[0m  SELECT "categories".* FROM "categories" ORDER BY name asc LIMIT 5 OFFSET 0
+Rendered categories/_categories.html.erb (8.4ms)
+Rendered layouts/_menu.html.erb (1.5ms)
+Rendered categories/index.html.erb within layouts/application (20.4ms)
+Completed 200 OK in 79ms (Views: 53.3ms | ActiveRecord: 0.7ms)
+
+
+Started GET "/categories?direction=asc&sort=topic" for 192.168.1.2 at Wed May 11 13:33:03 -0300 2011
+  Processing by CategoriesController#index as HTML
+  Parameters: {"sort"=>"topic", "direction"=>"asc"}
+  [1m[36mCategory Load (0.7ms)[0m  [1mSELECT "categories".* FROM "categories" ORDER BY topic asc LIMIT 5 OFFSET 0[0m
+Rendered categories/_categories.html.erb (7.8ms)
+Rendered layouts/_menu.html.erb (1.7ms)
+Rendered categories/index.html.erb within layouts/application (20.1ms)
+Completed 200 OK in 135ms (Views: 124.8ms | ActiveRecord: 0.7ms)
+
+
+Started GET "/categories?direction=asc&sort=name" for 192.168.1.2 at Wed May 11 13:33:06 -0300 2011
+  Processing by CategoriesController#index as HTML
+  Parameters: {"sort"=>"name", "direction"=>"asc"}
+  [1m[35mCategory Load (0.7ms)[0m  SELECT "categories".* FROM "categories" ORDER BY name asc LIMIT 5 OFFSET 0
+Rendered categories/_categories.html.erb (8.4ms)
+Rendered layouts/_menu.html.erb (1.3ms)
+Rendered categories/index.html.erb within layouts/application (19.9ms)
+Completed 200 OK in 40ms (Views: 29.6ms | ActiveRecord: 0.7ms)
+
+
+Started GET "/categories?direction=asc&sort=place" for 192.168.1.2 at Wed May 11 13:33:07 -0300 2011
+  Processing by CategoriesController#index as HTML
+  Parameters: {"sort"=>"place", "direction"=>"asc"}
+  [1m[36mCategory Load (0.7ms)[0m  [1mSELECT "categories".* FROM "categories" ORDER BY place asc LIMIT 5 OFFSET 0[0m
+Rendered categories/_categories.html.erb (7.5ms)
+Rendered layouts/_menu.html.erb (1.4ms)
+Rendered categories/index.html.erb within layouts/application (18.9ms)
+Completed 200 OK in 39ms (Views: 28.6ms | ActiveRecord: 0.7ms)
+
+
+Started GET "/products" for 192.168.1.2 at Wed May 11 13:33:09 -0300 2011
+  Processing by ProductsController#index as HTML
+  [1m[35mProduct Load (0.7ms)[0m  SELECT "products".* FROM "products" ORDER BY name asc LIMIT 5 OFFSET 0
+Rendered products/_products.html.erb (11.2ms)
+Rendered layouts/_menu.html.erb (1.6ms)
+Rendered products/index.html.erb within layouts/application (24.6ms)
+Completed 200 OK in 46ms (Views: 35.5ms | ActiveRecord: 0.7ms)
+
+
+Started GET "/products?direction=asc&sort=price" for 192.168.1.2 at Wed May 11 13:33:11 -0300 2011
+  Processing by ProductsController#index as HTML
+  Parameters: {"sort"=>"price", "direction"=>"asc"}
+  [1m[36mProduct Load (0.7ms)[0m  [1mSELECT "products".* FROM "products" ORDER BY price asc LIMIT 5 OFFSET 0[0m
+Rendered products/_products.html.erb (10.9ms)
+Rendered layouts/_menu.html.erb (1.5ms)
+Rendered products/index.html.erb within layouts/application (23.5ms)
+Completed 200 OK in 44ms (Views: 33.0ms | ActiveRecord: 0.7ms)
+
+
+Started GET "/products?direction=asc&sort=released_at" for 192.168.1.2 at Wed May 11 13:33:13 -0300 2011
+  Processing by ProductsController#index as HTML
+  Parameters: {"sort"=>"released_at", "direction"=>"asc"}
+  [1m[35mProduct Load (0.7ms)[0m  SELECT "products".* FROM "products" ORDER BY released_at asc LIMIT 5 OFFSET 0
+Rendered products/_products.html.erb (10.4ms)
+Rendered layouts/_menu.html.erb (1.4ms)
+Rendered products/index.html.erb within layouts/application (22.1ms)
+Completed 200 OK in 42ms (Views: 31.9ms | ActiveRecord: 0.7ms)
+
+
+Started GET "/products?direction=asc&sort=name" for 192.168.1.2 at Wed May 11 13:33:15 -0300 2011
+  Processing by ProductsController#index as HTML
+  Parameters: {"sort"=>"name", "direction"=>"asc"}
+  [1m[36mProduct Load (0.6ms)[0m  [1mSELECT "products".* FROM "products" ORDER BY name asc LIMIT 5 OFFSET 0[0m
+Rendered products/_products.html.erb (10.1ms)
+Rendered layouts/_menu.html.erb (1.5ms)
+Rendered products/index.html.erb within layouts/application (21.9ms)
+Completed 200 OK in 42ms (Views: 31.6ms | ActiveRecord: 0.6ms)
+
+
+Started GET "/products?utf8=%E2%9C%93&search=wii&direction=asc&sort=name" for 192.168.1.2 at Wed May 11 13:33:20 -0300 2011
+  Processing by ProductsController#index as HTML
+  Parameters: {"utf8"=>"✓", "sort"=>"name", "direction"=>"asc", "search"=>"wii"}
+  [1m[35mProduct Load (2.6ms)[0m  SELECT "products".* FROM "products" WHERE (name LIKE '%wii%') ORDER BY name asc LIMIT 5 OFFSET 0
+Rendered products/_products.html.erb (9.2ms)
+Rendered layouts/_menu.html.erb (1.5ms)
+Rendered products/index.html.erb within layouts/application (121.4ms)
+Completed 200 OK in 144ms (Views: 131.3ms | ActiveRecord: 2.6ms)
+
+
+Started GET "/products?utf8=%E2%9C%93&search=&direction=asc&sort=name" for 192.168.1.2 at Wed May 11 13:33:24 -0300 2011
+  Processing by ProductsController#index as HTML
+  Parameters: {"utf8"=>"✓", "sort"=>"name", "direction"=>"asc", "search"=>""}
+  [1m[36mProduct Load (0.8ms)[0m  [1mSELECT "products".* FROM "products" WHERE (name LIKE '%%') ORDER BY name asc LIMIT 5 OFFSET 0[0m
+Rendered products/_products.html.erb (10.3ms)
+Rendered layouts/_menu.html.erb (1.5ms)
+Rendered products/index.html.erb within layouts/application (22.9ms)
+Completed 200 OK in 48ms (Views: 33.0ms | ActiveRecord: 0.8ms)
+
+
+Started GET "/categories?direction=desc&sort=topic" for 127.0.0.1 at Wed May 11 13:38:16 -0300 2011
+  Processing by CategoriesController#index as HTML
+  Parameters: {"sort"=>"topic", "direction"=>"desc"}
+  [1m[35mCategory Load (0.8ms)[0m  SELECT "categories".* FROM "categories" ORDER BY topic desc LIMIT 5 OFFSET 0
+Rendered categories/_categories.html.erb (8.5ms)
+Rendered layouts/_menu.html.erb (1.6ms)
+Rendered categories/index.html.erb within layouts/application (23.6ms)
+Completed 200 OK in 60ms (Views: 35.2ms | ActiveRecord: 0.8ms)
+
+
+Started GET "/history.js" for 127.0.0.1 at Wed May 11 13:38:16 -0300 2011
+
+ActionController::RoutingError (No route matches "/history.js"):
+  
+
+Rendered /opt/local/lib/ruby/gems/1.8/gems/actionpack-3.0.3/lib/action_dispatch/middleware/templates/rescues/routing_error.erb within rescues/layout (1.4ms)
+
+
+Started GET "/history.js" for 127.0.0.1 at Wed May 11 13:38:16 -0300 2011
+
+ActionController::RoutingError (No route matches "/history.js"):
+  
+
+Rendered /opt/local/lib/ruby/gems/1.8/gems/actionpack-3.0.3/lib/action_dispatch/middleware/templates/rescues/routing_error.erb within rescues/layout (1.2ms)
+
+
+Started GET "/categories?direction=asc&sort=topic" for 127.0.0.1 at Wed May 11 13:38:19 -0300 2011
+  Processing by CategoriesController#index as JS
+  Parameters: {"sort"=>"topic", "direction"=>"asc"}
+  [1m[36mCategory Load (0.7ms)[0m  [1mSELECT "categories".* FROM "categories" ORDER BY topic asc LIMIT 5 OFFSET 0[0m
+Rendered categories/_categories.html.erb (8.0ms)
+Rendered categories/index.js.erb (11.7ms)
+Completed 200 OK in 35ms (Views: 24.8ms | ActiveRecord: 0.7ms)
+
+
+Started GET "/categories?direction=desc&sort=topic" for 127.0.0.1 at Wed May 11 13:38:21 -0300 2011
+  Processing by CategoriesController#index as JS
+  Parameters: {"sort"=>"topic", "direction"=>"desc"}
+  [1m[35mCategory Load (0.7ms)[0m  SELECT "categories".* FROM "categories" ORDER BY topic desc LIMIT 5 OFFSET 0
+Rendered categories/_categories.html.erb (8.6ms)
+Rendered categories/index.js.erb (14.3ms)
+Completed 200 OK in 40ms (Views: 28.7ms | ActiveRecord: 0.7ms)
+
+
+Started GET "/categories?direction=asc&sort=place" for 127.0.0.1 at Wed May 11 13:38:22 -0300 2011
+  Processing by CategoriesController#index as JS
+  Parameters: {"sort"=>"place", "direction"=>"asc"}
+  [1m[36mCategory Load (0.7ms)[0m  [1mSELECT "categories".* FROM "categories" ORDER BY place asc LIMIT 5 OFFSET 0[0m
+Rendered categories/_categories.html.erb (8.0ms)
+Rendered categories/index.js.erb (11.5ms)
+Completed 200 OK in 34ms (Views: 24.2ms | ActiveRecord: 0.7ms)
+
+
+Started GET "/categories?direction=desc&sort=place" for 127.0.0.1 at Wed May 11 13:38:23 -0300 2011
+  Processing by CategoriesController#index as JS
+  Parameters: {"sort"=>"place", "direction"=>"desc"}
+  [1m[35mCategory Load (0.6ms)[0m  SELECT "categories".* FROM "categories" ORDER BY place desc LIMIT 5 OFFSET 0
+Rendered categories/_categories.html.erb (7.9ms)
+Rendered categories/index.js.erb (11.4ms)
+Completed 200 OK in 34ms (Views: 24.0ms | ActiveRecord: 0.6ms)
+
+
+Started GET "/categories?direction=asc&sort=name" for 127.0.0.1 at Wed May 11 13:38:25 -0300 2011
+  Processing by CategoriesController#index as JS
+  Parameters: {"sort"=>"name", "direction"=>"asc"}
+  [1m[36mCategory Load (0.7ms)[0m  [1mSELECT "categories".* FROM "categories" ORDER BY name asc LIMIT 5 OFFSET 0[0m
+Rendered categories/_categories.html.erb (9.8ms)
+Rendered categories/index.js.erb (15.4ms)
+Completed 200 OK in 40ms (Views: 29.6ms | ActiveRecord: 0.7ms)
+
+
+Started GET "/products?utf8=%E2%9C%93&search=&direction=asc&sort=name" for 192.168.1.2 at Wed May 11 13:38:29 -0300 2011
+  Processing by ProductsController#index as */*
+  Parameters: {"utf8"=>"✓", "sort"=>"name", "direction"=>"asc", "search"=>""}
+  [1m[35mProduct Load (0.7ms)[0m  SELECT "products".* FROM "products" WHERE (name LIKE '%%') ORDER BY name asc LIMIT 5 OFFSET 0
+Rendered products/_products.html.erb (10.9ms)
+Rendered layouts/_menu.html.erb (2.5ms)
+Rendered products/index.html.erb within layouts/application (25.9ms)
+Completed 200 OK in 68ms (Views: 57.7ms | ActiveRecord: 0.7ms)
+
+
+Started GET "/history.js" for 192.168.1.2 at Wed May 11 13:38:29 -0300 2011
+
+ActionController::RoutingError (No route matches "/history.js"):
+  
+
+Rendered /opt/local/lib/ruby/gems/1.8/gems/actionpack-3.0.3/lib/action_dispatch/middleware/templates/rescues/routing_error.erb within rescues/layout (1.2ms)
+
+
+Started GET "/products?direction=asc&search=&sort=price&utf8=%E2%9C%93" for 192.168.1.2 at Wed May 11 13:38:33 -0300 2011
+  Processing by ProductsController#index as HTML
+  Parameters: {"utf8"=>"✓", "sort"=>"price", "direction"=>"asc", "search"=>""}
+  [1m[36mProduct Load (0.7ms)[0m  [1mSELECT "products".* FROM "products" WHERE (name LIKE '%%') ORDER BY price asc LIMIT 5 OFFSET 0[0m
+Rendered products/_products.html.erb (105.1ms)
+Rendered layouts/_menu.html.erb (1.8ms)
+Rendered products/index.html.erb within layouts/application (118.3ms)
+Completed 200 OK in 139ms (Views: 128.6ms | ActiveRecord: 0.7ms)
+
+
+Started GET "/history.js" for 192.168.1.2 at Wed May 11 13:38:33 -0300 2011
+
+ActionController::RoutingError (No route matches "/history.js"):
+  
+
+Rendered /opt/local/lib/ruby/gems/1.8/gems/actionpack-3.0.3/lib/action_dispatch/middleware/templates/rescues/routing_error.erb within rescues/layout (1.2ms)
+
+
+Started GET "/products?direction=asc&search=&sort=released_at&utf8=%E2%9C%93" for 192.168.1.2 at Wed May 11 13:38:35 -0300 2011
+  Processing by ProductsController#index as HTML
+  Parameters: {"utf8"=>"✓", "sort"=>"released_at", "direction"=>"asc", "search"=>""}
+  [1m[35mProduct Load (0.7ms)[0m  SELECT "products".* FROM "products" WHERE (name LIKE '%%') ORDER BY released_at asc LIMIT 5 OFFSET 0
+Rendered products/_products.html.erb (10.5ms)
+Rendered layouts/_menu.html.erb (1.4ms)
+Rendered products/index.html.erb within layouts/application (22.7ms)
+Completed 200 OK in 48ms (Views: 33.6ms | ActiveRecord: 0.7ms)
+
+
+Started GET "/history.js" for 192.168.1.2 at Wed May 11 13:38:35 -0300 2011
+
+ActionController::RoutingError (No route matches "/history.js"):
+  
+
+Rendered /opt/local/lib/ruby/gems/1.8/gems/actionpack-3.0.3/lib/action_dispatch/middleware/templates/rescues/routing_error.erb within rescues/layout (1.2ms)
+
+
+Started GET "/products?direction=asc&search=&sort=name&utf8=%E2%9C%93" for 192.168.1.2 at Wed May 11 13:38:37 -0300 2011
+  Processing by ProductsController#index as HTML
+  Parameters: {"utf8"=>"✓", "sort"=>"name", "direction"=>"asc", "search"=>""}
+  [1m[36mProduct Load (0.7ms)[0m  [1mSELECT "products".* FROM "products" WHERE (name LIKE '%%') ORDER BY name asc LIMIT 5 OFFSET 0[0m
+Rendered products/_products.html.erb (10.4ms)
+Rendered layouts/_menu.html.erb (1.3ms)
+Rendered products/index.html.erb within layouts/application (21.8ms)
+Completed 200 OK in 42ms (Views: 31.7ms | ActiveRecord: 0.7ms)
+
+
+Started GET "/history.js" for 192.168.1.2 at Wed May 11 13:38:38 -0300 2011
+
+ActionController::RoutingError (No route matches "/history.js"):
+  
+
+Rendered /opt/local/lib/ruby/gems/1.8/gems/actionpack-3.0.3/lib/action_dispatch/middleware/templates/rescues/routing_error.erb within rescues/layout (1.2ms)
+
+
+Started GET "/products?direction=asc&search=&sort=price&utf8=%E2%9C%93" for 192.168.1.2 at Wed May 11 13:44:01 -0300 2011
+  Processing by ProductsController#index as HTML
+  Parameters: {"utf8"=>"✓", "sort"=>"price", "direction"=>"asc", "search"=>""}
+  [1m[35mProduct Load (0.7ms)[0m  SELECT "products".* FROM "products" WHERE (name LIKE '%%') ORDER BY price asc LIMIT 5 OFFSET 0
+Rendered products/_products.html.erb (113.6ms)
+Rendered layouts/_menu.html.erb (1.6ms)
+Rendered products/index.html.erb within layouts/application (125.7ms)
+Completed 200 OK in 146ms (Views: 135.7ms | ActiveRecord: 0.7ms)
+
+
+Started GET "/externs.js" for 192.168.1.2 at Wed May 11 13:44:01 -0300 2011
+
+ActionController::RoutingError (No route matches "/externs.js"):
+  
+
+Rendered /opt/local/lib/ruby/gems/1.8/gems/actionpack-3.0.3/lib/action_dispatch/middleware/templates/rescues/routing_error.erb within rescues/layout (1.4ms)
+
+
+Started GET "/history.js" for 192.168.1.2 at Wed May 11 13:44:01 -0300 2011
+
+ActionController::RoutingError (No route matches "/history.js"):
+  
+
+Rendered /opt/local/lib/ruby/gems/1.8/gems/actionpack-3.0.3/lib/action_dispatch/middleware/templates/rescues/routing_error.erb within rescues/layout (1.3ms)
+
+
+Started GET "/products?direction=asc&search=&sort=price&utf8=%E2%9C%93" for 192.168.1.2 at Wed May 11 13:44:33 -0300 2011
+  Processing by ProductsController#index as */*
+  Parameters: {"utf8"=>"✓", "sort"=>"price", "direction"=>"asc", "search"=>""}
+  [1m[36mProduct Load (0.7ms)[0m  [1mSELECT "products".* FROM "products" WHERE (name LIKE '%%') ORDER BY price asc LIMIT 5 OFFSET 0[0m
+Rendered products/_products.html.erb (9.9ms)
+Rendered layouts/_menu.html.erb (1.3ms)
+Rendered products/index.html.erb within layouts/application (21.2ms)
+Completed 200 OK in 61ms (Views: 51.6ms | ActiveRecord: 0.7ms)
+
+
+Started GET "/products?direction=desc&search=&sort=price&utf8=%E2%9C%93" for 192.168.1.2 at Wed May 11 13:44:37 -0300 2011
+  Processing by ProductsController#index as HTML
+  Parameters: {"utf8"=>"✓", "sort"=>"price", "direction"=>"desc", "search"=>""}
+  [1m[35mProduct Load (0.8ms)[0m  SELECT "products".* FROM "products" WHERE (name LIKE '%%') ORDER BY price desc LIMIT 5 OFFSET 0
+Rendered products/_products.html.erb (10.5ms)
+Rendered layouts/_menu.html.erb (1.7ms)
+Rendered products/index.html.erb within layouts/application (22.8ms)
+Completed 200 OK in 137ms (Views: 32.8ms | ActiveRecord: 0.8ms)
+
+
+Started GET "/products?direction=desc&search=&sort=price&utf8=%E2%9C%93" for 192.168.1.2 at Wed May 11 13:44:43 -0300 2011
+  Processing by ProductsController#index as */*
+  Parameters: {"utf8"=>"✓", "sort"=>"price", "direction"=>"desc", "search"=>""}
+  [1m[36mProduct Load (0.7ms)[0m  [1mSELECT "products".* FROM "products" WHERE (name LIKE '%%') ORDER BY price desc LIMIT 5 OFFSET 0[0m
+Rendered products/_products.html.erb (10.8ms)
+Rendered layouts/_menu.html.erb (1.4ms)
+Rendered products/index.html.erb within layouts/application (22.4ms)
+Completed 200 OK in 65ms (Views: 54.3ms | ActiveRecord: 0.7ms)
+
+
+Started GET "/products?direction=asc&search=&sort=price&utf8=%E2%9C%93" for 192.168.1.2 at Wed May 11 13:44:47 -0300 2011
+  Processing by ProductsController#index as HTML
+  Parameters: {"utf8"=>"✓", "sort"=>"price", "direction"=>"asc", "search"=>""}
+  [1m[35mProduct Load (0.7ms)[0m  SELECT "products".* FROM "products" WHERE (name LIKE '%%') ORDER BY price asc LIMIT 5 OFFSET 0
+Rendered products/_products.html.erb (10.5ms)
+Rendered layouts/_menu.html.erb (1.4ms)
+Rendered products/index.html.erb within layouts/application (22.6ms)
+Completed 200 OK in 43ms (Views: 32.2ms | ActiveRecord: 0.7ms)
+
+
+Started GET "/products?direction=asc&search=&sort=released_at&utf8=%E2%9C%93" for 192.168.1.2 at Wed May 11 13:44:49 -0300 2011
+  Processing by ProductsController#index as HTML
+  Parameters: {"utf8"=>"✓", "sort"=>"released_at", "direction"=>"asc", "search"=>""}
+  [1m[36mProduct Load (0.7ms)[0m  [1mSELECT "products".* FROM "products" WHERE (name LIKE '%%') ORDER BY released_at asc LIMIT 5 OFFSET 0[0m
+Rendered products/_products.html.erb (10.4ms)
+Rendered layouts/_menu.html.erb (1.6ms)
+Rendered products/index.html.erb within layouts/application (22.7ms)
+Completed 200 OK in 43ms (Views: 32.2ms | ActiveRecord: 0.7ms)
+
+
+Started GET "/products?direction=desc&search=&sort=released_at&utf8=%E2%9C%93" for 192.168.1.2 at Wed May 11 13:44:50 -0300 2011
+  Processing by ProductsController#index as HTML
+  Parameters: {"utf8"=>"✓", "sort"=>"released_at", "direction"=>"desc", "search"=>""}
+  [1m[35mProduct Load (0.7ms)[0m  SELECT "products".* FROM "products" WHERE (name LIKE '%%') ORDER BY released_at desc LIMIT 5 OFFSET 0
+Rendered products/_products.html.erb (9.9ms)
+Rendered layouts/_menu.html.erb (1.5ms)
+Rendered products/index.html.erb within layouts/application (21.8ms)
+Completed 200 OK in 42ms (Views: 31.4ms | ActiveRecord: 0.7ms)
+
+
+Started GET "/products?direction=asc&search=&sort=name&utf8=%E2%9C%93" for 192.168.1.2 at Wed May 11 13:44:52 -0300 2011
+  Processing by ProductsController#index as HTML
+  Parameters: {"utf8"=>"✓", "sort"=>"name", "direction"=>"asc", "search"=>""}
+  [1m[36mProduct Load (0.7ms)[0m  [1mSELECT "products".* FROM "products" WHERE (name LIKE '%%') ORDER BY name asc LIMIT 5 OFFSET 0[0m
+Rendered products/_products.html.erb (10.5ms)
+Rendered layouts/_menu.html.erb (1.4ms)
+Rendered products/index.html.erb within layouts/application (22.5ms)
+Completed 200 OK in 43ms (Views: 32.3ms | ActiveRecord: 0.7ms)
+
+
+Started GET "/products?direction=desc&search=&sort=name&utf8=%E2%9C%93" for 192.168.1.2 at Wed May 11 13:45:20 -0300 2011
+  Processing by ProductsController#index as HTML
+  Parameters: {"utf8"=>"✓", "sort"=>"name", "direction"=>"desc", "search"=>""}
+  [1m[35mProduct Load (0.7ms)[0m  SELECT "products".* FROM "products" WHERE (name LIKE '%%') ORDER BY name desc LIMIT 5 OFFSET 0
+Rendered products/_products.html.erb (110.1ms)
+Rendered layouts/_menu.html.erb (1.5ms)
+Rendered products/index.html.erb within layouts/application (121.9ms)
+Completed 200 OK in 142ms (Views: 131.7ms | ActiveRecord: 0.7ms)
+
+
+Started GET "/products?direction=asc&search=&sort=name&utf8=%E2%9C%93" for 192.168.1.2 at Wed May 11 13:45:21 -0300 2011
+  Processing by ProductsController#index as HTML
+  Parameters: {"utf8"=>"✓", "sort"=>"name", "direction"=>"asc", "search"=>""}
+  [1m[36mProduct Load (0.7ms)[0m  [1mSELECT "products".* FROM "products" WHERE (name LIKE '%%') ORDER BY name asc LIMIT 5 OFFSET 0[0m
+Rendered products/_products.html.erb (9.9ms)
+Rendered layouts/_menu.html.erb (1.4ms)
+Rendered products/index.html.erb within layouts/application (22.0ms)
+Completed 200 OK in 42ms (Views: 31.6ms | ActiveRecord: 0.7ms)
+
+
+Started GET "/products?direction=asc&search=&sort=name&utf8=%E2%9C%93" for 192.168.1.2 at Wed May 11 13:46:57 -0300 2011
+  Processing by ProductsController#index as */*
+  Parameters: {"utf8"=>"✓", "sort"=>"name", "direction"=>"asc", "search"=>""}
+  [1m[35mProduct Load (0.7ms)[0m  SELECT "products".* FROM "products" WHERE (name LIKE '%%') ORDER BY name asc LIMIT 5 OFFSET 0
+Rendered products/_products.html.erb (10.6ms)
+Rendered layouts/_menu.html.erb (1.5ms)
+Rendered products/index.html.erb within layouts/application (23.4ms)
+Completed 200 OK in 66ms (Views: 55.7ms | ActiveRecord: 0.7ms)
+
+
+Started GET "/products?direction=asc&search=&sort=name&utf8=%E2%9C%93" for 192.168.1.2 at Wed May 11 13:47:11 -0300 2011
+  Processing by ProductsController#index as */*
+  Parameters: {"utf8"=>"✓", "sort"=>"name", "direction"=>"asc", "search"=>""}
+  [1m[36mProduct Load (0.8ms)[0m  [1mSELECT "products".* FROM "products" WHERE (name LIKE '%%') ORDER BY name asc LIMIT 5 OFFSET 0[0m
+Rendered products/_products.html.erb (11.1ms)
+Rendered layouts/_menu.html.erb (1.4ms)
+Rendered products/index.html.erb within layouts/application (122.7ms)
+Completed 200 OK in 165ms (Views: 154.0ms | ActiveRecord: 0.8ms)
+
+
+Started GET "/products" for 192.168.1.2 at Wed May 11 13:48:09 -0300 2011
+  Processing by ProductsController#index as HTML
+  [1m[35mProduct Load (0.7ms)[0m  SELECT "products".* FROM "products" ORDER BY name asc LIMIT 5 OFFSET 0
+Rendered products/_products.html.erb (10.0ms)
+Rendered layouts/_menu.html.erb (1.4ms)
+Rendered products/index.html.erb within layouts/application (21.4ms)
+Completed 200 OK in 41ms (Views: 30.9ms | ActiveRecord: 0.7ms)
+
+
+Started GET "/products" for 192.168.1.2 at Wed May 11 13:48:22 -0300 2011
+  Processing by ProductsController#index as */*
+  [1m[36mProduct Load (0.7ms)[0m  [1mSELECT "products".* FROM "products" ORDER BY name asc LIMIT 5 OFFSET 0[0m
+Rendered products/_products.html.erb (11.2ms)
+Rendered layouts/_menu.html.erb (1.6ms)
+Rendered products/index.html.erb within layouts/application (23.1ms)
+Completed 200 OK in 66ms (Views: 55.1ms | ActiveRecord: 0.7ms)
+
+
+Started GET "/categories?direction=asc&sort=name" for 127.0.0.1 at Wed May 11 13:50:14 -0300 2011
+  Processing by CategoriesController#index as HTML
+  Parameters: {"sort"=>"name", "direction"=>"asc"}
+  [1m[35mCategory Load (0.7ms)[0m  SELECT "categories".* FROM "categories" ORDER BY name asc LIMIT 5 OFFSET 0
+Rendered categories/_categories.html.erb (9.6ms)
+Rendered layouts/_menu.html.erb (1.4ms)
+Rendered categories/index.html.erb within layouts/application (23.2ms)
+Completed 200 OK in 47ms (Views: 34.7ms | ActiveRecord: 0.7ms)
+
+
+Started GET "/categories?direction=asc&sort=name" for 127.0.0.1 at Wed May 11 13:52:37 -0300 2011
+  Processing by CategoriesController#index as HTML
+  Parameters: {"sort"=>"name", "direction"=>"asc"}
+  [1m[36mCategory Load (0.7ms)[0m  [1mSELECT "categories".* FROM "categories" ORDER BY name asc LIMIT 5 OFFSET 0[0m
+Rendered categories/_categories.html.erb (10.2ms)
+Rendered layouts/_menu.html.erb (1.6ms)
+Rendered categories/index.html.erb within layouts/application (26.4ms)
+Completed 200 OK in 49ms (Views: 37.2ms | ActiveRecord: 0.7ms)
+
+
+Started GET "/categories?direction=asc&sort=topic&_=1305132760126" for 127.0.0.1 at Wed May 11 13:52:40 -0300 2011
+  Processing by CategoriesController#index as JS
+  Parameters: {"sort"=>"topic", "_"=>"1305132760126", "direction"=>"asc"}
+  [1m[35mCategory Load (0.7ms)[0m  SELECT "categories".* FROM "categories" ORDER BY topic asc LIMIT 5 OFFSET 0
+Rendered categories/_categories.html.erb (11.1ms)
+Rendered categories/index.js.erb (15.1ms)
+Completed 200 OK in 47ms (Views: 36.2ms | ActiveRecord: 0.7ms)
+
+
+Started GET "/categories?_=1305132761743&direction=desc&sort=topic" for 127.0.0.1 at Wed May 11 13:52:41 -0300 2011
+  Processing by CategoriesController#index as JS
+  Parameters: {"sort"=>"topic", "direction"=>"desc", "_"=>"1305132761743"}
+  [1m[36mCategory Load (0.7ms)[0m  [1mSELECT "categories".* FROM "categories" ORDER BY topic desc LIMIT 5 OFFSET 0[0m
+Rendered categories/_categories.html.erb (8.0ms)
+Rendered categories/index.js.erb (11.7ms)
+Completed 200 OK in 41ms (Views: 30.4ms | ActiveRecord: 0.7ms)
+
+
+Started GET "/categories?_=1305132763059&direction=asc&sort=name" for 127.0.0.1 at Wed May 11 13:52:43 -0300 2011
+  Processing by CategoriesController#index as JS
+  Parameters: {"sort"=>"name", "direction"=>"asc", "_"=>"1305132763059"}
+  [1m[35mCategory Load (0.6ms)[0m  SELECT "categories".* FROM "categories" ORDER BY name asc LIMIT 5 OFFSET 0
+Rendered categories/_categories.html.erb (7.9ms)
+Rendered categories/index.js.erb (11.4ms)
+Completed 200 OK in 40ms (Views: 29.6ms | ActiveRecord: 0.6ms)
+
+
+Started GET "/categories?_=1305132764507&direction=asc&sort=place" for 127.0.0.1 at Wed May 11 13:52:44 -0300 2011
+  Processing by CategoriesController#index as JS
+  Parameters: {"sort"=>"place", "direction"=>"asc", "_"=>"1305132764507"}
+  [1m[36mCategory Load (0.7ms)[0m  [1mSELECT "categories".* FROM "categories" ORDER BY place asc LIMIT 5 OFFSET 0[0m
+Rendered categories/_categories.html.erb (7.8ms)
+Rendered categories/index.js.erb (11.4ms)
+Completed 200 OK in 40ms (Views: 29.2ms | ActiveRecord: 0.7ms)
+
+
+Started GET "/categories?_=1305132766015&direction=asc&sort=topic" for 127.0.0.1 at Wed May 11 13:52:46 -0300 2011
+  Processing by CategoriesController#index as JS
+  Parameters: {"sort"=>"topic", "direction"=>"asc", "_"=>"1305132766015"}
+  [1m[35mCategory Load (0.6ms)[0m  SELECT "categories".* FROM "categories" ORDER BY topic asc LIMIT 5 OFFSET 0
+Rendered categories/_categories.html.erb (8.2ms)
+Rendered categories/index.js.erb (11.8ms)
+Completed 200 OK in 40ms (Views: 29.9ms | ActiveRecord: 0.6ms)
+
+
+Started GET "/products" for 192.168.1.2 at Wed May 11 13:52:49 -0300 2011
+  Processing by ProductsController#index as */*
+  [1m[36mProduct Load (0.7ms)[0m  [1mSELECT "products".* FROM "products" ORDER BY name asc LIMIT 5 OFFSET 0[0m
+Rendered products/_products.html.erb (10.8ms)
+Rendered layouts/_menu.html.erb (1.5ms)
+Rendered products/index.html.erb within layouts/application (23.3ms)
+Completed 200 OK in 68ms (Views: 57.4ms | ActiveRecord: 0.7ms)
+
+
+Started GET "/" for 192.168.1.2 at Wed May 11 13:53:12 -0300 2011
+  Processing by ProductsController#index as HTML
+  [1m[35mProduct Load (0.7ms)[0m  SELECT "products".* FROM "products" ORDER BY name asc LIMIT 5 OFFSET 0
+Rendered products/_products.html.erb (9.7ms)
+Rendered layouts/_menu.html.erb (1.3ms)
+Rendered products/index.html.erb within layouts/application (21.2ms)
+Completed 200 OK in 43ms (Views: 32.0ms | ActiveRecord: 0.7ms)
+
+
+Started GET "/products" for 192.168.1.2 at Wed May 11 13:53:14 -0300 2011
+  Processing by ProductsController#index as HTML
+  [1m[36mProduct Load (0.7ms)[0m  [1mSELECT "products".* FROM "products" ORDER BY name asc LIMIT 5 OFFSET 0[0m
+Rendered products/_products.html.erb (9.8ms)
+Rendered layouts/_menu.html.erb (1.4ms)
+Rendered products/index.html.erb within layouts/application (21.3ms)
+Completed 200 OK in 42ms (Views: 31.2ms | ActiveRecord: 0.7ms)
+
+
+Started GET "/products" for 192.168.1.2 at Wed May 11 13:53:42 -0300 2011
+  Processing by ProductsController#index as */*
+  [1m[35mProduct Load (0.7ms)[0m  SELECT "products".* FROM "products" ORDER BY name asc LIMIT 5 OFFSET 0
+Rendered products/_products.html.erb (10.3ms)
+Rendered layouts/_menu.html.erb (1.4ms)
+Rendered products/index.html.erb within layouts/application (21.8ms)
+Completed 200 OK in 63ms (Views: 52.9ms | ActiveRecord: 0.7ms)
+
+
+Started GET "/products" for 127.0.0.1 at Wed May 11 13:59:06 -0300 2011
+  Processing by ProductsController#index as HTML
+  [1m[36mProduct Load (0.7ms)[0m  [1mSELECT "products".* FROM "products" ORDER BY name asc LIMIT 5 OFFSET 0[0m
+Rendered products/_products.html.erb (26.7ms)
+Rendered layouts/_menu.html.erb (1.4ms)
+Rendered products/index.html.erb within layouts/application (42.0ms)
+Completed 200 OK in 69ms (Views: 55.4ms | ActiveRecord: 0.7ms)
+
+
+Started GET "/products" for 127.0.0.1 at Wed May 11 13:59:08 -0300 2011
+  Processing by ProductsController#index as HTML
+  [1m[35mProduct Load (0.8ms)[0m  SELECT "products".* FROM "products" ORDER BY name asc LIMIT 5 OFFSET 0
+Rendered products/_products.html.erb (13.5ms)
+Rendered layouts/_menu.html.erb (1.8ms)
+Rendered products/index.html.erb within layouts/application (27.6ms)
+Completed 200 OK in 58ms (Views: 44.7ms | ActiveRecord: 0.8ms)
+
+
+Started GET "/products" for 127.0.0.1 at Wed May 11 13:59:56 -0300 2011
+  Processing by ProductsController#index as HTML
+  [1m[36mProduct Load (0.7ms)[0m  [1mSELECT "products".* FROM "products" ORDER BY name asc LIMIT 5 OFFSET 0[0m
+Rendered products/_products.html.erb (23.2ms)
+Rendered layouts/_menu.html.erb (1.4ms)
+Rendered products/index.html.erb within layouts/application (37.1ms)
+Completed 200 OK in 60ms (Views: 48.6ms | ActiveRecord: 0.7ms)
+
+
+Started GET "/products?direction=desc&sort=name&_=1305133203649" for 127.0.0.1 at Wed May 11 14:00:03 -0300 2011
+  Processing by ProductsController#index as JS
+  Parameters: {"sort"=>"name", "_"=>"1305133203649", "direction"=>"desc"}
+  [1m[35mProduct Load (0.7ms)[0m  SELECT "products".* FROM "products" ORDER BY name desc LIMIT 5 OFFSET 0
+Rendered products/_products.html.erb (10.9ms)
+Rendered products/index.js.erb (15.4ms)
+Completed 200 OK in 44ms (Views: 33.7ms | ActiveRecord: 0.7ms)
+
+
+Started GET "/products?_=1305133207501&direction=asc&sort=price" for 127.0.0.1 at Wed May 11 14:00:07 -0300 2011
+  Processing by ProductsController#index as JS
+  Parameters: {"sort"=>"price", "direction"=>"asc", "_"=>"1305133207501"}
+  [1m[36mProduct Load (0.7ms)[0m  [1mSELECT "products".* FROM "products" ORDER BY price asc LIMIT 5 OFFSET 0[0m
+Rendered products/_products.html.erb (10.4ms)
+Rendered products/index.js.erb (14.1ms)
+Completed 200 OK in 44ms (Views: 31.7ms | ActiveRecord: 0.7ms)
+
+
+Started GET "/products?_=1305133209123&direction=asc&sort=released_at" for 127.0.0.1 at Wed May 11 14:00:09 -0300 2011
+  Processing by ProductsController#index as JS
+  Parameters: {"sort"=>"released_at", "direction"=>"asc", "_"=>"1305133209123"}
+  [1m[35mProduct Load (2.4ms)[0m  SELECT "products".* FROM "products" ORDER BY released_at asc LIMIT 5 OFFSET 0
+Rendered products/_products.html.erb (22.4ms)
+Rendered products/index.js.erb (26.4ms)
+Completed 200 OK in 64ms (Views: 49.2ms | ActiveRecord: 2.4ms)
+
+
+Started GET "/products?_=1305133210961&direction=asc&sort=name" for 127.0.0.1 at Wed May 11 14:00:11 -0300 2011
+  Processing by ProductsController#index as JS
+  Parameters: {"sort"=>"name", "direction"=>"asc", "_"=>"1305133210961"}
+  [1m[36mProduct Load (0.7ms)[0m  [1mSELECT "products".* FROM "products" ORDER BY name asc LIMIT 5 OFFSET 0[0m
+Rendered products/_products.html.erb (10.4ms)
+Rendered products/index.js.erb (14.0ms)
+Completed 200 OK in 44ms (Views: 32.4ms | ActiveRecord: 0.7ms)
+
+
+Started GET "/products?_=1305133212233&direction=asc&sort=price" for 127.0.0.1 at Wed May 11 14:00:12 -0300 2011
+  Processing by ProductsController#index as JS
+  Parameters: {"sort"=>"price", "direction"=>"asc", "_"=>"1305133212233"}
+  [1m[35mProduct Load (0.7ms)[0m  SELECT "products".* FROM "products" ORDER BY price asc LIMIT 5 OFFSET 0
+Rendered products/_products.html.erb (12.0ms)
+Rendered products/index.js.erb (16.2ms)
+Completed 200 OK in 46ms (Views: 35.1ms | ActiveRecord: 0.7ms)
+
+
+Started GET "/products?_=1305133213077&direction=desc&sort=price" for 127.0.0.1 at Wed May 11 14:00:13 -0300 2011
+  Processing by ProductsController#index as JS
+  Parameters: {"sort"=>"price", "direction"=>"desc", "_"=>"1305133213077"}
+  [1m[36mProduct Load (0.7ms)[0m  [1mSELECT "products".* FROM "products" ORDER BY price desc LIMIT 5 OFFSET 0[0m
+Rendered products/_products.html.erb (10.0ms)
+Rendered products/index.js.erb (13.8ms)
+Completed 200 OK in 42ms (Views: 31.8ms | ActiveRecord: 0.7ms)
+
+
+Started GET "/products?_=1305133214252&direction=asc&sort=price" for 127.0.0.1 at Wed May 11 14:00:14 -0300 2011
+  Processing by ProductsController#index as JS
+  Parameters: {"sort"=>"price", "direction"=>"asc", "_"=>"1305133214252"}
+  [1m[35mProduct Load (0.7ms)[0m  SELECT "products".* FROM "products" ORDER BY price asc LIMIT 5 OFFSET 0
+Rendered products/_products.html.erb (11.3ms)
+Rendered products/index.js.erb (15.0ms)
+Completed 200 OK in 44ms (Views: 33.8ms | ActiveRecord: 0.7ms)
+
+
+Started GET "/products" for 192.168.1.2 at Wed May 11 14:00:18 -0300 2011
+  Processing by ProductsController#index as */*
+  [1m[36mProduct Load (0.7ms)[0m  [1mSELECT "products".* FROM "products" ORDER BY name asc LIMIT 5 OFFSET 0[0m
+Rendered products/_products.html.erb (10.0ms)
+Rendered layouts/_menu.html.erb (1.5ms)
+Rendered products/index.html.erb within layouts/application (22.7ms)
+Completed 200 OK in 70ms (Views: 59.4ms | ActiveRecord: 0.7ms)
+
+
+Started GET "/products?_=1305133219027" for 192.168.1.2 at Wed May 11 14:00:18 -0300 2011
+  Processing by ProductsController#index as JS
+  Parameters: {"_"=>"1305133219027"}
+  [1m[35mProduct Load (0.7ms)[0m  SELECT "products".* FROM "products" ORDER BY name asc LIMIT 5 OFFSET 0
+Rendered products/_products.html.erb (11.1ms)
+Rendered products/index.js.erb (14.7ms)
+Completed 200 OK in 43ms (Views: 31.8ms | ActiveRecord: 0.7ms)
+
+
+Started GET "/products?_=1305133224927&direction=asc&sort=price" for 192.168.1.2 at Wed May 11 14:00:24 -0300 2011
+  Processing by ProductsController#index as JS
+  Parameters: {"sort"=>"price", "direction"=>"asc", "_"=>"1305133224927"}
+  [1m[36mProduct Load (0.7ms)[0m  [1mSELECT "products".* FROM "products" ORDER BY price asc LIMIT 5 OFFSET 0[0m
+Rendered products/_products.html.erb (13.5ms)
+Rendered products/index.js.erb (18.6ms)
+Completed 200 OK in 68ms (Views: 46.5ms | ActiveRecord: 0.7ms)
+
+
+Started GET "/products?_=1305133226766&direction=desc&sort=price" for 192.168.1.2 at Wed May 11 14:00:26 -0300 2011
+  Processing by ProductsController#index as JS
+  Parameters: {"sort"=>"price", "direction"=>"desc", "_"=>"1305133226766"}
+  [1m[35mProduct Load (1.3ms)[0m  SELECT "products".* FROM "products" ORDER BY price desc LIMIT 5 OFFSET 0
+Rendered products/_products.html.erb (10.2ms)
+Rendered products/index.js.erb (13.9ms)
+Completed 200 OK in 88ms (Views: 68.9ms | ActiveRecord: 1.3ms)
+
+
+Started GET "/products?_=1305133228299&direction=asc&sort=price" for 192.168.1.2 at Wed May 11 14:00:27 -0300 2011
+  Processing by ProductsController#index as JS
+  Parameters: {"sort"=>"price", "direction"=>"asc", "_"=>"1305133228299"}
+  [1m[36mProduct Load (0.8ms)[0m  [1mSELECT "products".* FROM "products" ORDER BY price asc LIMIT 5 OFFSET 0[0m
+Rendered products/_products.html.erb (10.4ms)
+Rendered products/index.js.erb (14.5ms)
+Completed 200 OK in 74ms (Views: 40.5ms | ActiveRecord: 0.8ms)
+
+
+Started GET "/products?_=1305133230052&direction=asc&sort=name" for 192.168.1.2 at Wed May 11 14:00:29 -0300 2011
+  Processing by ProductsController#index as JS
+  Parameters: {"sort"=>"name", "direction"=>"asc", "_"=>"1305133230052"}
+  [1m[35mProduct Load (0.7ms)[0m  SELECT "products".* FROM "products" ORDER BY name asc LIMIT 5 OFFSET 0
+Rendered products/_products.html.erb (11.0ms)
+Rendered products/index.js.erb (15.5ms)
+Completed 200 OK in 44ms (Views: 33.1ms | ActiveRecord: 0.7ms)
+
+
+Started GET "/products?_=1305133231632&direction=desc&sort=name" for 192.168.1.2 at Wed May 11 14:00:30 -0300 2011
+  Processing by ProductsController#index as JS
+  Parameters: {"sort"=>"name", "direction"=>"desc", "_"=>"1305133231632"}
+  [1m[36mProduct Load (0.8ms)[0m  [1mSELECT "products".* FROM "products" ORDER BY name desc LIMIT 5 OFFSET 0[0m
+Rendered products/_products.html.erb (10.7ms)
+Rendered products/index.js.erb (19.7ms)
+Completed 200 OK in 67ms (Views: 53.3ms | ActiveRecord: 0.8ms)
+
+
+Started GET "/products?_=1305133233040&direction=asc&sort=name" for 192.168.1.2 at Wed May 11 14:00:32 -0300 2011
+  Processing by ProductsController#index as JS
+  Parameters: {"sort"=>"name", "direction"=>"asc", "_"=>"1305133233040"}
+  [1m[35mProduct Load (0.7ms)[0m  SELECT "products".* FROM "products" ORDER BY name asc LIMIT 5 OFFSET 0
+Rendered products/_products.html.erb (11.5ms)
+Rendered products/index.js.erb (15.3ms)
+Completed 200 OK in 53ms (Views: 42.4ms | ActiveRecord: 0.7ms)
+
+
+Started GET "/products?_=1305133234711&direction=asc&sort=released_at" for 192.168.1.2 at Wed May 11 14:00:34 -0300 2011
+  Processing by ProductsController#index as JS
+  Parameters: {"sort"=>"released_at", "direction"=>"asc", "_"=>"1305133234711"}
+  [1m[36mProduct Load (0.7ms)[0m  [1mSELECT "products".* FROM "products" ORDER BY released_at asc LIMIT 5 OFFSET 0[0m
+Rendered products/_products.html.erb (12.5ms)
+Rendered products/index.js.erb (16.2ms)
+Completed 200 OK in 53ms (Views: 35.6ms | ActiveRecord: 0.7ms)
+
+
+Started GET "/products?_=1305133236300&direction=desc&sort=released_at" for 192.168.1.2 at Wed May 11 14:00:35 -0300 2011
+  Processing by ProductsController#index as JS
+  Parameters: {"sort"=>"released_at", "direction"=>"desc", "_"=>"1305133236300"}
+  [1m[35mProduct Load (0.7ms)[0m  SELECT "products".* FROM "products" ORDER BY released_at desc LIMIT 5 OFFSET 0
+Rendered products/_products.html.erb (11.1ms)
+Rendered products/index.js.erb (15.0ms)
+Completed 200 OK in 43ms (Views: 32.9ms | ActiveRecord: 0.7ms)
+
+
+Started GET "/products?_=1305133237566&direction=asc&sort=released_at" for 192.168.1.2 at Wed May 11 14:00:36 -0300 2011
+  Processing by ProductsController#index as JS
+  Parameters: {"sort"=>"released_at", "direction"=>"asc", "_"=>"1305133237566"}
+  [1m[36mProduct Load (0.8ms)[0m  [1mSELECT "products".* FROM "products" ORDER BY released_at asc LIMIT 5 OFFSET 0[0m
+Rendered products/_products.html.erb (11.8ms)
+Rendered products/index.js.erb (15.7ms)
+Completed 200 OK in 69ms (Views: 54.6ms | ActiveRecord: 0.8ms)
+
+
+Started GET "/products?_=1305133239266&direction=desc&sort=released_at" for 192.168.1.2 at Wed May 11 14:00:38 -0300 2011
+  Processing by ProductsController#index as JS
+  Parameters: {"sort"=>"released_at", "direction"=>"desc", "_"=>"1305133239266"}
+  [1m[35mProduct Load (3.7ms)[0m  SELECT "products".* FROM "products" ORDER BY released_at desc LIMIT 5 OFFSET 0
+Rendered products/_products.html.erb (10.9ms)
+Rendered products/index.js.erb (15.2ms)
+Completed 200 OK in 58ms (Views: 36.0ms | ActiveRecord: 3.7ms)
+
+
+Started GET "/products?_=1305133240890&direction=asc&sort=price" for 192.168.1.2 at Wed May 11 14:00:40 -0300 2011
+  Processing by ProductsController#index as JS
+  Parameters: {"sort"=>"price", "direction"=>"asc", "_"=>"1305133240890"}
+  [1m[36mProduct Load (0.8ms)[0m  [1mSELECT "products".* FROM "products" ORDER BY price asc LIMIT 5 OFFSET 0[0m
+Rendered products/_products.html.erb (38.9ms)
+Rendered products/index.js.erb (43.2ms)
+Completed 200 OK in 78ms (Views: 65.2ms | ActiveRecord: 0.8ms)
+
+
+Started GET "/products?_=1305133242511&direction=desc&sort=price" for 192.168.1.2 at Wed May 11 14:00:41 -0300 2011
+  Processing by ProductsController#index as JS
+  Parameters: {"sort"=>"price", "direction"=>"desc", "_"=>"1305133242511"}
+  [1m[35mProduct Load (0.7ms)[0m  SELECT "products".* FROM "products" ORDER BY price desc LIMIT 5 OFFSET 0
+Rendered products/_products.html.erb (10.0ms)
+Rendered products/index.js.erb (13.7ms)
+Completed 200 OK in 45ms (Views: 32.2ms | ActiveRecord: 0.7ms)
+
+
+Started GET "/products?_=1305133243929&direction=asc&sort=price" for 192.168.1.2 at Wed May 11 14:00:43 -0300 2011
+  Processing by ProductsController#index as JS
+  Parameters: {"sort"=>"price", "direction"=>"asc", "_"=>"1305133243929"}
+  [1m[36mProduct Load (0.8ms)[0m  [1mSELECT "products".* FROM "products" ORDER BY price asc LIMIT 5 OFFSET 0[0m
+Rendered products/_products.html.erb (11.7ms)
+Rendered products/index.js.erb (15.6ms)
+Completed 200 OK in 60ms (Views: 35.9ms | ActiveRecord: 0.8ms)
+
+
+Started GET "/products?_=1305133245672&direction=asc&sort=name" for 192.168.1.2 at Wed May 11 14:00:44 -0300 2011
+  Processing by ProductsController#index as JS
+  Parameters: {"sort"=>"name", "direction"=>"asc", "_"=>"1305133245672"}
+  [1m[35mProduct Load (1.5ms)[0m  SELECT "products".* FROM "products" ORDER BY name asc LIMIT 5 OFFSET 0
+Rendered products/_products.html.erb (10.7ms)
+Rendered products/index.js.erb (14.5ms)
+Completed 200 OK in 52ms (Views: 38.9ms | ActiveRecord: 1.5ms)
+
+
+Started GET "/products?_=1305133247183&direction=desc&sort=name" for 192.168.1.2 at Wed May 11 14:00:46 -0300 2011
+  Processing by ProductsController#index as JS
+  Parameters: {"sort"=>"name", "direction"=>"desc", "_"=>"1305133247183"}
+  [1m[36mProduct Load (2.7ms)[0m  [1mSELECT "products".* FROM "products" ORDER BY name desc LIMIT 5 OFFSET 0[0m
+Rendered products/_products.html.erb (12.0ms)
+Rendered products/index.js.erb (15.7ms)
+Completed 200 OK in 65ms (Views: 43.9ms | ActiveRecord: 2.7ms)
+
+
+Started GET "/products" for 192.168.1.2 at Wed May 11 14:00:49 -0300 2011
+  Processing by ProductsController#index as */*
+  [1m[35mProduct Load (0.7ms)[0m  SELECT "products".* FROM "products" ORDER BY name asc LIMIT 5 OFFSET 0
+Rendered products/_products.html.erb (11.8ms)
+Rendered layouts/_menu.html.erb (1.5ms)
+Rendered products/index.html.erb within layouts/application (23.6ms)
+Completed 200 OK in 69ms (Views: 57.2ms | ActiveRecord: 0.7ms)
+
+
+Started GET "/products" for 192.168.1.2 at Wed May 11 14:00:50 -0300 2011
+  Processing by ProductsController#index as */*
+  [1m[36mProduct Load (0.8ms)[0m  [1mSELECT "products".* FROM "products" ORDER BY name asc LIMIT 5 OFFSET 0[0m
+Rendered products/_products.html.erb (10.5ms)
+Rendered layouts/_menu.html.erb (1.8ms)
+Rendered products/index.html.erb within layouts/application (26.1ms)
+Completed 200 OK in 79ms (Views: 65.9ms | ActiveRecord: 0.8ms)
+
+
+Started GET "/products?_=1305133251274&direction=desc&sort=name" for 192.168.1.2 at Wed May 11 14:00:50 -0300 2011
+  Processing by ProductsController#index as JS
+  Parameters: {"sort"=>"name", "direction"=>"desc", "_"=>"1305133251274"}
+  [1m[35mProduct Load (1.0ms)[0m  SELECT "products".* FROM "products" ORDER BY name desc LIMIT 5 OFFSET 0
+Rendered products/_products.html.erb (10.9ms)
+Rendered products/index.js.erb (15.8ms)
+Completed 200 OK in 101ms (Views: 55.4ms | ActiveRecord: 1.0ms)
+
+
+Started GET "/products?_=1305133255249&direction=asc&sort=price" for 192.168.1.2 at Wed May 11 14:00:54 -0300 2011
+  Processing by ProductsController#index as JS
+  Parameters: {"sort"=>"price", "direction"=>"asc", "_"=>"1305133255249"}
+  [1m[36mProduct Load (0.8ms)[0m  [1mSELECT "products".* FROM "products" ORDER BY price asc LIMIT 5 OFFSET 0[0m
+Rendered products/_products.html.erb (10.5ms)
+Rendered products/index.js.erb (14.3ms)
+Completed 200 OK in 43ms (Views: 32.6ms | ActiveRecord: 0.8ms)
+
+
+Started GET "/products?_=1305133257051&direction=desc&sort=price" for 192.168.1.2 at Wed May 11 14:00:56 -0300 2011
+  Processing by ProductsController#index as JS
+  Parameters: {"sort"=>"price", "direction"=>"desc", "_"=>"1305133257051"}
+  [1m[35mProduct Load (1.0ms)[0m  SELECT "products".* FROM "products" ORDER BY price desc LIMIT 5 OFFSET 0
+Rendered products/_products.html.erb (11.8ms)
+Rendered products/index.js.erb (16.3ms)
+Completed 200 OK in 109ms (Views: 78.0ms | ActiveRecord: 1.0ms)
+
+
+Started GET "/products?_=1305133258892&direction=asc&sort=released_at" for 192.168.1.2 at Wed May 11 14:00:58 -0300 2011
+  Processing by ProductsController#index as JS
+  Parameters: {"sort"=>"released_at", "direction"=>"asc", "_"=>"1305133258892"}
+  [1m[36mProduct Load (0.7ms)[0m  [1mSELECT "products".* FROM "products" ORDER BY released_at asc LIMIT 5 OFFSET 0[0m
+Rendered products/_products.html.erb (31.3ms)
+Rendered products/index.js.erb (35.2ms)
+Completed 200 OK in 69ms (Views: 57.1ms | ActiveRecord: 0.7ms)
+
+
+Started GET "/products?_=1305133260578&direction=desc&sort=released_at" for 192.168.1.2 at Wed May 11 14:00:59 -0300 2011
+  Processing by ProductsController#index as JS
+  Parameters: {"sort"=>"released_at", "direction"=>"desc", "_"=>"1305133260578"}
+  [1m[35mProduct Load (1.0ms)[0m  SELECT "products".* FROM "products" ORDER BY released_at desc LIMIT 5 OFFSET 0
+Rendered products/_products.html.erb (11.8ms)
+Rendered products/index.js.erb (16.0ms)
+Completed 200 OK in 137ms (Views: 94.1ms | ActiveRecord: 1.0ms)
+
+
+Started GET "/products?_=1305133262162&direction=asc&sort=name" for 192.168.1.2 at Wed May 11 14:01:01 -0300 2011
+  Processing by ProductsController#index as JS
+  Parameters: {"sort"=>"name", "direction"=>"asc", "_"=>"1305133262162"}
+  [1m[36mProduct Load (1.2ms)[0m  [1mSELECT "products".* FROM "products" ORDER BY name asc LIMIT 5 OFFSET 0[0m
+Rendered products/_products.html.erb (11.0ms)
+Rendered products/index.js.erb (15.0ms)
+Completed 200 OK in 47ms (Views: 35.3ms | ActiveRecord: 1.2ms)
+
+
+Started GET "/categories" for 192.168.1.2 at Wed May 11 14:01:03 -0300 2011
+  Processing by CategoriesController#index as HTML
+  [1m[35mCategory Load (1.1ms)[0m  SELECT "categories".* FROM "categories" ORDER BY name asc LIMIT 5 OFFSET 0
+Rendered categories/_categories.html.erb (9.2ms)
+Rendered layouts/_menu.html.erb (1.6ms)
+Rendered categories/index.html.erb within layouts/application (24.1ms)
+Completed 200 OK in 47ms (Views: 36.1ms | ActiveRecord: 1.1ms)
+
+
+Started GET "/categories?_=1305133264780" for 192.168.1.2 at Wed May 11 14:01:04 -0300 2011
+  Processing by CategoriesController#index as JS
+  Parameters: {"_"=>"1305133264780"}
+  [1m[36mCategory Load (0.9ms)[0m  [1mSELECT "categories".* FROM "categories" ORDER BY name asc LIMIT 5 OFFSET 0[0m
+Rendered categories/_categories.html.erb (21.0ms)
+Rendered categories/index.js.erb (26.6ms)
+Completed 200 OK in 151ms (Views: 105.9ms | ActiveRecord: 0.9ms)
+
+
+Started GET "/categories?_=1305133264780&direction=desc&sort=name" for 192.168.1.2 at Wed May 11 14:01:06 -0300 2011
+  Processing by CategoriesController#index as HTML
+  Parameters: {"sort"=>"name", "direction"=>"desc", "_"=>"1305133264780"}
+  [1m[35mCategory Load (0.6ms)[0m  SELECT "categories".* FROM "categories" ORDER BY name desc LIMIT 5 OFFSET 0
+Rendered categories/_categories.html.erb (8.4ms)
+Rendered layouts/_menu.html.erb (2.7ms)
+Rendered categories/index.html.erb within layouts/application (23.8ms)
+Completed 200 OK in 47ms (Views: 33.8ms | ActiveRecord: 0.6ms)
+
+
+Started GET "/categories?_=1305133267780&direction=desc&sort=name" for 192.168.1.2 at Wed May 11 14:01:07 -0300 2011
+  Processing by CategoriesController#index as JS
+  Parameters: {"sort"=>"name", "direction"=>"desc", "_"=>"1305133267780"}
+  [1m[36mCategory Load (0.9ms)[0m  [1mSELECT "categories".* FROM "categories" ORDER BY name desc LIMIT 5 OFFSET 0[0m
+Rendered categories/_categories.html.erb (24.9ms)
+Rendered categories/index.js.erb (40.0ms)
+Completed 200 OK in 105ms (Views: 74.6ms | ActiveRecord: 0.9ms)
+
+
+Started GET "/categories?_=1305133267780&direction=asc&sort=name" for 192.168.1.2 at Wed May 11 14:01:08 -0300 2011
+  Processing by CategoriesController#index as HTML
+  Parameters: {"sort"=>"name", "direction"=>"asc", "_"=>"1305133267780"}
+  [1m[35mCategory Load (0.6ms)[0m  SELECT "categories".* FROM "categories" ORDER BY name asc LIMIT 5 OFFSET 0
+Rendered categories/_categories.html.erb (8.9ms)
+Rendered layouts/_menu.html.erb (1.6ms)
+Rendered categories/index.html.erb within layouts/application (22.1ms)
+Completed 200 OK in 42ms (Views: 31.6ms | ActiveRecord: 0.6ms)
+
+
+Started GET "/categories?_=1305133269432&direction=asc&sort=name" for 192.168.1.2 at Wed May 11 14:01:08 -0300 2011
+  Processing by CategoriesController#index as JS
+  Parameters: {"sort"=>"name", "direction"=>"asc", "_"=>"1305133269432"}
+  [1m[36mCategory Load (1.5ms)[0m  [1mSELECT "categories".* FROM "categories" ORDER BY name asc LIMIT 5 OFFSET 0[0m
+Rendered categories/_categories.html.erb (9.2ms)
+Rendered categories/index.js.erb (22.6ms)
+Completed 200 OK in 121ms (Views: 71.8ms | ActiveRecord: 1.5ms)
+
+
+Started GET "/categories?_=1305133269432&direction=asc&sort=topic" for 192.168.1.2 at Wed May 11 14:01:10 -0300 2011
+  Processing by CategoriesController#index as HTML
+  Parameters: {"sort"=>"topic", "direction"=>"asc", "_"=>"1305133269432"}
+  [1m[35mCategory Load (0.6ms)[0m  SELECT "categories".* FROM "categories" ORDER BY topic asc LIMIT 5 OFFSET 0
+Rendered categories/_categories.html.erb (113.9ms)
+Rendered layouts/_menu.html.erb (7.3ms)
+Rendered categories/index.html.erb within layouts/application (138.0ms)
+Completed 200 OK in 158ms (Views: 147.6ms | ActiveRecord: 0.6ms)
+
+
+Started GET "/categories?_=1305133271291&direction=asc&sort=topic" for 192.168.1.2 at Wed May 11 14:01:10 -0300 2011
+  Processing by CategoriesController#index as JS
+  Parameters: {"sort"=>"topic", "direction"=>"asc", "_"=>"1305133271291"}
+  [1m[36mCategory Load (1.0ms)[0m  [1mSELECT "categories".* FROM "categories" ORDER BY topic asc LIMIT 5 OFFSET 0[0m
+Rendered categories/_categories.html.erb (41.8ms)
+Rendered categories/index.js.erb (51.4ms)
+Completed 200 OK in 132ms (Views: 89.7ms | ActiveRecord: 1.0ms)
+
+
+Started GET "/categories?_=1305133271291&direction=desc&sort=topic" for 192.168.1.2 at Wed May 11 14:01:11 -0300 2011
+  Processing by CategoriesController#index as HTML
+  Parameters: {"sort"=>"topic", "direction"=>"desc", "_"=>"1305133271291"}
+  [1m[35mCategory Load (3.0ms)[0m  SELECT "categories".* FROM "categories" ORDER BY topic desc LIMIT 5 OFFSET 0
+Rendered categories/_categories.html.erb (8.1ms)
+Rendered layouts/_menu.html.erb (1.8ms)
+Rendered categories/index.html.erb within layouts/application (20.4ms)
+Completed 200 OK in 44ms (Views: 31.4ms | ActiveRecord: 3.0ms)
+
+
+Started GET "/categories?_=1305133272784&direction=desc&sort=topic" for 192.168.1.2 at Wed May 11 14:01:12 -0300 2011
+  Processing by CategoriesController#index as JS
+  Parameters: {"sort"=>"topic", "direction"=>"desc", "_"=>"1305133272784"}
+  [1m[36mCategory Load (1.1ms)[0m  [1mSELECT "categories".* FROM "categories" ORDER BY topic desc LIMIT 5 OFFSET 0[0m
+Rendered categories/_categories.html.erb (19.5ms)
+Rendered categories/index.js.erb (44.7ms)
+Completed 200 OK in 124ms (Views: 94.0ms | ActiveRecord: 1.1ms)
+
+
+Started GET "/products" for 192.168.1.2 at Wed May 11 14:02:00 -0300 2011
+  Processing by ProductsController#index as HTML
+  [1m[35mProduct Load (0.7ms)[0m  SELECT "products".* FROM "products" ORDER BY name asc LIMIT 5 OFFSET 0
+Rendered products/_products.html.erb (11.4ms)
+Rendered layouts/_menu.html.erb (1.7ms)
+Rendered products/index.html.erb within layouts/application (23.9ms)
+Completed 200 OK in 152ms (Views: 33.9ms | ActiveRecord: 0.7ms)
+
+
+Started GET "/products?_=1305133321457" for 192.168.1.2 at Wed May 11 14:02:00 -0300 2011
+  Processing by ProductsController#index as JS
+  Parameters: {"_"=>"1305133321457"}
+  [1m[36mProduct Load (4.6ms)[0m  [1mSELECT "products".* FROM "products" ORDER BY name asc LIMIT 5 OFFSET 0[0m
+Rendered products/_products.html.erb (15.8ms)
+Rendered products/index.js.erb (23.9ms)
+Completed 200 OK in 135ms (Views: 87.9ms | ActiveRecord: 4.6ms)
+
+
+Started GET "/products" for 192.168.1.2 at Wed May 11 14:02:02 -0300 2011
+  Processing by ProductsController#index as */*
+  [1m[35mProduct Load (0.6ms)[0m  SELECT "products".* FROM "products" ORDER BY name asc LIMIT 5 OFFSET 0
+Rendered products/_products.html.erb (13.8ms)
+Rendered layouts/_menu.html.erb (1.5ms)
+Rendered products/index.html.erb within layouts/application (26.5ms)
+Completed 200 OK in 70ms (Views: 59.2ms | ActiveRecord: 0.6ms)
+
+
+Started GET "/products?_=1305133323425" for 192.168.1.2 at Wed May 11 14:02:02 -0300 2011
+  Processing by ProductsController#index as JS
+  Parameters: {"_"=>"1305133323425"}
+  [1m[36mProduct Load (0.7ms)[0m  [1mSELECT "products".* FROM "products" ORDER BY name asc LIMIT 5 OFFSET 0[0m
+Rendered products/_products.html.erb (12.9ms)
+Rendered products/index.js.erb (16.7ms)
+Completed 200 OK in 208ms (Views: 36.1ms | ActiveRecord: 0.7ms)
+
+
+Started GET "/products?_=1305133328872&direction=asc&sort=price" for 192.168.1.2 at Wed May 11 14:02:08 -0300 2011
+  Processing by ProductsController#index as JS
+  Parameters: {"sort"=>"price", "direction"=>"asc", "_"=>"1305133328872"}
+  [1m[35mProduct Load (1.3ms)[0m  SELECT "products".* FROM "products" ORDER BY price asc LIMIT 5 OFFSET 0
+Rendered products/_products.html.erb (13.3ms)
+Rendered products/index.js.erb (18.4ms)
+Completed 200 OK in 84ms (Views: 54.1ms | ActiveRecord: 1.3ms)
+
+
+Started GET "/products?_=1305133330789&direction=asc&sort=released_at" for 192.168.1.2 at Wed May 11 14:02:10 -0300 2011
+  Processing by ProductsController#index as JS
+  Parameters: {"sort"=>"released_at", "direction"=>"asc", "_"=>"1305133330789"}
+  [1m[36mProduct Load (1.9ms)[0m  [1mSELECT "products".* FROM "products" ORDER BY released_at asc LIMIT 5 OFFSET 0[0m
+Rendered products/_products.html.erb (21.3ms)
+Rendered products/index.js.erb (25.5ms)
+Completed 200 OK in 105ms (Views: 65.6ms | ActiveRecord: 1.9ms)
+
+
+Started GET "/products?_=1305133333227&direction=asc&sort=price" for 192.168.1.2 at Wed May 11 14:02:12 -0300 2011
+  Processing by ProductsController#index as JS
+  Parameters: {"sort"=>"price", "direction"=>"asc", "_"=>"1305133333227"}
+  [1m[35mProduct Load (0.9ms)[0m  SELECT "products".* FROM "products" ORDER BY price asc LIMIT 5 OFFSET 0
+Rendered products/_products.html.erb (16.6ms)
+Rendered products/index.js.erb (25.2ms)
+Completed 200 OK in 73ms (Views: 53.8ms | ActiveRecord: 0.9ms)
+
+
+Started GET "/products?_=1305133334782&direction=desc&sort=price" for 192.168.1.2 at Wed May 11 14:02:14 -0300 2011
+  Processing by ProductsController#index as JS
+  Parameters: {"sort"=>"price", "direction"=>"desc", "_"=>"1305133334782"}
+  [1m[36mProduct Load (0.7ms)[0m  [1mSELECT "products".* FROM "products" ORDER BY price desc LIMIT 5 OFFSET 0[0m
+Rendered products/_products.html.erb (10.6ms)
+Rendered products/index.js.erb (14.2ms)
+Completed 200 OK in 191ms (Views: 32.6ms | ActiveRecord: 0.7ms)
+
+
+Started GET "/products?_=1305133335925&direction=asc&sort=price" for 192.168.1.2 at Wed May 11 14:02:15 -0300 2011
+  Processing by ProductsController#index as JS
+  Parameters: {"sort"=>"price", "direction"=>"asc", "_"=>"1305133335925"}
+  [1m[35mProduct Load (0.7ms)[0m  SELECT "products".* FROM "products" ORDER BY price asc LIMIT 5 OFFSET 0
+Rendered products/_products.html.erb (11.0ms)
+Rendered products/index.js.erb (14.9ms)
+Completed 200 OK in 49ms (Views: 34.2ms | ActiveRecord: 0.7ms)
+
+
+Started GET "/products?_=1305133337263&direction=asc&sort=name" for 192.168.1.2 at Wed May 11 14:02:16 -0300 2011
+  Processing by ProductsController#index as JS
+  Parameters: {"sort"=>"name", "direction"=>"asc", "_"=>"1305133337263"}
+  [1m[36mProduct Load (0.8ms)[0m  [1mSELECT "products".* FROM "products" ORDER BY name asc LIMIT 5 OFFSET 0[0m
+Rendered products/_products.html.erb (10.3ms)
+Rendered products/index.js.erb (14.3ms)
+Completed 200 OK in 91ms (Views: 63.3ms | ActiveRecord: 0.8ms)
+
+
+Started GET "/products?_=1305133340446&direction=asc&sort=released_at" for 192.168.1.2 at Wed May 11 14:02:19 -0300 2011
+  Processing by ProductsController#index as JS
+  Parameters: {"sort"=>"released_at", "direction"=>"asc", "_"=>"1305133340446"}
+  [1m[35mProduct Load (0.8ms)[0m  SELECT "products".* FROM "products" ORDER BY released_at asc LIMIT 5 OFFSET 0
+Rendered products/_products.html.erb (10.9ms)
+Rendered products/index.js.erb (14.6ms)
+Completed 200 OK in 86ms (Views: 43.9ms | ActiveRecord: 0.8ms)
+
+
+Started GET "/products?_=1305133342987&direction=asc&sort=name" for 192.168.1.2 at Wed May 11 14:02:22 -0300 2011
+  Processing by ProductsController#index as JS
+  Parameters: {"sort"=>"name", "direction"=>"asc", "_"=>"1305133342987"}
+  [1m[36mProduct Load (0.7ms)[0m  [1mSELECT "products".* FROM "products" ORDER BY name asc LIMIT 5 OFFSET 0[0m
+Rendered products/_products.html.erb (10.2ms)
+Rendered products/index.js.erb (13.7ms)
+Completed 200 OK in 216ms (Views: 31.1ms | ActiveRecord: 0.7ms)
+
+
+Started GET "/products?_=1305133213077&direction=asc&sort=price" for 127.0.0.1 at Wed May 11 14:04:16 -0300 2011
+  Processing by ProductsController#index as HTML
+  Parameters: {"sort"=>"price", "direction"=>"asc", "_"=>"1305133213077"}
+  [1m[36mProduct Load (0.8ms)[0m  [1mSELECT "products".* FROM "products" ORDER BY price asc LIMIT 5 OFFSET 0[0m
+Rendered products/_products.html.erb (38.9ms)
+Rendered layouts/_menu.html.erb (1.8ms)
+Rendered products/index.html.erb within layouts/application (54.6ms)
+Completed 200 OK in 92ms (Views: 69.9ms | ActiveRecord: 0.8ms)
+
+
+Started GET "/products?_=1305133213077&direction=asc&sort=price" for 127.0.0.1 at Wed May 11 14:04:41 -0300 2011
+  Processing by ProductsController#index as HTML
+  Parameters: {"sort"=>"price", "direction"=>"asc", "_"=>"1305133213077"}
+  [1m[36mProduct Load (0.8ms)[0m  [1mSELECT "products".* FROM "products" ORDER BY price asc LIMIT 5 OFFSET 0[0m
+Rendered products/_products.html.erb (18.5ms)
+Rendered layouts/_menu.html.erb (1.7ms)
+Rendered products/index.html.erb within layouts/application (33.4ms)
+Completed 200 OK in 62ms (Views: 47.8ms | ActiveRecord: 0.8ms)
+
+
+Started GET "/products?_=1305133482118&direction=asc&sort=price" for 127.0.0.1 at Wed May 11 14:04:42 -0300 2011
+  Processing by ProductsController#index as JS
+  Parameters: {"sort"=>"price", "direction"=>"asc", "_"=>"1305133482118"}
+  [1m[35mProduct Load (1.2ms)[0m  SELECT "products".* FROM "products" ORDER BY price asc LIMIT 5 OFFSET 0
+Rendered products/_products.html.erb (10.4ms)
+Rendered products/index.js.erb (14.4ms)
+Completed 200 OK in 58ms (Views: 40.6ms | ActiveRecord: 1.2ms)
+
+
+Started GET "/products?_=1305133488828&direction=asc&sort=name" for 127.0.0.1 at Wed May 11 14:04:48 -0300 2011
+  Processing by ProductsController#index as JS
+  Parameters: {"sort"=>"name", "direction"=>"asc", "_"=>"1305133488828"}
+  [1m[36mProduct Load (0.7ms)[0m  [1mSELECT "products".* FROM "products" ORDER BY name asc LIMIT 5 OFFSET 0[0m
+Rendered products/_products.html.erb (12.9ms)
+Rendered products/index.js.erb (16.7ms)
+Completed 200 OK in 46ms (Views: 35.2ms | ActiveRecord: 0.7ms)
+
+
+Started GET "/products?_=1305133490591&direction=asc&sort=price" for 127.0.0.1 at Wed May 11 14:04:50 -0300 2011
+  Processing by ProductsController#index as JS
+  Parameters: {"sort"=>"price", "direction"=>"asc", "_"=>"1305133490591"}
+  [1m[35mProduct Load (0.7ms)[0m  SELECT "products".* FROM "products" ORDER BY price asc LIMIT 5 OFFSET 0
+Rendered products/_products.html.erb (12.7ms)
+Rendered products/index.js.erb (16.6ms)
+Completed 200 OK in 46ms (Views: 34.9ms | ActiveRecord: 0.7ms)
+
+
+Started GET "/products?_=1305133491590&direction=desc&sort=price" for 127.0.0.1 at Wed May 11 14:04:51 -0300 2011
+  Processing by ProductsController#index as JS
+  Parameters: {"sort"=>"price", "direction"=>"desc", "_"=>"1305133491590"}
+  [1m[36mProduct Load (0.8ms)[0m  [1mSELECT "products".* FROM "products" ORDER BY price desc LIMIT 5 OFFSET 0[0m
+Rendered products/_products.html.erb (10.2ms)
+Rendered products/index.js.erb (13.7ms)
+Completed 200 OK in 43ms (Views: 32.4ms | ActiveRecord: 0.8ms)
+
+
+Started GET "/products?_=1305133492598&direction=asc&sort=price" for 127.0.0.1 at Wed May 11 14:04:52 -0300 2011
+  Processing by ProductsController#index as JS
+  Parameters: {"sort"=>"price", "direction"=>"asc", "_"=>"1305133492598"}
+  [1m[35mProduct Load (0.7ms)[0m  SELECT "products".* FROM "products" ORDER BY price asc LIMIT 5 OFFSET 0
+Rendered products/_products.html.erb (108.6ms)
+Rendered products/index.js.erb (112.4ms)
+Completed 200 OK in 150ms (Views: 131.2ms | ActiveRecord: 0.7ms)
+
+
+Started GET "/products" for 192.168.1.2 at Wed May 11 14:04:57 -0300 2011
+  Processing by ProductsController#index as */*
+  [1m[36mProduct Load (1.6ms)[0m  [1mSELECT "products".* FROM "products" ORDER BY name asc LIMIT 5 OFFSET 0[0m
+Rendered products/_products.html.erb (13.2ms)
+Rendered layouts/_menu.html.erb (1.5ms)
+Rendered products/index.html.erb within layouts/application (25.8ms)
+Completed 200 OK in 73ms (Views: 61.3ms | ActiveRecord: 1.6ms)
+
+
+Started GET "/products?_=1305133498255&direction=asc&sort=name" for 192.168.1.2 at Wed May 11 14:04:57 -0300 2011
+  Processing by ProductsController#index as JS
+  Parameters: {"sort"=>"name", "direction"=>"asc", "_"=>"1305133498255"}
+  [1m[35mProduct Load (0.7ms)[0m  SELECT "products".* FROM "products" ORDER BY name asc LIMIT 5 OFFSET 0
+Rendered products/_products.html.erb (19.4ms)
+Rendered products/index.js.erb (27.0ms)
+Completed 200 OK in 97ms (Views: 78.1ms | ActiveRecord: 0.7ms)
+
+
+Started GET "/products?_=1305133512375&direction=asc&sort=price" for 192.168.1.2 at Wed May 11 14:05:11 -0300 2011
+  Processing by ProductsController#index as JS
+  Parameters: {"sort"=>"price", "direction"=>"asc", "_"=>"1305133512375"}
+  [1m[36mProduct Load (1.4ms)[0m  [1mSELECT "products".* FROM "products" ORDER BY price asc LIMIT 5 OFFSET 0[0m
+Rendered products/_products.html.erb (16.8ms)
+Rendered products/index.js.erb (22.9ms)
+Completed 200 OK in 96ms (Views: 67.0ms | ActiveRecord: 1.4ms)
+
+
+Started GET "/products" for 192.168.1.2 at Wed May 11 14:05:14 -0300 2011
+  Processing by ProductsController#index as HTML
+  [1m[35mProduct Load (0.8ms)[0m  SELECT "products".* FROM "products" ORDER BY name asc LIMIT 5 OFFSET 0
+Rendered products/_products.html.erb (10.5ms)
+Rendered layouts/_menu.html.erb (1.7ms)
+Rendered products/index.html.erb within layouts/application (23.6ms)
+Completed 200 OK in 48ms (Views: 35.8ms | ActiveRecord: 0.8ms)
+
+
+Started GET "/products?_=1305133515530" for 192.168.1.2 at Wed May 11 14:05:14 -0300 2011
+  Processing by ProductsController#index as JS
+  Parameters: {"_"=>"1305133515530"}
+  [1m[36mProduct Load (0.8ms)[0m  [1mSELECT "products".* FROM "products" ORDER BY name asc LIMIT 5 OFFSET 0[0m
+Rendered products/_products.html.erb (29.3ms)
+Rendered products/index.js.erb (44.1ms)
+Completed 200 OK in 201ms (Views: 176.2ms | ActiveRecord: 0.8ms)
+
+
+Started GET "/products" for 192.168.1.2 at Wed May 11 14:05:16 -0300 2011
+  Processing by ProductsController#index as */*
+  [1m[35mProduct Load (0.7ms)[0m  SELECT "products".* FROM "products" ORDER BY name asc LIMIT 5 OFFSET 0
+Rendered products/_products.html.erb (10.5ms)
+Rendered layouts/_menu.html.erb (1.6ms)
+Rendered products/index.html.erb within layouts/application (22.7ms)
+Completed 200 OK in 69ms (Views: 54.5ms | ActiveRecord: 0.7ms)
+
+
+Started GET "/products?_=1305133517434" for 192.168.1.2 at Wed May 11 14:05:16 -0300 2011
+  Processing by ProductsController#index as JS
+  Parameters: {"_"=>"1305133517434"}
+  [1m[36mProduct Load (0.8ms)[0m  [1mSELECT "products".* FROM "products" ORDER BY name asc LIMIT 5 OFFSET 0[0m
+Rendered products/_products.html.erb (17.8ms)
+Rendered products/index.js.erb (25.4ms)
+Completed 200 OK in 152ms (Views: 74.7ms | ActiveRecord: 0.8ms)
+
+
+Started GET "/products?_=1305133519644&direction=asc&sort=price" for 192.168.1.2 at Wed May 11 14:05:18 -0300 2011
+  Processing by ProductsController#index as JS
+  Parameters: {"sort"=>"price", "direction"=>"asc", "_"=>"1305133519644"}
+  [1m[35mProduct Load (5.3ms)[0m  SELECT "products".* FROM "products" ORDER BY price asc LIMIT 5 OFFSET 0
+Rendered products/_products.html.erb (14.1ms)
+Rendered products/index.js.erb (20.2ms)
+Completed 200 OK in 136ms (Views: 104.5ms | ActiveRecord: 5.3ms)
+
+
+Started GET "/products?_=1305133521226&direction=desc&sort=price" for 192.168.1.2 at Wed May 11 14:05:20 -0300 2011
+  Processing by ProductsController#index as JS
+  Parameters: {"sort"=>"price", "direction"=>"desc", "_"=>"1305133521226"}
+  [1m[36mProduct Load (0.7ms)[0m  [1mSELECT "products".* FROM "products" ORDER BY price desc LIMIT 5 OFFSET 0[0m
+Rendered products/_products.html.erb (11.3ms)
+Rendered products/index.js.erb (18.7ms)
+Completed 200 OK in 160ms (Views: 130.9ms | ActiveRecord: 0.7ms)
+
+
+Started GET "/products?_=1305133522807&direction=asc&sort=released_at" for 192.168.1.2 at Wed May 11 14:05:21 -0300 2011
+  Processing by ProductsController#index as JS
+  Parameters: {"sort"=>"released_at", "direction"=>"asc", "_"=>"1305133522807"}
+  [1m[35mProduct Load (1.1ms)[0m  SELECT "products".* FROM "products" ORDER BY released_at asc LIMIT 5 OFFSET 0
+Rendered products/_products.html.erb (25.5ms)
+Rendered products/index.js.erb (32.7ms)
+Completed 200 OK in 88ms (Views: 70.8ms | ActiveRecord: 1.1ms)
+
+
+Started GET "/products?_=1305133525180&direction=asc&sort=name" for 192.168.1.2 at Wed May 11 14:05:24 -0300 2011
+  Processing by ProductsController#index as JS
+  Parameters: {"sort"=>"name", "direction"=>"asc", "_"=>"1305133525180"}
+  [1m[36mProduct Load (2.0ms)[0m  [1mSELECT "products".* FROM "products" ORDER BY name asc LIMIT 5 OFFSET 0[0m
+Rendered products/_products.html.erb (11.2ms)
+Rendered products/index.js.erb (17.0ms)
+Completed 200 OK in 62ms (Views: 47.1ms | ActiveRecord: 2.0ms)
+
+
+Started GET "/products?_=1305133527591&direction=desc&sort=name" for 192.168.1.2 at Wed May 11 14:05:26 -0300 2011
+  Processing by ProductsController#index as JS
+  Parameters: {"sort"=>"name", "direction"=>"desc", "_"=>"1305133527591"}
+  [1m[35mProduct Load (0.9ms)[0m  SELECT "products".* FROM "products" ORDER BY name desc LIMIT 5 OFFSET 0
+Rendered products/_products.html.erb (36.9ms)
+Rendered products/index.js.erb (42.2ms)
+Completed 200 OK in 115ms (Views: 81.3ms | ActiveRecord: 0.9ms)
+
+
+Started GET "/products?_=1305133528822&direction=asc&sort=name" for 192.168.1.2 at Wed May 11 14:05:27 -0300 2011
+  Processing by ProductsController#index as JS
+  Parameters: {"sort"=>"name", "direction"=>"asc", "_"=>"1305133528822"}
+  [1m[36mProduct Load (0.9ms)[0m  [1mSELECT "products".* FROM "products" ORDER BY name asc LIMIT 5 OFFSET 0[0m
+Rendered products/_products.html.erb (13.5ms)
+Rendered products/index.js.erb (18.5ms)
+Completed 200 OK in 82ms (Views: 47.9ms | ActiveRecord: 0.9ms)
+
+
+Started GET "/products" for 192.168.1.2 at Wed May 11 14:05:31 -0300 2011
+  Processing by ProductsController#index as */*
+  [1m[35mProduct Load (6.7ms)[0m  SELECT "products".* FROM "products" ORDER BY name asc LIMIT 5 OFFSET 0
+Rendered products/_products.html.erb (12.0ms)
+Rendered layouts/_menu.html.erb (1.9ms)
+Rendered products/index.html.erb within layouts/application (129.6ms)
+Completed 200 OK in 194ms (Views: 170.5ms | ActiveRecord: 6.7ms)
+
+
+Started GET "/products" for 192.168.1.2 at Wed May 11 14:05:31 -0300 2011
+  Processing by ProductsController#index as */*
+  [1m[36mProduct Load (0.7ms)[0m  [1mSELECT "products".* FROM "products" ORDER BY name asc LIMIT 5 OFFSET 0[0m
+Rendered products/_products.html.erb (11.2ms)
+Rendered layouts/_menu.html.erb (1.6ms)
+Rendered products/index.html.erb within layouts/application (23.7ms)
+Completed 200 OK in 73ms (Views: 59.2ms | ActiveRecord: 0.7ms)
+
+
+Started GET "/products?_=1305133533021&direction=asc&sort=name" for 192.168.1.2 at Wed May 11 14:05:32 -0300 2011
+  Processing by ProductsController#index as JS
+  Parameters: {"sort"=>"name", "direction"=>"asc", "_"=>"1305133533021"}
+  [1m[35mProduct Load (0.7ms)[0m  SELECT "products".* FROM "products" ORDER BY name asc LIMIT 5 OFFSET 0
+Rendered products/_products.html.erb (10.2ms)
+Rendered products/index.js.erb (14.2ms)
+Completed 200 OK in 43ms (Views: 32.2ms | ActiveRecord: 0.7ms)
+
+
+Started GET "/products?_=1305133535335&direction=desc&sort=name" for 192.168.1.2 at Wed May 11 14:05:34 -0300 2011
+  Processing by ProductsController#index as JS
+  Parameters: {"sort"=>"name", "direction"=>"desc", "_"=>"1305133535335"}
+  [1m[36mProduct Load (0.8ms)[0m  [1mSELECT "products".* FROM "products" ORDER BY name desc LIMIT 5 OFFSET 0[0m
+Rendered products/_products.html.erb (10.6ms)
+Rendered products/index.js.erb (14.7ms)
+Completed 200 OK in 95ms (Views: 43.2ms | ActiveRecord: 0.8ms)
+
+
+Started GET "/products?_=1305133536771&direction=asc&sort=name" for 192.168.1.2 at Wed May 11 14:05:35 -0300 2011
+  Processing by ProductsController#index as JS
+  Parameters: {"sort"=>"name", "direction"=>"asc", "_"=>"1305133536771"}
+  [1m[35mProduct Load (1.0ms)[0m  SELECT "products".* FROM "products" ORDER BY name asc LIMIT 5 OFFSET 0
+Rendered products/_products.html.erb (10.6ms)
+Rendered products/index.js.erb (14.4ms)
+Completed 200 OK in 46ms (Views: 33.4ms | ActiveRecord: 1.0ms)
+
+
+Started GET "/products?_=1305133539093&direction=asc&sort=released_at" for 192.168.1.2 at Wed May 11 14:05:38 -0300 2011
+  Processing by ProductsController#index as JS
+  Parameters: {"sort"=>"released_at", "direction"=>"asc", "_"=>"1305133539093"}
+  [1m[36mProduct Load (6.8ms)[0m  [1mSELECT "products".* FROM "products" ORDER BY released_at asc LIMIT 5 OFFSET 0[0m
+Rendered products/_products.html.erb (25.2ms)
+Rendered products/index.js.erb (34.4ms)
+Completed 200 OK in 102ms (Views: 63.6ms | ActiveRecord: 6.8ms)
+
+
+Started GET "/products?_=1305133540971&direction=asc&sort=name" for 192.168.1.2 at Wed May 11 14:05:40 -0300 2011
+  Processing by ProductsController#index as JS
+  Parameters: {"sort"=>"name", "direction"=>"asc", "_"=>"1305133540971"}
+  [1m[35mProduct Load (0.8ms)[0m  SELECT "products".* FROM "products" ORDER BY name asc LIMIT 5 OFFSET 0
+Rendered products/_products.html.erb (13.4ms)
+Rendered products/index.js.erb (17.9ms)
+Completed 200 OK in 73ms (Views: 39.8ms | ActiveRecord: 0.8ms)
+
+
+Started GET "/products" for 192.168.1.2 at Wed May 11 14:07:07 -0300 2011
+  Processing by ProductsController#index as */*
+  [1m[36mProduct Load (0.7ms)[0m  [1mSELECT "products".* FROM "products" ORDER BY name asc LIMIT 5 OFFSET 0[0m
+Rendered products/_products.html.erb (11.5ms)
+Rendered layouts/_menu.html.erb (109.0ms)
+Rendered products/index.html.erb within layouts/application (131.6ms)
+Completed 200 OK in 178ms (Views: 167.3ms | ActiveRecord: 0.7ms)
+
+
+Started GET "/products?_=1305133628733&direction=asc&sort=name" for 192.168.1.2 at Wed May 11 14:07:07 -0300 2011
+  Processing by ProductsController#index as JS
+  Parameters: {"sort"=>"name", "direction"=>"asc", "_"=>"1305133628733"}
+  [1m[35mProduct Load (0.8ms)[0m  SELECT "products".* FROM "products" ORDER BY name asc LIMIT 5 OFFSET 0
+Rendered products/_products.html.erb (11.7ms)
+Rendered products/index.js.erb (15.5ms)
+Completed 200 OK in 47ms (Views: 35.8ms | ActiveRecord: 0.8ms)
+
+
+Started GET "/products?_=1305133213077&direction=asc&sort=price" for 127.0.0.1 at Wed May 11 14:07:53 -0300 2011
+  Processing by ProductsController#index as HTML
+  Parameters: {"sort"=>"price", "direction"=>"asc", "_"=>"1305133213077"}
+  [1m[36mProduct Load (0.8ms)[0m  [1mSELECT "products".* FROM "products" ORDER BY price asc LIMIT 5 OFFSET 0[0m
+Rendered products/_products.html.erb (10.3ms)
+Rendered layouts/_menu.html.erb (1.6ms)
+Rendered products/index.html.erb within layouts/application (28.2ms)
+Completed 200 OK in 55ms (Views: 42.8ms | ActiveRecord: 0.8ms)
+
+
+Started GET "/products?_=1305133674337&direction=asc&sort=price" for 127.0.0.1 at Wed May 11 14:07:54 -0300 2011
+  Processing by ProductsController#index as JS
+  Parameters: {"sort"=>"price", "direction"=>"asc", "_"=>"1305133674337"}
+  [1m[35mProduct Load (0.8ms)[0m  SELECT "products".* FROM "products" ORDER BY price asc LIMIT 5 OFFSET 0
+Rendered products/_products.html.erb (10.8ms)
+Rendered products/index.js.erb (14.5ms)
+Completed 200 OK in 48ms (Views: 35.0ms | ActiveRecord: 0.8ms)
+
+
+Started GET "/products?_=1305133213077&direction=asc&sort=price" for 127.0.0.1 at Wed May 11 14:12:32 -0300 2011
+  Processing by ProductsController#index as HTML
+  Parameters: {"sort"=>"price", "direction"=>"asc", "_"=>"1305133213077"}
+  [1m[36mProduct Load (0.7ms)[0m  [1mSELECT "products".* FROM "products" ORDER BY price asc LIMIT 5 OFFSET 0[0m
+Rendered products/_products.html.erb (12.5ms)
+Rendered layouts/_menu.html.erb (2.1ms)
+Rendered products/index.html.erb within layouts/application (26.5ms)
+Completed 200 OK in 54ms (Views: 38.0ms | ActiveRecord: 0.7ms)
+
+
+Started GET "/products?_=1305133953468&direction=asc&sort=price" for 127.0.0.1 at Wed May 11 14:12:33 -0300 2011
+  Processing by ProductsController#index as JS
+  Parameters: {"sort"=>"price", "direction"=>"asc", "_"=>"1305133953468"}
+  [1m[35mProduct Load (0.7ms)[0m  SELECT "products".* FROM "products" ORDER BY price asc LIMIT 5 OFFSET 0
+Rendered products/_products.html.erb (14.4ms)
+Rendered products/index.js.erb (20.9ms)
+Completed 200 OK in 62ms (Views: 47.0ms | ActiveRecord: 0.7ms)
+
+
+Started GET "/products?_=1305133957880&direction=desc&sort=price" for 127.0.0.1 at Wed May 11 14:12:37 -0300 2011
+  Processing by ProductsController#index as JS
+  Parameters: {"sort"=>"price", "direction"=>"desc", "_"=>"1305133957880"}
+  [1m[36mProduct Load (0.7ms)[0m  [1mSELECT "products".* FROM "products" ORDER BY price desc LIMIT 5 OFFSET 0[0m
+Rendered products/_products.html.erb (13.5ms)
+Rendered products/index.js.erb (17.3ms)
+Completed 200 OK in 46ms (Views: 36.0ms | ActiveRecord: 0.7ms)
+
+
+Started GET "/products?_=1305133959221&direction=asc&sort=price" for 127.0.0.1 at Wed May 11 14:12:39 -0300 2011
+  Processing by ProductsController#index as JS
+  Parameters: {"sort"=>"price", "direction"=>"asc", "_"=>"1305133959221"}
+  [1m[35mProduct Load (0.8ms)[0m  SELECT "products".* FROM "products" ORDER BY price asc LIMIT 5 OFFSET 0
+Rendered products/_products.html.erb (14.3ms)
+Rendered products/index.js.erb (18.4ms)
+Completed 200 OK in 49ms (Views: 37.9ms | ActiveRecord: 0.8ms)
+
+
+Started GET "/products?_=1305133213077&direction=asc&sort=price" for 127.0.0.1 at Wed May 11 14:13:27 -0300 2011
+  Processing by ProductsController#index as HTML
+  Parameters: {"sort"=>"price", "direction"=>"asc", "_"=>"1305133213077"}
+  [1m[36mProduct Load (0.6ms)[0m  [1mSELECT "products".* FROM "products" ORDER BY price asc LIMIT 5 OFFSET 0[0m
+Rendered products/_products.html.erb (10.9ms)
+Rendered layouts/_menu.html.erb (4.5ms)
+Rendered products/index.html.erb within layouts/application (27.6ms)
+Completed 200 OK in 56ms (Views: 41.3ms | ActiveRecord: 0.6ms)
+
+
+Started GET "/products?_=1305133213077&direction=asc&sort=price" for 127.0.0.1 at Wed May 11 14:13:36 -0300 2011
+  Processing by ProductsController#index as HTML
+  Parameters: {"sort"=>"price", "direction"=>"asc", "_"=>"1305133213077"}
+  [1m[35mProduct Load (0.8ms)[0m  SELECT "products".* FROM "products" ORDER BY price asc LIMIT 5 OFFSET 0
+Rendered products/_products.html.erb (10.4ms)
+Rendered layouts/_menu.html.erb (1.7ms)
+Rendered products/index.html.erb within layouts/application (23.9ms)
+Completed 200 OK in 51ms (Views: 37.7ms | ActiveRecord: 0.8ms)
+
+
+Started GET "/products?_=1305134017570&direction=asc&sort=price" for 127.0.0.1 at Wed May 11 14:13:37 -0300 2011
+  Processing by ProductsController#index as JS
+  Parameters: {"sort"=>"price", "direction"=>"asc", "_"=>"1305134017570"}
+  [1m[36mProduct Load (0.7ms)[0m  [1mSELECT "products".* FROM "products" ORDER BY price asc LIMIT 5 OFFSET 0[0m
+Rendered products/_products.html.erb (11.0ms)
+Rendered products/index.js.erb (14.9ms)
+Completed 200 OK in 45ms (Views: 34.6ms | ActiveRecord: 0.7ms)
+
+
+Started GET "/products?_=1305133213077&direction=asc&sort=price" for 127.0.0.1 at Wed May 11 14:13:50 -0300 2011
+  Processing by ProductsController#index as HTML
+  Parameters: {"sort"=>"price", "direction"=>"asc", "_"=>"1305133213077"}
+  [1m[35mProduct Load (0.7ms)[0m  SELECT "products".* FROM "products" ORDER BY price asc LIMIT 5 OFFSET 0
+Rendered products/_products.html.erb (126.9ms)
+Rendered layouts/_menu.html.erb (1.5ms)
+Rendered products/index.html.erb within layouts/application (140.0ms)
+Completed 200 OK in 173ms (Views: 157.2ms | ActiveRecord: 0.7ms)
+
+
+Started GET "/products?_=1305134031005&direction=asc&sort=price" for 127.0.0.1 at Wed May 11 14:13:51 -0300 2011
+  Processing by ProductsController#index as JS
+  Parameters: {"sort"=>"price", "direction"=>"asc", "_"=>"1305134031005"}
+  [1m[36mProduct Load (0.9ms)[0m  [1mSELECT "products".* FROM "products" ORDER BY price asc LIMIT 5 OFFSET 0[0m
+Rendered products/_products.html.erb (11.2ms)
+Rendered products/index.js.erb (15.1ms)
+Completed 200 OK in 59ms (Views: 39.0ms | ActiveRecord: 0.9ms)
+
+
+Started GET "/products?_=1305133213077&direction=asc&sort=price" for 127.0.0.1 at Wed May 11 14:14:49 -0300 2011
+  Processing by ProductsController#index as HTML
+  Parameters: {"sort"=>"price", "direction"=>"asc", "_"=>"1305133213077"}
+  [1m[35mProduct Load (0.8ms)[0m  SELECT "products".* FROM "products" ORDER BY price asc LIMIT 5 OFFSET 0
+Rendered products/_products.html.erb (17.2ms)
+Rendered layouts/_menu.html.erb (1.7ms)
+Rendered products/index.html.erb within layouts/application (39.3ms)
+Completed 200 OK in 69ms (Views: 49.4ms | ActiveRecord: 0.8ms)
+
+
+Started GET "/products?_=1305134089734&direction=asc&sort=price" for 127.0.0.1 at Wed May 11 14:14:49 -0300 2011
+  Processing by ProductsController#index as JS
+  Parameters: {"sort"=>"price", "direction"=>"asc", "_"=>"1305134089734"}
+  [1m[36mProduct Load (0.7ms)[0m  [1mSELECT "products".* FROM "products" ORDER BY price asc LIMIT 5 OFFSET 0[0m
+Rendered products/_products.html.erb (10.4ms)
+Rendered products/index.js.erb (14.0ms)
+Completed 200 OK in 46ms (Views: 32.8ms | ActiveRecord: 0.7ms)
+
+
+Started GET "/products?_=1305134092973&direction=asc&sort=name" for 127.0.0.1 at Wed May 11 14:14:52 -0300 2011
+  Processing by ProductsController#index as JS
+  Parameters: {"sort"=>"name", "direction"=>"asc", "_"=>"1305134092973"}
+  [1m[35mProduct Load (0.7ms)[0m  SELECT "products".* FROM "products" ORDER BY name asc LIMIT 5 OFFSET 0
+Rendered products/_products.html.erb (10.1ms)
+Rendered products/index.js.erb (13.8ms)
+Completed 200 OK in 43ms (Views: 32.6ms | ActiveRecord: 0.7ms)
+
+
+Started GET "/products?_=1305134098979&direction=asc&sort=htu" for 127.0.0.1 at Wed May 11 14:14:58 -0300 2011
+  Processing by ProductsController#index as JS
+  Parameters: {"sort"=>"htu", "direction"=>"asc", "_"=>"1305134098979"}
+  [1m[36mProduct Load (2.6ms)[0m  [1mSELECT "products".* FROM "products" ORDER BY name asc LIMIT 5 OFFSET 0[0m
+Rendered products/_products.html.erb (10.2ms)
+Rendered products/index.js.erb (14.0ms)
+Completed 200 OK in 53ms (Views: 39.8ms | ActiveRecord: 2.6ms)
+
+
+Started GET "/products?_=1305134106906&direction=asc&sort=name" for 127.0.0.1 at Wed May 11 14:15:06 -0300 2011
+  Processing by ProductsController#index as JS
+  Parameters: {"sort"=>"name", "direction"=>"asc", "_"=>"1305134106906"}
+  [1m[35mProduct Load (0.7ms)[0m  SELECT "products".* FROM "products" ORDER BY name asc LIMIT 5 OFFSET 0
+Rendered products/_products.html.erb (118.8ms)
+Rendered products/index.js.erb (124.1ms)
+Completed 200 OK in 155ms (Views: 145.5ms | ActiveRecord: 0.7ms)
+
+
+Started GET "/products?_=1305134113899&direction=asc&sort=htu" for 127.0.0.1 at Wed May 11 14:15:13 -0300 2011
+  Processing by ProductsController#index as JS
+  Parameters: {"sort"=>"htu", "direction"=>"asc", "_"=>"1305134113899"}
+  [1m[36mProduct Load (0.7ms)[0m  [1mSELECT "products".* FROM "products" ORDER BY name asc LIMIT 5 OFFSET 0[0m
+Rendered products/_products.html.erb (10.4ms)
+Rendered products/index.js.erb (14.1ms)
+Completed 200 OK in 42ms (Views: 31.6ms | ActiveRecord: 0.7ms)
+
+
+Started GET "/products?_=1305134146119&direction=asc&sort=name" for 127.0.0.1 at Wed May 11 14:15:46 -0300 2011
+  Processing by ProductsController#index as JS
+  Parameters: {"sort"=>"name", "direction"=>"asc", "_"=>"1305134146119"}
+  [1m[35mProduct Load (0.9ms)[0m  SELECT "products".* FROM "products" ORDER BY name asc LIMIT 5 OFFSET 0
+Rendered products/_products.html.erb (10.1ms)
+Rendered products/index.js.erb (13.7ms)
+Completed 200 OK in 46ms (Views: 34.5ms | ActiveRecord: 0.9ms)
+
+
+Started GET "/products?_=1305133213077&direction=asc&sort=price" for 127.0.0.1 at Wed May 11 14:16:10 -0300 2011
+  Processing by ProductsController#index as HTML
+  Parameters: {"sort"=>"price", "direction"=>"asc", "_"=>"1305133213077"}
+  [1m[36mProduct Load (8.0ms)[0m  [1mSELECT "products".* FROM "products" ORDER BY price asc LIMIT 5 OFFSET 0[0m
+Rendered products/_products.html.erb (13.7ms)
+Rendered layouts/_menu.html.erb (1.8ms)
+Rendered products/index.html.erb within layouts/application (34.5ms)
+Completed 200 OK in 88ms (Views: 46.3ms | ActiveRecord: 8.0ms)
+
+
+Started GET "/products?_=1305134171013&direction=asc&sort=name" for 127.0.0.1 at Wed May 11 14:16:11 -0300 2011
+  Processing by ProductsController#index as JS
+  Parameters: {"sort"=>"name", "direction"=>"asc", "_"=>"1305134171013"}
+  [1m[35mProduct Load (1.5ms)[0m  SELECT "products".* FROM "products" ORDER BY name asc LIMIT 5 OFFSET 0
+Rendered products/_products.html.erb (12.7ms)
+Rendered products/index.js.erb (16.7ms)
+Completed 200 OK in 69ms (Views: 51.3ms | ActiveRecord: 1.5ms)
+
+
+Started GET "/products?_=1305133213077&direction=asc&sort=price" for 127.0.0.1 at Wed May 11 14:16:24 -0300 2011
+  Processing by ProductsController#index as HTML
+  Parameters: {"sort"=>"price", "direction"=>"asc", "_"=>"1305133213077"}
+  [1m[36mProduct Load (0.7ms)[0m  [1mSELECT "products".* FROM "products" ORDER BY price asc LIMIT 5 OFFSET 0[0m
+Rendered products/_products.html.erb (13.8ms)
+Rendered layouts/_menu.html.erb (1.5ms)
+Rendered products/index.html.erb within layouts/application (26.3ms)
+Completed 200 OK in 46ms (Views: 36.1ms | ActiveRecord: 0.7ms)
+
+
+Started GET "/products?_=1305134184763&direction=asc&sort=name" for 127.0.0.1 at Wed May 11 14:16:24 -0300 2011
+  Processing by ProductsController#index as JS
+  Parameters: {"sort"=>"name", "direction"=>"asc", "_"=>"1305134184763"}
+  [1m[35mProduct Load (0.8ms)[0m  SELECT "products".* FROM "products" ORDER BY name asc LIMIT 5 OFFSET 0
+Rendered products/_products.html.erb (10.8ms)
+Rendered products/index.js.erb (14.7ms)
+Completed 200 OK in 197ms (Views: 35.6ms | ActiveRecord: 0.8ms)
+
+
+Started GET "/products?_=1305134186770&direction=asc&sort=price" for 127.0.0.1 at Wed May 11 14:16:26 -0300 2011
+  Processing by ProductsController#index as JS
+  Parameters: {"sort"=>"price", "direction"=>"asc", "_"=>"1305134186770"}
+  [1m[36mProduct Load (0.7ms)[0m  [1mSELECT "products".* FROM "products" ORDER BY price asc LIMIT 5 OFFSET 0[0m
+Rendered products/_products.html.erb (10.1ms)
+Rendered products/index.js.erb (13.7ms)
+Completed 200 OK in 51ms (Views: 38.0ms | ActiveRecord: 0.7ms)
+
+
+Started GET "/products" for 127.0.0.1 at Wed May 11 14:16:39 -0300 2011
+  Processing by ProductsController#index as HTML
+  [1m[35mProduct Load (0.9ms)[0m  SELECT "products".* FROM "products" ORDER BY name asc LIMIT 5 OFFSET 0
+Rendered products/_products.html.erb (14.0ms)
+Rendered layouts/_menu.html.erb (1.8ms)
+Rendered products/index.html.erb within layouts/application (30.3ms)
+Completed 200 OK in 72ms (Views: 48.2ms | ActiveRecord: 0.9ms)
+
+
+Started GET "/products?_=1305134200255" for 127.0.0.1 at Wed May 11 14:16:40 -0300 2011
+  Processing by ProductsController#index as JS
+  Parameters: {"_"=>"1305134200255"}
+  [1m[36mProduct Load (0.7ms)[0m  [1mSELECT "products".* FROM "products" ORDER BY name asc LIMIT 5 OFFSET 0[0m
+Rendered products/_products.html.erb (10.2ms)
+Rendered products/index.js.erb (13.7ms)
+Completed 200 OK in 163ms (Views: 144.8ms | ActiveRecord: 0.7ms)
+
+
+Started GET "/products" for 127.0.0.1 at Wed May 11 14:16:53 -0300 2011
+  Processing by ProductsController#index as HTML
+  [1m[35mProduct Load (0.7ms)[0m  SELECT "products".* FROM "products" ORDER BY name asc LIMIT 5 OFFSET 0
+Rendered products/_products.html.erb (10.8ms)
+Rendered layouts/_menu.html.erb (1.5ms)
+Rendered products/index.html.erb within layouts/application (25.3ms)
+Completed 200 OK in 49ms (Views: 35.5ms | ActiveRecord: 0.7ms)
+
+
+Started GET "/products?_=1305134213570" for 127.0.0.1 at Wed May 11 14:16:53 -0300 2011
+  Processing by ProductsController#index as JS
+  Parameters: {"_"=>"1305134213570"}
+  [1m[36mProduct Load (0.7ms)[0m  [1mSELECT "products".* FROM "products" ORDER BY name asc LIMIT 5 OFFSET 0[0m
+Rendered products/_products.html.erb (17.8ms)
+Rendered products/index.js.erb (22.3ms)
+Completed 200 OK in 62ms (Views: 50.6ms | ActiveRecord: 0.7ms)
+
+
+Started GET "/products" for 127.0.0.1 at Wed May 11 14:16:55 -0300 2011
+  Processing by ProductsController#index as HTML
+  [1m[35mProduct Load (1.1ms)[0m  SELECT "products".* FROM "products" ORDER BY name asc LIMIT 5 OFFSET 0
+Rendered products/_products.html.erb (10.6ms)
+Rendered layouts/_menu.html.erb (1.6ms)
+Rendered products/index.html.erb within layouts/application (24.9ms)
+Completed 200 OK in 224ms (Views: 37.0ms | ActiveRecord: 1.1ms)
+
+
+Started GET "/products?_=1305134216000" for 127.0.0.1 at Wed May 11 14:16:56 -0300 2011
+  Processing by ProductsController#index as JS
+  Parameters: {"_"=>"1305134216000"}
+  [1m[36mProduct Load (0.7ms)[0m  [1mSELECT "products".* FROM "products" ORDER BY name asc LIMIT 5 OFFSET 0[0m
+Rendered products/_products.html.erb (14.0ms)
+Rendered products/index.js.erb (19.9ms)
+Completed 200 OK in 80ms (Views: 54.5ms | ActiveRecord: 0.7ms)
+
+
+Started GET "/products?%2Fcategories=&_=1305134217865" for 127.0.0.1 at Wed May 11 14:16:57 -0300 2011
+  Processing by ProductsController#index as JS
+  Parameters: {"/categories"=>"", "_"=>"1305134217865"}
+  [1m[35mProduct Load (0.7ms)[0m  SELECT "products".* FROM "products" ORDER BY name asc LIMIT 5 OFFSET 0
+Rendered products/_products.html.erb (10.5ms)
+Rendered products/index.js.erb (14.1ms)
+Completed 200 OK in 45ms (Views: 34.3ms | ActiveRecord: 0.7ms)
+
+
+Started GET "/products" for 127.0.0.1 at Wed May 11 14:18:24 -0300 2011
+  Processing by ProductsController#index as HTML
+  [1m[36mProduct Load (0.8ms)[0m  [1mSELECT "products".* FROM "products" ORDER BY name asc LIMIT 5 OFFSET 0[0m
+Rendered products/_products.html.erb (10.2ms)
+Rendered layouts/_menu.html.erb (1.6ms)
+Rendered products/index.html.erb within layouts/application (22.6ms)
+Completed 200 OK in 175ms (Views: 161.3ms | ActiveRecord: 0.8ms)
+
+
+Started GET "/products?%2Fcategories=&_=1305134305207" for 127.0.0.1 at Wed May 11 14:18:25 -0300 2011
+  Processing by ProductsController#index as JS
+  Parameters: {"/categories"=>"", "_"=>"1305134305207"}
+  [1m[35mProduct Load (0.8ms)[0m  SELECT "products".* FROM "products" ORDER BY name asc LIMIT 5 OFFSET 0
+Rendered products/_products.html.erb (14.6ms)
+Rendered products/index.js.erb (20.3ms)
+Completed 200 OK in 57ms (Views: 42.8ms | ActiveRecord: 0.8ms)
+
+
+Started GET "/products" for 127.0.0.1 at Wed May 11 14:19:52 -0300 2011
+  Processing by ProductsController#index as HTML
+  [1m[36mProduct Load (0.8ms)[0m  [1mSELECT "products".* FROM "products" ORDER BY name asc LIMIT 5 OFFSET 0[0m
+Rendered products/_products.html.erb (14.5ms)
+Rendered layouts/_menu.html.erb (1.8ms)
+Rendered products/index.html.erb within layouts/application (29.2ms)
+Completed 200 OK in 57ms (Views: 43.7ms | ActiveRecord: 0.8ms)
+
+
+Started GET "/products?%2Fcategories=&_=1305134392902" for 127.0.0.1 at Wed May 11 14:19:52 -0300 2011
+  Processing by ProductsController#index as JS
+  Parameters: {"/categories"=>"", "_"=>"1305134392902"}
+  [1m[35mProduct Load (0.7ms)[0m  SELECT "products".* FROM "products" ORDER BY name asc LIMIT 5 OFFSET 0
+Rendered products/_products.html.erb (11.1ms)
+Rendered products/index.js.erb (17.6ms)
+Completed 200 OK in 49ms (Views: 37.0ms | ActiveRecord: 0.7ms)
+
+
+Started GET "/products" for 127.0.0.1 at Wed May 11 14:21:22 -0300 2011
+  Processing by ProductsController#index as HTML
+  [1m[36mProduct Load (0.8ms)[0m  [1mSELECT "products".* FROM "products" ORDER BY name asc LIMIT 5 OFFSET 0[0m
+Rendered products/_products.html.erb (11.7ms)
+Rendered layouts/_menu.html.erb (4.6ms)
+Rendered products/index.html.erb within layouts/application (27.3ms)
+Completed 200 OK in 52ms (Views: 41.0ms | ActiveRecord: 0.8ms)
+
+
+Started GET "/categories?sort=htu" for 127.0.0.1 at Wed May 11 14:21:26 -0300 2011
+  Processing by CategoriesController#index as HTML
+  Parameters: {"sort"=>"htu"}
+  [1m[35mCategory Load (3.4ms)[0m  SELECT "categories".* FROM "categories" ORDER BY name asc LIMIT 5 OFFSET 0
+Rendered categories/_categories.html.erb (8.1ms)
+Rendered layouts/_menu.html.erb (1.6ms)
+Rendered categories/index.html.erb within layouts/application (21.5ms)
+Completed 200 OK in 149ms (Views: 35.6ms | ActiveRecord: 3.4ms)
+
+
+Started GET "/products?sort=name" for 127.0.0.1 at Wed May 11 14:21:29 -0300 2011
+  Processing by ProductsController#index as HTML
+  Parameters: {"sort"=>"name"}
+  [1m[36mProduct Load (0.7ms)[0m  [1mSELECT "products".* FROM "products" ORDER BY name asc LIMIT 5 OFFSET 0[0m
+Rendered products/_products.html.erb (9.9ms)
+Rendered layouts/_menu.html.erb (1.7ms)
+Rendered products/index.html.erb within layouts/application (22.9ms)
+Completed 200 OK in 46ms (Views: 34.8ms | ActiveRecord: 0.7ms)
+
+
+Started GET "/categories?sort=htu" for 127.0.0.1 at Wed May 11 14:21:31 -0300 2011
+  Processing by CategoriesController#index as HTML
+  Parameters: {"sort"=>"htu"}
+  [1m[35mCategory Load (1.2ms)[0m  SELECT "categories".* FROM "categories" ORDER BY name asc LIMIT 5 OFFSET 0
+Rendered categories/_categories.html.erb (104.8ms)
+Rendered layouts/_menu.html.erb (1.7ms)
+Rendered categories/index.html.erb within layouts/application (119.7ms)
+Completed 200 OK in 143ms (Views: 132.0ms | ActiveRecord: 1.2ms)
+
+
+Started GET "/categories?sort=htu" for 127.0.0.1 at Wed May 11 14:24:56 -0300 2011
+  Processing by CategoriesController#index as HTML
+  Parameters: {"sort"=>"htu"}
+  [1m[36mCategory Load (0.7ms)[0m  [1mSELECT "categories".* FROM "categories" ORDER BY name asc LIMIT 5 OFFSET 0[0m
+Rendered categories/_categories.html.erb (31.5ms)
+Rendered layouts/_menu.html.erb (3.1ms)
+Rendered categories/index.html.erb within layouts/application (46.7ms)
+Completed 200 OK in 78ms (Views: 58.3ms | ActiveRecord: 0.7ms)
+
+
+Started GET "/categories" for 127.0.0.1 at Wed May 11 14:25:01 -0300 2011
+  Processing by CategoriesController#index as HTML
+  [1m[35mCategory Load (0.6ms)[0m  SELECT "categories".* FROM "categories" ORDER BY name asc LIMIT 5 OFFSET 0
+Rendered categories/_categories.html.erb (7.7ms)
+Rendered layouts/_menu.html.erb (103.0ms)
+Rendered categories/index.html.erb within layouts/application (124.0ms)
+Completed 200 OK in 150ms (Views: 137.6ms | ActiveRecord: 0.6ms)
+
+
+Started GET "/" for 127.0.0.1 at Wed May 11 14:25:38 -0300 2011
+  Processing by ProductsController#index as HTML
+  [1m[36mProduct Load (0.7ms)[0m  [1mSELECT "products".* FROM "products" ORDER BY name asc LIMIT 5 OFFSET 0[0m
+Rendered products/_products.html.erb (12.4ms)
+Rendered layouts/_menu.html.erb (1.7ms)
+Rendered products/index.html.erb within layouts/application (26.2ms)
+Completed 200 OK in 55ms (Views: 38.8ms | ActiveRecord: 0.7ms)
+
+
+Started GET "/" for 127.0.0.1 at Wed May 11 14:25:55 -0300 2011
+  Processing by ProductsController#index as HTML
+  [1m[35mProduct Load (3.5ms)[0m  SELECT "products".* FROM "products" ORDER BY name asc LIMIT 5 OFFSET 0
+Rendered products/_products.html.erb (14.4ms)
+Rendered layouts/_menu.html.erb (1.6ms)
+Rendered products/index.html.erb within layouts/application (38.5ms)
+Completed 200 OK in 83ms (Views: 64.6ms | ActiveRecord: 3.5ms)
+
+
+Started GET "/categories" for 127.0.0.1 at Wed May 11 14:26:00 -0300 2011
+  Processing by CategoriesController#index as HTML
+  [1m[36mCategory Load (0.7ms)[0m  [1mSELECT "categories".* FROM "categories" ORDER BY name asc LIMIT 5 OFFSET 0[0m
+Rendered categories/_categories.html.erb (9.1ms)
+Rendered layouts/_menu.html.erb (2.4ms)
+Rendered categories/index.html.erb within layouts/application (22.3ms)
+Completed 200 OK in 42ms (Views: 32.2ms | ActiveRecord: 0.7ms)
+
+
+Started GET "/categories" for 127.0.0.1 at Wed May 11 14:26:29 -0300 2011
+  Processing by CategoriesController#index as HTML
+  [1m[35mCategory Load (0.7ms)[0m  SELECT "categories".* FROM "categories" ORDER BY name asc LIMIT 5 OFFSET 0
+Rendered categories/_categories.html.erb (33.4ms)
+Rendered layouts/_menu.html.erb (1.6ms)
+Rendered categories/index.html.erb within layouts/application (74.6ms)
+Completed 200 OK in 107ms (Views: 92.9ms | ActiveRecord: 0.7ms)
+
+
+Started GET "/categories" for 127.0.0.1 at Wed May 11 14:26:31 -0300 2011
+  Processing by CategoriesController#index as HTML
+  [1m[36mCategory Load (1.1ms)[0m  [1mSELECT "categories".* FROM "categories" ORDER BY name asc LIMIT 5 OFFSET 0[0m
+Rendered categories/_categories.html.erb (7.9ms)
+Rendered layouts/_menu.html.erb (4.5ms)
+Rendered categories/index.html.erb within layouts/application (28.7ms)
+Completed 200 OK in 49ms (Views: 38.5ms | ActiveRecord: 1.1ms)
+
+
+Started GET "/categories" for 127.0.0.1 at Wed May 11 14:38:42 -0300 2011
+  Processing by CategoriesController#index as HTML
+  [1m[36mCategory Load (1.2ms)[0m  [1mSELECT "categories".* FROM "categories" ORDER BY name asc LIMIT 5 OFFSET 0[0m
+Rendered categories/_categories.html.erb (10.0ms)
+Rendered layouts/_menu.html.erb (1.8ms)
+Rendered categories/index.html.erb within layouts/application (24.2ms)
+Completed 200 OK in 51ms (Views: 38.5ms | ActiveRecord: 1.2ms)
+
+
+Started GET "/categories?direction=desc&sort=name&_=1305135526251" for 127.0.0.1 at Wed May 11 14:38:46 -0300 2011
+  Processing by CategoriesController#index as JS
+  Parameters: {"sort"=>"name", "_"=>"1305135526251", "direction"=>"desc"}
+  [1m[35mCategory Load (0.6ms)[0m  SELECT "categories".* FROM "categories" ORDER BY name desc LIMIT 5 OFFSET 0
+Rendered categories/_categories.html.erb (97.1ms)
+Rendered categories/index.js.erb (101.0ms)
+Completed 200 OK in 133ms (Views: 121.7ms | ActiveRecord: 0.6ms)
+
+
+Started GET "/categories?_=1305135527729&direction=asc&sort=name" for 127.0.0.1 at Wed May 11 14:38:47 -0300 2011
+  Processing by CategoriesController#index as JS
+  Parameters: {"sort"=>"name", "direction"=>"asc", "_"=>"1305135527729"}
+  [1m[36mCategory Load (0.7ms)[0m  [1mSELECT "categories".* FROM "categories" ORDER BY name asc LIMIT 5 OFFSET 0[0m
+Rendered categories/_categories.html.erb (11.5ms)
+Rendered categories/index.js.erb (15.9ms)
+Completed 200 OK in 47ms (Views: 36.8ms | ActiveRecord: 0.7ms)
+
+
+Started GET "/categories?_=1305135528732&direction=desc&sort=name" for 127.0.0.1 at Wed May 11 14:38:48 -0300 2011
+  Processing by CategoriesController#index as JS
+  Parameters: {"sort"=>"name", "direction"=>"desc", "_"=>"1305135528732"}
+  [1m[35mCategory Load (0.7ms)[0m  SELECT "categories".* FROM "categories" ORDER BY name desc LIMIT 5 OFFSET 0
+Rendered categories/_categories.html.erb (7.8ms)
+Rendered categories/index.js.erb (11.5ms)
+Completed 200 OK in 41ms (Views: 29.3ms | ActiveRecord: 0.7ms)
+
+
+Started GET "/categories?_=1305135529983&direction=asc&sort=topic" for 127.0.0.1 at Wed May 11 14:38:50 -0300 2011
+  Processing by CategoriesController#index as JS
+  Parameters: {"sort"=>"topic", "direction"=>"asc", "_"=>"1305135529983"}
+  [1m[36mCategory Load (0.7ms)[0m  [1mSELECT "categories".* FROM "categories" ORDER BY topic asc LIMIT 5 OFFSET 0[0m
+Rendered categories/_categories.html.erb (8.2ms)
+Rendered categories/index.js.erb (12.1ms)
+Completed 200 OK in 41ms (Views: 30.3ms | ActiveRecord: 0.7ms)
+
+
+Started GET "/categories?_=1305135531000&direction=desc&sort=topic" for 127.0.0.1 at Wed May 11 14:38:51 -0300 2011
+  Processing by CategoriesController#index as JS
+  Parameters: {"sort"=>"topic", "direction"=>"desc", "_"=>"1305135531000"}
+  [1m[35mCategory Load (0.8ms)[0m  SELECT "categories".* FROM "categories" ORDER BY topic desc LIMIT 5 OFFSET 0
+Rendered categories/_categories.html.erb (10.2ms)
+Rendered categories/index.js.erb (16.3ms)
+Completed 200 OK in 158ms (Views: 38.2ms | ActiveRecord: 0.8ms)
+
+
+Started GET "/categories?_=1305135532048&direction=asc&sort=topic" for 127.0.0.1 at Wed May 11 14:38:52 -0300 2011
+  Processing by CategoriesController#index as JS
+  Parameters: {"sort"=>"topic", "direction"=>"asc", "_"=>"1305135532048"}
+  [1m[36mCategory Load (0.6ms)[0m  [1mSELECT "categories".* FROM "categories" ORDER BY topic asc LIMIT 5 OFFSET 0[0m
+Rendered categories/_categories.html.erb (7.9ms)
+Rendered categories/index.js.erb (11.7ms)
+Completed 200 OK in 42ms (Views: 31.4ms | ActiveRecord: 0.6ms)
+
+
+Started GET "/product" for 192.168.1.2 at Wed May 11 14:39:12 -0300 2011
+
+ActionController::RoutingError (No route matches "/product"):
+  
+
+Rendered /opt/local/lib/ruby/gems/1.8/gems/actionpack-3.0.3/lib/action_dispatch/middleware/templates/rescues/routing_error.erb within rescues/layout (2.1ms)
+
+
+Started GET "/products" for 192.168.1.2 at Wed May 11 14:39:14 -0300 2011
+  Processing by ProductsController#index as HTML
+  [1m[35mProduct Load (0.6ms)[0m  SELECT "products".* FROM "products" ORDER BY name asc LIMIT 5 OFFSET 0
+Rendered products/_products.html.erb (23.0ms)
+Rendered layouts/_menu.html.erb (7.3ms)
+Rendered products/index.html.erb within layouts/application (43.3ms)
+Completed 200 OK in 66ms (Views: 55.1ms | ActiveRecord: 0.6ms)
+
+
+Started GET "/products" for 192.168.1.2 at Wed May 11 14:39:16 -0300 2011
+  Processing by ProductsController#index as */*
+  [1m[36mProduct Load (0.7ms)[0m  [1mSELECT "products".* FROM "products" ORDER BY name asc LIMIT 5 OFFSET 0[0m
+Rendered products/_products.html.erb (10.0ms)
+Rendered layouts/_menu.html.erb (1.6ms)
+Rendered products/index.html.erb within layouts/application (23.6ms)
+Completed 200 OK in 169ms (Views: 58.3ms | ActiveRecord: 0.7ms)
+
+
+Started GET "/products" for 192.168.1.2 at Wed May 11 14:39:28 -0300 2011
+  Processing by ProductsController#index as */*
+  [1m[35mProduct Load (0.7ms)[0m  SELECT "products".* FROM "products" ORDER BY name asc LIMIT 5 OFFSET 0
+Rendered products/_products.html.erb (9.7ms)
+Rendered layouts/_menu.html.erb (1.5ms)
+Rendered products/index.html.erb within layouts/application (22.0ms)
+Completed 200 OK in 66ms (Views: 55.9ms | ActiveRecord: 0.7ms)
+
+
+Started GET "/products?direction=asc&sort=released_at" for 192.168.1.2 at Wed May 11 14:39:31 -0300 2011
+  Processing by ProductsController#index as HTML
+  Parameters: {"sort"=>"released_at", "direction"=>"asc"}
+  [1m[36mProduct Load (0.7ms)[0m  [1mSELECT "products".* FROM "products" ORDER BY released_at asc LIMIT 5 OFFSET 0[0m
+Rendered products/_products.html.erb (10.1ms)
+Rendered layouts/_menu.html.erb (1.9ms)
+Rendered products/index.html.erb within layouts/application (24.4ms)
+Completed 200 OK in 45ms (Views: 34.3ms | ActiveRecord: 0.7ms)
+
+
+Started GET "/products?direction=desc&sort=released_at" for 192.168.1.2 at Wed May 11 14:39:33 -0300 2011
+  Processing by ProductsController#index as HTML
+  Parameters: {"sort"=>"released_at", "direction"=>"desc"}
+  [1m[35mProduct Load (0.7ms)[0m  SELECT "products".* FROM "products" ORDER BY released_at desc LIMIT 5 OFFSET 0
+Rendered products/_products.html.erb (10.2ms)
+Rendered layouts/_menu.html.erb (1.5ms)
+Rendered products/index.html.erb within layouts/application (24.9ms)
+Completed 200 OK in 46ms (Views: 35.4ms | ActiveRecord: 0.7ms)
+
+
+Started GET "/products?direction=asc&sort=released_at" for 192.168.1.2 at Wed May 11 14:39:34 -0300 2011
+  Processing by ProductsController#index as HTML
+  Parameters: {"sort"=>"released_at", "direction"=>"asc"}
+  [1m[36mProduct Load (0.8ms)[0m  [1mSELECT "products".* FROM "products" ORDER BY released_at asc LIMIT 5 OFFSET 0[0m
+Rendered products/_products.html.erb (9.8ms)
+Rendered layouts/_menu.html.erb (1.5ms)
+Rendered products/index.html.erb within layouts/application (21.8ms)
+Completed 200 OK in 45ms (Views: 32.3ms | ActiveRecord: 0.8ms)
+
+
+Started GET "/products?direction=desc&sort=released_at" for 192.168.1.2 at Wed May 11 14:39:37 -0300 2011
+  Processing by ProductsController#index as HTML
+  Parameters: {"sort"=>"released_at", "direction"=>"desc"}
+  [1m[35mProduct Load (0.7ms)[0m  SELECT "products".* FROM "products" ORDER BY released_at desc LIMIT 5 OFFSET 0
+Rendered products/_products.html.erb (12.6ms)
+Rendered layouts/_menu.html.erb (1.6ms)
+Rendered products/index.html.erb within layouts/application (29.6ms)
+Completed 200 OK in 154ms (Views: 41.5ms | ActiveRecord: 0.7ms)
+
+
+Started GET "/products?direction=asc&sort=released_at" for 192.168.1.2 at Wed May 11 14:39:38 -0300 2011
+  Processing by ProductsController#index as HTML
+  Parameters: {"sort"=>"released_at", "direction"=>"asc"}
+  [1m[36mProduct Load (0.6ms)[0m  [1mSELECT "products".* FROM "products" ORDER BY released_at asc LIMIT 5 OFFSET 0[0m
+Rendered products/_products.html.erb (10.5ms)
+Rendered layouts/_menu.html.erb (1.6ms)
+Rendered products/index.html.erb within layouts/application (24.0ms)
+Completed 200 OK in 48ms (Views: 33.6ms | ActiveRecord: 0.6ms)
+
+
+Started GET "/categories?_=1305135531000&direction=asc&sort=topic" for 127.0.0.1 at Wed May 11 14:44:46 -0300 2011
+  Processing by CategoriesController#index as HTML
+  Parameters: {"sort"=>"topic", "direction"=>"asc", "_"=>"1305135531000"}
+  [1m[35mCategory Load (1.4ms)[0m  SELECT "categories".* FROM "categories" ORDER BY topic asc LIMIT 5 OFFSET 0
+Rendered categories/_categories.html.erb (11.6ms)
+Rendered layouts/_menu.html.erb (2.5ms)
+Rendered categories/index.html.erb within layouts/application (32.2ms)
+Completed 200 OK in 65ms (Views: 45.5ms | ActiveRecord: 1.4ms)
+
+
+Started GET "/products?sort=name" for 127.0.0.1 at Wed May 11 14:44:49 -0300 2011
+  Processing by ProductsController#index as */*
+  Parameters: {"sort"=>"name"}
+  [1m[36mProduct Load (0.9ms)[0m  [1mSELECT "products".* FROM "products" ORDER BY name asc LIMIT 5 OFFSET 0[0m
+Rendered products/_products.html.erb (10.4ms)
+Rendered layouts/_menu.html.erb (2.2ms)
+Rendered products/index.html.erb within layouts/application (35.9ms)
+Completed 200 OK in 134ms (Views: 92.4ms | ActiveRecord: 0.9ms)
+
+
+Started GET "/categories" for 127.0.0.1 at Wed May 11 14:44:53 -0300 2011
+  Processing by CategoriesController#index as */*
+  [1m[35mCategory Load (1.5ms)[0m  SELECT "categories".* FROM "categories" ORDER BY name asc LIMIT 5 OFFSET 0
+Rendered categories/_categories.html.erb (11.6ms)
+Rendered layouts/_menu.html.erb (1.8ms)
+Rendered categories/index.html.erb within layouts/application (25.3ms)
+Completed 200 OK in 101ms (Views: 68.9ms | ActiveRecord: 1.5ms)
+
+
+Started GET "/products?sort=name" for 127.0.0.1 at Wed May 11 14:44:56 -0300 2011
+  Processing by ProductsController#index as */*
+  Parameters: {"sort"=>"name"}
+  [1m[36mProduct Load (0.9ms)[0m  [1mSELECT "products".* FROM "products" ORDER BY name asc LIMIT 5 OFFSET 0[0m
+Rendered products/_products.html.erb (14.7ms)
+Rendered layouts/_menu.html.erb (1.8ms)
+Rendered products/index.html.erb within layouts/application (31.6ms)
+Completed 200 OK in 108ms (Views: 84.9ms | ActiveRecord: 0.9ms)
+
+
+Started GET "/categories" for 127.0.0.1 at Wed May 11 14:44:58 -0300 2011
+  Processing by CategoriesController#index as */*
+  [1m[35mCategory Load (1.2ms)[0m  SELECT "categories".* FROM "categories" ORDER BY name asc LIMIT 5 OFFSET 0
+Rendered categories/_categories.html.erb (11.3ms)
+Rendered layouts/_menu.html.erb (4.2ms)
+Rendered categories/index.html.erb within layouts/application (29.4ms)
+Completed 200 OK in 84ms (Views: 68.5ms | ActiveRecord: 1.2ms)
+
+
+Started GET "/products" for 192.168.1.2 at Wed May 11 14:45:07 -0300 2011
+  Processing by ProductsController#index as HTML
+  [1m[36mProduct Load (0.7ms)[0m  [1mSELECT "products".* FROM "products" ORDER BY name asc LIMIT 5 OFFSET 0[0m
+Rendered products/_products.html.erb (10.0ms)
+Rendered layouts/_menu.html.erb (3.5ms)
+Rendered products/index.html.erb within layouts/application (24.6ms)
+Completed 200 OK in 46ms (Views: 34.7ms | ActiveRecord: 0.7ms)
+
+
+Started GET "/products" for 192.168.1.2 at Wed May 11 14:45:09 -0300 2011
+  Processing by ProductsController#index as */*
+  [1m[35mProduct Load (0.7ms)[0m  SELECT "products".* FROM "products" ORDER BY name asc LIMIT 5 OFFSET 0
+Rendered products/_products.html.erb (10.7ms)
+Rendered layouts/_menu.html.erb (1.6ms)
+Rendered products/index.html.erb within layouts/application (26.0ms)
+Completed 200 OK in 69ms (Views: 59.1ms | ActiveRecord: 0.7ms)
+
+
+Started GET "/categories" for 192.168.1.2 at Wed May 11 14:45:11 -0300 2011
+  Processing by CategoriesController#index as */*
+  [1m[36mCategory Load (2.3ms)[0m  [1mSELECT "categories".* FROM "categories" ORDER BY name asc LIMIT 5 OFFSET 0[0m
+Rendered categories/_categories.html.erb (9.3ms)
+Rendered layouts/_menu.html.erb (2.1ms)
+Rendered categories/index.html.erb within layouts/application (27.7ms)
+Completed 200 OK in 136ms (Views: 107.4ms | ActiveRecord: 2.3ms)
+
+
+Started GET "/products?sort=name" for 192.168.1.2 at Wed May 11 14:45:13 -0300 2011
+  Processing by ProductsController#index as */*
+  Parameters: {"sort"=>"name"}
+  [1m[35mProduct Load (3.0ms)[0m  SELECT "products".* FROM "products" ORDER BY name asc LIMIT 5 OFFSET 0
+Rendered products/_products.html.erb (25.4ms)
+Rendered layouts/_menu.html.erb (2.1ms)
+Rendered products/index.html.erb within layouts/application (60.1ms)
+Completed 200 OK in 257ms (Views: 228.6ms | ActiveRecord: 3.0ms)
+
+
+Started GET "/categories" for 192.168.1.2 at Wed May 11 14:45:15 -0300 2011
+  Processing by CategoriesController#index as */*
+  [1m[36mCategory Load (0.8ms)[0m  [1mSELECT "categories".* FROM "categories" ORDER BY name asc LIMIT 5 OFFSET 0[0m
+Rendered categories/_categories.html.erb (9.4ms)
+Rendered layouts/_menu.html.erb (1.7ms)
+Rendered categories/index.html.erb within layouts/application (40.4ms)
+Completed 200 OK in 116ms (Views: 80.2ms | ActiveRecord: 0.8ms)
+
+
+Started GET "/products?sort=name" for 192.168.1.2 at Wed May 11 14:45:18 -0300 2011
+  Processing by ProductsController#index as */*
+  Parameters: {"sort"=>"name"}
+  [1m[35mProduct Load (1.3ms)[0m  SELECT "products".* FROM "products" ORDER BY name asc LIMIT 5 OFFSET 0
+Rendered products/_products.html.erb (25.2ms)
+Rendered layouts/_menu.html.erb (18.1ms)
+Rendered products/index.html.erb within layouts/application (67.0ms)
+Completed 200 OK in 183ms (Views: 159.3ms | ActiveRecord: 1.3ms)
+
+
+Started GET "/categories" for 192.168.1.2 at Wed May 11 14:45:20 -0300 2011
+  Processing by CategoriesController#index as */*
+  [1m[36mCategory Load (7.8ms)[0m  [1mSELECT "categories".* FROM "categories" ORDER BY name asc LIMIT 5 OFFSET 0[0m
+Rendered categories/_categories.html.erb (18.9ms)
+Rendered layouts/_menu.html.erb (3.5ms)
+Rendered categories/index.html.erb within layouts/application (50.9ms)
+Completed 200 OK in 191ms (Views: 157.0ms | ActiveRecord: 7.8ms)
+
+
+Started GET "/products" for 192.168.1.2 at Wed May 11 14:45:23 -0300 2011
+  Processing by ProductsController#index as */*
+  [1m[35mProduct Load (0.7ms)[0m  SELECT "products".* FROM "products" ORDER BY name asc LIMIT 5 OFFSET 0
+Rendered products/_products.html.erb (10.9ms)
+Rendered layouts/_menu.html.erb (1.7ms)
+Rendered products/index.html.erb within layouts/application (24.5ms)
+Completed 200 OK in 72ms (Views: 61.0ms | ActiveRecord: 0.7ms)
+
+
+Started GET "/products" for 192.168.1.2 at Wed May 11 14:45:23 -0300 2011
+  Processing by ProductsController#index as */*
+  [1m[36mProduct Load (0.8ms)[0m  [1mSELECT "products".* FROM "products" ORDER BY name asc LIMIT 5 OFFSET 0[0m
+Rendered products/_products.html.erb (11.5ms)
+Rendered layouts/_menu.html.erb (1.8ms)
+Rendered products/index.html.erb within layouts/application (29.0ms)
+Completed 200 OK in 90ms (Views: 69.2ms | ActiveRecord: 0.8ms)
+
+
+Started GET "/categories" for 192.168.1.2 at Wed May 11 14:45:24 -0300 2011
+  Processing by CategoriesController#index as */*
+  [1m[35mCategory Load (0.8ms)[0m  SELECT "categories".* FROM "categories" ORDER BY name asc LIMIT 5 OFFSET 0
+Rendered categories/_categories.html.erb (64.1ms)
+Rendered layouts/_menu.html.erb (2.0ms)
+Rendered categories/index.html.erb within layouts/application (103.3ms)
+Completed 200 OK in 308ms (Views: 282.5ms | ActiveRecord: 0.8ms)
+
+
+Started GET "/products?sort=name" for 192.168.1.2 at Wed May 11 14:45:28 -0300 2011
+  Processing by ProductsController#index as */*
+  Parameters: {"sort"=>"name"}
+  [1m[36mProduct Load (1.3ms)[0m  [1mSELECT "products".* FROM "products" ORDER BY name asc LIMIT 5 OFFSET 0[0m
+Rendered products/_products.html.erb (53.0ms)
+Rendered layouts/_menu.html.erb (1.9ms)
+Rendered products/index.html.erb within layouts/application (316.2ms)
+Completed 200 OK in 464ms (Views: 416.3ms | ActiveRecord: 1.3ms)
+
+
+Started GET "/categories" for 192.168.1.2 at Wed May 11 14:45:31 -0300 2011
+  Processing by CategoriesController#index as */*
+  [1m[35mCategory Load (1.9ms)[0m  SELECT "categories".* FROM "categories" ORDER BY name asc LIMIT 5 OFFSET 0
+Rendered categories/_categories.html.erb (17.4ms)
+Rendered layouts/_menu.html.erb (3.2ms)
+Rendered categories/index.html.erb within layouts/application (37.8ms)
+Completed 200 OK in 146ms (Views: 106.1ms | ActiveRecord: 1.9ms)
+
+
+Started GET "/products?sort=name" for 192.168.1.2 at Wed May 11 14:45:35 -0300 2011
+  Processing by ProductsController#index as */*
+  Parameters: {"sort"=>"name"}
+  [1m[36mProduct Load (1.1ms)[0m  [1mSELECT "products".* FROM "products" ORDER BY name asc LIMIT 5 OFFSET 0[0m
+Rendered products/_products.html.erb (44.0ms)
+Rendered layouts/_menu.html.erb (4.3ms)
+Rendered products/index.html.erb within layouts/application (125.6ms)
+Completed 200 OK in 237ms (Views: 201.4ms | ActiveRecord: 1.1ms)
+
+
+Started GET "/catwgories" for 192.168.1.2 at Wed May 11 14:45:47 -0300 2011
+
+ActionController::RoutingError (No route matches "/catwgories"):
+  
+
+Rendered /opt/local/lib/ruby/gems/1.8/gems/actionpack-3.0.3/lib/action_dispatch/middleware/templates/rescues/routing_error.erb within rescues/layout (1.3ms)
+
+
+Started GET "/categories" for 192.168.1.2 at Wed May 11 14:45:51 -0300 2011
+  Processing by CategoriesController#index as HTML
+  [1m[35mCategory Load (0.7ms)[0m  SELECT "categories".* FROM "categories" ORDER BY name asc LIMIT 5 OFFSET 0
+Rendered categories/_categories.html.erb (7.8ms)
+Rendered layouts/_menu.html.erb (1.6ms)
+Rendered categories/index.html.erb within layouts/application (21.0ms)
+Completed 200 OK in 46ms (Views: 30.6ms | ActiveRecord: 0.7ms)
+
+
+Started GET "/products?sort=name" for 192.168.1.2 at Wed May 11 14:45:53 -0300 2011
+  Processing by ProductsController#index as */*
+  Parameters: {"sort"=>"name"}
+  [1m[36mProduct Load (0.7ms)[0m  [1mSELECT "products".* FROM "products" ORDER BY name asc LIMIT 5 OFFSET 0[0m
+Rendered products/_products.html.erb (42.6ms)
+Rendered layouts/_menu.html.erb (1.8ms)
+Rendered products/index.html.erb within layouts/application (83.1ms)
+Completed 200 OK in 180ms (Views: 166.4ms | ActiveRecord: 0.7ms)
+
+
+Started GET "/categories" for 192.168.1.2 at Wed May 11 14:45:57 -0300 2011
+  Processing by CategoriesController#index as */*
+  [1m[35mCategory Load (1.2ms)[0m  SELECT "categories".* FROM "categories" ORDER BY name asc LIMIT 5 OFFSET 0
+Rendered categories/_categories.html.erb (9.7ms)
+Rendered layouts/_menu.html.erb (3.2ms)
+Rendered categories/index.html.erb within layouts/application (70.5ms)
+Completed 200 OK in 268ms (Views: 233.0ms | ActiveRecord: 1.2ms)
+
+
+Started GET "/products?sort=name" for 192.168.1.2 at Wed May 11 14:45:59 -0300 2011
+  Processing by ProductsController#index as */*
+  Parameters: {"sort"=>"name"}
+  [1m[36mProduct Load (0.7ms)[0m  [1mSELECT "products".* FROM "products" ORDER BY name asc LIMIT 5 OFFSET 0[0m
+Rendered products/_products.html.erb (15.8ms)
+Rendered layouts/_menu.html.erb (7.1ms)
+Rendered products/index.html.erb within layouts/application (38.5ms)
+Completed 200 OK in 157ms (Views: 144.4ms | ActiveRecord: 0.7ms)
+
+
+Started GET "/categories" for 192.168.1.2 at Wed May 11 14:46:02 -0300 2011
+  Processing by CategoriesController#index as */*
+  [1m[35mCategory Load (2.8ms)[0m  SELECT "categories".* FROM "categories" ORDER BY name asc LIMIT 5 OFFSET 0
+Rendered categories/_categories.html.erb (8.7ms)
+Rendered layouts/_menu.html.erb (2.3ms)
+Rendered categories/index.html.erb within layouts/application (53.8ms)
+Completed 200 OK in 582ms (Views: 127.5ms | ActiveRecord: 2.8ms)
+
+
+Started GET "/products?sort=name" for 192.168.1.2 at Wed May 11 14:46:04 -0300 2011
+  Processing by ProductsController#index as */*
+  Parameters: {"sort"=>"name"}
+  [1m[36mProduct Load (0.9ms)[0m  [1mSELECT "products".* FROM "products" ORDER BY name asc LIMIT 5 OFFSET 0[0m
+Rendered products/_products.html.erb (28.6ms)
+Rendered layouts/_menu.html.erb (1.9ms)
+Rendered products/index.html.erb within layouts/application (81.1ms)
+Completed 200 OK in 301ms (Views: 281.2ms | ActiveRecord: 0.9ms)
+
+
+Started GET "/categories" for 192.168.1.2 at Wed May 11 14:46:06 -0300 2011
+  Processing by CategoriesController#index as */*
+  [1m[35mCategory Load (0.9ms)[0m  SELECT "categories".* FROM "categories" ORDER BY name asc LIMIT 5 OFFSET 0
+Rendered categories/_categories.html.erb (27.0ms)
+Rendered layouts/_menu.html.erb (2.3ms)
+Rendered categories/index.html.erb within layouts/application (64.9ms)
+Completed 200 OK in 310ms (Views: 276.5ms | ActiveRecord: 0.9ms)
+
+
+Started GET "/products?sort=name" for 192.168.1.2 at Wed May 11 14:46:07 -0300 2011
+  Processing by ProductsController#index as */*
+  Parameters: {"sort"=>"name"}
+  [1m[36mProduct Load (0.7ms)[0m  [1mSELECT "products".* FROM "products" ORDER BY name asc LIMIT 5 OFFSET 0[0m
+Rendered products/_products.html.erb (46.4ms)
+Rendered layouts/_menu.html.erb (5.3ms)
+Rendered products/index.html.erb within layouts/application (548.8ms)
+Completed 200 OK in 797ms (Views: 756.1ms | ActiveRecord: 0.7ms)
+
+
+Started GET "/categories" for 192.168.1.2 at Wed May 11 14:46:09 -0300 2011
+  Processing by CategoriesController#index as */*
+  [1m[35mCategory Load (2.2ms)[0m  SELECT "categories".* FROM "categories" ORDER BY name asc LIMIT 5 OFFSET 0
+Rendered categories/_categories.html.erb (27.0ms)
+Rendered layouts/_menu.html.erb (3.0ms)
+Rendered categories/index.html.erb within layouts/application (70.7ms)
+Completed 200 OK in 336ms (Views: 301.6ms | ActiveRecord: 2.2ms)
+
+
+Started GET "/products?sort=name" for 192.168.1.2 at Wed May 11 14:46:10 -0300 2011
+  Processing by ProductsController#index as */*
+  Parameters: {"sort"=>"name"}
+  [1m[36mProduct Load (2.9ms)[0m  [1mSELECT "products".* FROM "products" ORDER BY name asc LIMIT 5 OFFSET 0[0m
+Rendered products/_products.html.erb (44.6ms)
+Rendered layouts/_menu.html.erb (2.4ms)
+Rendered products/index.html.erb within layouts/application (85.4ms)
+Completed 200 OK in 272ms (Views: 182.2ms | ActiveRecord: 2.9ms)
+
+
+Started GET "/categories" for 192.168.1.2 at Wed May 11 14:46:11 -0300 2011
+  Processing by CategoriesController#index as */*
+  [1m[35mCategory Load (4.0ms)[0m  SELECT "categories".* FROM "categories" ORDER BY name asc LIMIT 5 OFFSET 0
+Rendered categories/_categories.html.erb (11.6ms)
+Rendered layouts/_menu.html.erb (2.0ms)
+Rendered categories/index.html.erb within layouts/application (65.3ms)
+Completed 200 OK in 133ms (Views: 114.3ms | ActiveRecord: 4.0ms)
+
+
+Started GET "/products?sort=name" for 192.168.1.2 at Wed May 11 14:46:12 -0300 2011
+  Processing by ProductsController#index as */*
+  Parameters: {"sort"=>"name"}
+  [1m[36mProduct Load (3.0ms)[0m  [1mSELECT "products".* FROM "products" ORDER BY name asc LIMIT 5 OFFSET 0[0m
+Rendered products/_products.html.erb (32.8ms)
+Rendered layouts/_menu.html.erb (6.1ms)
+Rendered products/index.html.erb within layouts/application (79.9ms)
+Completed 200 OK in 246ms (Views: 149.3ms | ActiveRecord: 3.0ms)
+
+
+Started GET "/categories" for 192.168.1.2 at Wed May 11 14:46:14 -0300 2011
+  Processing by CategoriesController#index as */*
+  [1m[35mCategory Load (1.0ms)[0m  SELECT "categories".* FROM "categories" ORDER BY name asc LIMIT 5 OFFSET 0
+Rendered categories/_categories.html.erb (36.8ms)
+Rendered layouts/_menu.html.erb (2.2ms)
+Rendered categories/index.html.erb within layouts/application (83.9ms)
+Completed 200 OK in 208ms (Views: 161.4ms | ActiveRecord: 1.0ms)
+
+
+Started GET "/categories" for 127.0.0.1 at Wed May 11 14:46:22 -0300 2011
+  Processing by CategoriesController#index as HTML
+  [1m[36mCategory Load (1.5ms)[0m  [1mSELECT "categories".* FROM "categories" ORDER BY name asc LIMIT 5 OFFSET 0[0m
+Rendered categories/_categories.html.erb (8.9ms)
+Rendered layouts/_menu.html.erb (1.7ms)
+Rendered categories/index.html.erb within layouts/application (22.2ms)
+Completed 200 OK in 53ms (Views: 40.9ms | ActiveRecord: 1.5ms)
+
+
+Started GET "/categories?direction=asc&sort=topic" for 127.0.0.1 at Wed May 11 15:16:37 -0300 2011
+  Processing by CategoriesController#index as */*
+  Parameters: {"sort"=>"topic", "direction"=>"asc"}
+  [1m[35mCategory Load (1.2ms)[0m  SELECT "categories".* FROM "categories" ORDER BY topic asc LIMIT 5 OFFSET 0
+Rendered categories/_categories.html.erb (8.1ms)
+Rendered layouts/_menu.html.erb (1.8ms)
+Rendered categories/index.html.erb within layouts/application (25.6ms)
+Completed 200 OK in 83ms (Views: 63.7ms | ActiveRecord: 1.2ms)
+
+
+Started GET "/categories?direction=desc&sort=topic" for 127.0.0.1 at Wed May 11 15:16:39 -0300 2011
+  Processing by CategoriesController#index as */*
+  Parameters: {"sort"=>"topic", "direction"=>"desc"}
+  [1m[36mCategory Load (1.0ms)[0m  [1mSELECT "categories".* FROM "categories" ORDER BY topic desc LIMIT 5 OFFSET 0[0m
+Rendered categories/_categories.html.erb (8.6ms)
+Rendered layouts/_menu.html.erb (1.8ms)
+Rendered categories/index.html.erb within layouts/application (27.3ms)
+Completed 200 OK in 84ms (Views: 68.6ms | ActiveRecord: 1.0ms)
+
+
+Started GET "/categories?direction=asc&sort=topic" for 127.0.0.1 at Wed May 11 15:16:41 -0300 2011
+  Processing by CategoriesController#index as */*
+  Parameters: {"sort"=>"topic", "direction"=>"asc"}
+  [1m[35mCategory Load (0.7ms)[0m  SELECT "categories".* FROM "categories" ORDER BY topic asc LIMIT 5 OFFSET 0
+Rendered categories/_categories.html.erb (10.8ms)
+Rendered layouts/_menu.html.erb (4.1ms)
+Rendered categories/index.html.erb within layouts/application (151.9ms)
+Completed 200 OK in 207ms (Views: 192.3ms | ActiveRecord: 0.7ms)
+
+
+Started GET "/categories?direction=asc&sort=topic" for 192.168.1.2 at Wed May 11 15:16:46 -0300 2011
+  Processing by CategoriesController#index as */*
+  Parameters: {"sort"=>"topic", "direction"=>"asc"}
+  [1m[36mCategory Load (0.8ms)[0m  [1mSELECT "categories".* FROM "categories" ORDER BY topic asc LIMIT 5 OFFSET 0[0m
+Rendered categories/_categories.html.erb (12.9ms)
+Rendered layouts/_menu.html.erb (2.7ms)
+Rendered categories/index.html.erb within layouts/application (39.0ms)
+Completed 200 OK in 161ms (Views: 133.6ms | ActiveRecord: 0.8ms)
+
+
+Started GET "/categories?direction=desc&sort=topic" for 192.168.1.2 at Wed May 11 15:16:48 -0300 2011
+  Processing by CategoriesController#index as */*
+  Parameters: {"sort"=>"topic", "direction"=>"desc"}
+  [1m[35mCategory Load (1.0ms)[0m  SELECT "categories".* FROM "categories" ORDER BY topic desc LIMIT 5 OFFSET 0
+Rendered categories/_categories.html.erb (28.4ms)
+Rendered layouts/_menu.html.erb (3.7ms)
+Rendered categories/index.html.erb within layouts/application (71.2ms)
+Completed 200 OK in 185ms (Views: 149.5ms | ActiveRecord: 1.0ms)
+
+
+Started GET "/categories?direction=asc&sort=topic" for 192.168.1.2 at Wed May 11 15:16:49 -0300 2011
+  Processing by CategoriesController#index as */*
+  Parameters: {"sort"=>"topic", "direction"=>"asc"}
+  [1m[36mCategory Load (0.8ms)[0m  [1mSELECT "categories".* FROM "categories" ORDER BY topic asc LIMIT 5 OFFSET 0[0m
+Rendered categories/_categories.html.erb (10.7ms)
+Rendered layouts/_menu.html.erb (2.3ms)
+Rendered categories/index.html.erb within layouts/application (31.2ms)
+Completed 200 OK in 105ms (Views: 86.9ms | ActiveRecord: 0.8ms)

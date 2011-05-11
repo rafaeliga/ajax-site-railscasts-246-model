@@ -1,0 +1,17 @@
+<%= hidden_field_tag :direction, params[:direction] %>
+<%= hidden_field_tag :sort, params[:sort] %>
+<table class="pretty">
+  <tr>
+    <th><%= sortable "name" %></th>
+    <th><%= sortable "topic" %></th>
+    <th><%= sortable "place" %></th>
+  </tr>
+  <% for category in @categories %>
+    <tr>
+      <td><%= category.name %></td>
+      <td class="topic"><%= category.topic %></td>
+      <td><%= category.place %></td>
+    </tr>
+  <% end %>
+</table>
+<%= will_paginate @categories %>

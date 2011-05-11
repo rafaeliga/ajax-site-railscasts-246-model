@@ -1,0 +1,11 @@
+<% title "Categories" %>
+
+<%= form_tag categories_path, :method => 'get', :id => "categories_search" do %>
+  <p>
+    <%= text_field_tag :search, params[:search] %>
+    <%= submit_tag "Search", :name => nil %>
+  </p>
+  <div id="categories"><%= render 'categories' %></div>
+<% end %>
+
+<p><%= link_to "New Category", new_category_path %></p>
